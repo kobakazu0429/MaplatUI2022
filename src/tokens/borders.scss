@@ -1,0 +1,11 @@
+@use "colors";
+
+$border-width-1: 1px;
+$border-radius-4: 4px;
+$border-radius-16: 16px;
+
+:export {
+  border-width-1: $border-width-1;
+  border-radius-4: $border-radius-4;
+  border-radius-16: $border-radius-16;
+}
