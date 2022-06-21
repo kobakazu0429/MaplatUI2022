@@ -2,15 +2,15 @@
 @use "tokens/borders";
 
 @mixin border($color: colors.$border-color) {
-  border: $border-width solid $color;
+  border: borders.$border-width-1 solid $color;
 }
 
 @mixin square {
   @include border;
-  border-radius: $border-radius-4;
+  border-radius: borders.$border-radius-4;
 }
 
 @mixin rounded {
   @include border;
-  border-radius: $border-radius-16;
+  border-radius: borders.$border-radius-full;
 }
