@@ -2,7 +2,7 @@ import {Meta, Story } from "@storybook/html";
 import colors, { type ClassNames } from "./colors.scss";
 
 export default {
-  title: "Colors"
+  title: "Tokens/Colors"
 } as Meta;
 
 export interface ColorBoxProps {

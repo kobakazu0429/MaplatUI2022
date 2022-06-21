@@ -2,7 +2,7 @@ import {Meta, Story } from "@storybook/html";
 import typography, { type ClassNames } from "./typography.scss";
 
 export default {
-  title: "Typography"
+  title: "Tokens/Typography"
 } as Meta;
 
 export interface TextProps {
