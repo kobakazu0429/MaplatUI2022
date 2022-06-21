@@ -1,9 +1,28 @@
 @use "tokens/colors";
 
-$border-color: var(--border-color, colors.$gray-4);
+$border-color: var(--border-color, colors.$gray-40);
 
 @mixin background-white {
   background-color: colors.$white;
+  color: colors.$gray-50-70;
+
+  &-with-hover {
+    &:hover {
+      color: colors.$gray-50;
+    }
+  }
+}
+
+@mixin background-black {
+  background-color: colors.$gray-50;
+  color: colors.$gray-10;
+
+  &-with-hover {
+    &:hover {
+      background-color: colors.$gray-45;
+      color: colors.$gray-10;
+    }
+  }
 }
 
 :export {
