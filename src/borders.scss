@@ -1,0 +1,16 @@
+@use "colors";
+@use "tokens/borders";
+
+@mixin border($color: colors.$border-color) {
+  border: $border-width solid $color;
+}
+
+@mixin square {
+  @include border;
+  border-radius: $border-radius-4;
+}
+
+@mixin rounded {
+  @include border;
+  border-radius: $border-radius-16;
+}

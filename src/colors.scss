@@ -1,0 +1,11 @@
+@use "tokens/colors";
+
+$border-color: var(--border-color, colors.$gray-4);
+
+@mixin background-white {
+  background-color: colors.$white;
+}
+
+:export {
+  border-color: $border-color;
+}
