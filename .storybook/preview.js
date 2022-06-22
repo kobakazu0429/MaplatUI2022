@@ -1,3 +1,5 @@
+import "../src/maplat.scss"
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
@@ -7,3 +9,7 @@ export const parameters = {
     },
   },
 }
+
+document.body.onload = () => {
+  document.getElementById("root").classList.add("maplat");
+};

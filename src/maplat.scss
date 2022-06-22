@@ -1,0 +1,6 @@
+@use "tokens/typography";
+@import "~destyle.css";
+
+.maplat {
+  font-family: typography.$font-family-base;
+}
