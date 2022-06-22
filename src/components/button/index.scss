@@ -1,0 +1,45 @@
+@use "../../borders.scss";
+@use "../../colors.scss";
+
+@mixin button {
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.rounded-button {
+  @include button;
+  @include borders.rounded;
+  @include colors.background-white-with-hover;
+}
+
+.rounded-button-black {
+  @extend .rounded-button;
+  @include colors.background-black-with-hover;
+}
+
+.rect-button {
+  @include button;
+  @include borders.rect;
+  @include colors.background-white;
+}
+
+.square-button {
+  @include button;
+  @include borders.square;
+  @include colors.background-white;
+
+  width: 29px;
+  height: 29px;
+  padding: 6px;
+}
+
+.square-button-group {
+  @include borders.square-button-group;
+
+  display: flex;
+  flex-direction: column;
+
+  button {
+    @extend .square-button;
+  }
+}
