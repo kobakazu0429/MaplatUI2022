@@ -20,13 +20,13 @@
 .rect-button {
   @include button;
   @include borders.rect;
-  @include colors.background-white;
+  @include colors.background-white-with-hover;
 }
 
 .square-button {
   @include button;
   @include borders.square;
-  @include colors.background-white;
+  @include colors.background-white-with-hover;
 
   width: 29px;
   height: 29px;

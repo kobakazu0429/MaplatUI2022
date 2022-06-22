@@ -1,7 +1,7 @@
 @use "tokens/colors";
 
 $border-color: var(--border-color, colors.$gray-40);
-$square-border-color: var(--square-border-color, colors.$gray-5);
+$square-border-color: var(--square-border-color, colors.$gray-10);
 $shadow-color: var(--shadow-color, colors.$black);
 
 // @mixin background-white {
@@ -17,12 +17,12 @@ $shadow-color: var(--shadow-color, colors.$black);
 
 // @mixin background-black {
 //   background-color: colors.$gray-50;
-//   color: colors.$gray-10;
+//   color: colors.$gray-5;
 
 //   &-with-hover {
 //     &:hover {
 //       background-color: colors.$gray-45;
-//       color: colors.$gray-10;
+//       color: colors.$gray-5;
 //     }
 //   }
 // }
@@ -36,17 +36,24 @@ $shadow-color: var(--shadow-color, colors.$black);
   &:hover {
     color: colors.$gray-50;
   }
+  &:active {
+    background-color: colors.$gray-12;
+  }
 }
 
 @mixin background-black {
   background-color: colors.$gray-50;
-  color: colors.$gray-10;
+  color: colors.$gray-5;
 }
 @mixin background-black-with-hover {
   @include background-black;
   &:hover {
     background-color: colors.$gray-45;
-    color: colors.$gray-10;
+    color: colors.$gray-5;
+  }
+  &:active {
+    background-color: colors.$gray-42;
+    color: colors.$gray-5;
   }
 }
 
