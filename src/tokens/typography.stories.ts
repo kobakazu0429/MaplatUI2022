@@ -1,5 +1,5 @@
 import {Meta, Story } from "@storybook/html";
-import typography, { type ClassNames } from "./typography.scss";
+import typography, { type ClassNames } from "./_typography.scss";
 
 export default {
   title: "Tokens/Typography"

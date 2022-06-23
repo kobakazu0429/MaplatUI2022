@@ -1,6 +1,6 @@
 import { match } from 'ts-pattern';
 import { Story, Meta } from "@storybook/html";
-import style, { type ClassNames } from "./borders.scss";
+import style, { type ClassNames } from "./_borders.scss";
 
 export default {
   title: "Tokens/Borders",
