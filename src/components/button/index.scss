@@ -8,12 +8,14 @@
 
 .button {
   @extend %button;
+  @extend %border;
   @extend %rounded;
   @extend %background-white-with-hover;
 }
 
 .rounded-full-button {
   @extend %button;
+  @extend %border;
   @extend %rounded-full;
   @extend %background-white-with-hover;
 }
@@ -23,8 +25,39 @@
   @extend %background-black-with-hover;
 }
 
+.circle-button {
+  @extend %button;
+  @extend %border;
+  @extend %rounded-full;
+  @extend %background-white-with-hover;
+
+  width: 48px;
+  height: 48px;
+  padding: 16px;
+
+  &:hover, &:active {
+    @extend %border;
+  }
+}
+
+.circle-button-gray {
+  @extend .circle-button;
+  @extend %background-gray-with-hover;
+  border-color: transparent;
+}
+
+.circle-button-md {
+  @extend %button;
+  @extend %rounded-full;
+  @extend %shadow;
+  width: 64px;
+  height: 64px;
+  padding: 24px;
+}
+
 .square-button {
   @extend %button;
+  @extend %border;
   @extend %rounded-md;
   @extend %background-white-with-hover;
 

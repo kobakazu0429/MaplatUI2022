@@ -6,17 +6,14 @@
 }
 
 %rounded {
-  @extend %border;
   border-radius: borders.$border-radius-4;
 }
 
 %rounded-md {
-  @extend %border;
   border-radius: borders.$border-radius-6;
 }
 
 %rounded-full {
-  @extend %border;
   border-radius: borders.$border-radius-full;
 }
 

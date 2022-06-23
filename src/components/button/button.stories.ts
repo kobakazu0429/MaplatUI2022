@@ -74,3 +74,27 @@ export const SquareButtonGroup: Story = () => {
 
   return wrapper;
 };
+
+export const CircleButtonGray: Story = () => {
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = button["circle-button-gray"];
+  btn.appendChild(createIcon(icons["i-share"]));
+  return btn;
+};
+
+export const CircleButtonWhite: Story = () => {
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = button["circle-button"];
+  btn.appendChild(createIcon(icons["i-arrow-01_prev"]));
+  return btn;
+};
+
+export const CircleButtonMD: Story = () => {
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = button["circle-button-md"];
+  btn.appendChild(createIcon(icons["i-search"]));
+  return btn;
+};
