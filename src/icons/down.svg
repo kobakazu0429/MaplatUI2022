@@ -1,6 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="15" height="18.5" viewBox="0 0 15 18.5">
-  <g id="ic-down" transform="translate(-933 -696)">
-    <path id="パス_43" data-name="パス 43" d="M10.5,15,18,22.5,25.5,15Z" transform="translate(922.5 692)" fill="#333"/>
-    <path id="パス_44" data-name="パス 44" d="M10.5,15,18,22.5,25.5,15Z" transform="translate(922.5 681)" fill="#333"/>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="18.5"><g fill="#333"><path data-name="パス 43" d="m0 11 7.5 7.5L15 11Z"/><path data-name="パス 44" d="m0 0 7.5 7.5L15 0Z"/></g></svg>

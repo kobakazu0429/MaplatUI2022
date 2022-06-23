@@ -1,3 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="16.5" height="16.5" viewBox="0 0 16.5 16.5">
-  <path id="ic-area" d="M12.75,11.25h1.5v-6a1.5,1.5,0,0,0-1.5-1.5h-6v1.5h6Zm-7.5,1.5V.75H3.75v3h-3v1.5h3v7.5a1.5,1.5,0,0,0,1.5,1.5h7.5v3h1.5v-3h3v-1.5Z" transform="translate(-0.75 -0.75)" fill="#333"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="16.5" height="16.5"><path d="M12 10.5h1.5v-6A1.5 1.5 0 0 0 12 3H6v1.5h6ZM4.5 12V0H3v3H0v1.5h3V12a1.5 1.5 0 0 0 1.5 1.5H12v3h1.5v-3h3V12Z" fill="#333"/></svg>
