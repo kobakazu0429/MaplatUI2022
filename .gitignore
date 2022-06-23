@@ -106,3 +106,4 @@ dist
 **/*.scss.d.ts
 
 src/icons.scss
+maplat-icons.*

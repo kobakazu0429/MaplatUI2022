@@ -1,5 +1,5 @@
 import {Meta, Story } from "@storybook/html";
-import icons, { type ClassNames } from "../icons.scss";
+import icons, { type ClassNames } from "../icons/maplat-icons.scss";
 
 export default {
   title: "Tokens/Icons"
@@ -19,6 +19,7 @@ const createIcon = (iconName: ClassNames) => {
   const wrapper2 = document.createElement("div");
   wrapper2.style.height = "100px";
   wrapper2.style.width = "100px";
+  wrapper2.style.fontSize = "80px";
   const i = document.createElement("i");
   i.classList.add(icons[iconName])
 

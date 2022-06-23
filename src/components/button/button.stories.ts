@@ -1,6 +1,6 @@
 import { Meta, Story } from "@storybook/html";
 import button from "./index.scss";
-import icons, { type Styles, type ClassNames } from "../../icons.scss";
+import icons, { type Styles, type ClassNames } from "../../icons/maplat-icons.scss";
 
 export default {
   title: "Button",
