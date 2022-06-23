@@ -1,32 +1,32 @@
-@use "../../borders.scss";
-@use "../../colors.scss";
+@use "../../_borders.scss";
+@use "../../_colors.scss";
 
-@mixin button {
+%button {
   padding: 10px 16px;
   cursor: pointer;
 }
 
-.rounded-button {
-  @include button;
-  @include borders.rounded;
-  @include colors.background-white-with-hover;
+.button {
+  @extend %button;
+  @extend %rounded;
+  @extend %background-white-with-hover;
 }
 
-.rounded-button-black {
-  @extend .rounded-button;
-  @include colors.background-black-with-hover;
+.rounded-full-button {
+  @extend %button;
+  @extend %rounded-full;
+  @extend %background-white-with-hover;
 }
 
-.rect-button {
-  @include button;
-  @include borders.rect;
-  @include colors.background-white-with-hover;
+.rounded-full-button-black {
+  @extend .rounded-full-button;
+  @extend %background-black-with-hover;
 }
 
 .square-button {
-  @include button;
-  @include borders.square;
-  @include colors.background-white-with-hover;
+  @extend %button;
+  @extend %rounded-md;
+  @extend %background-white-with-hover;
 
   width: 29px;
   height: 29px;
@@ -34,7 +34,7 @@
 }
 
 .square-button-group {
-  @include borders.square-button-group;
+  @extend %square-button-group;
 
   display: flex;
   flex-direction: column;

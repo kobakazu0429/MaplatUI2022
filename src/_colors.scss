@@ -4,35 +4,13 @@ $border-color: var(--border-color, colors.$gray-40);
 $square-border-color: var(--square-border-color, colors.$gray-10);
 $shadow-color: var(--shadow-color, colors.$black);
 
-// @mixin background-white {
-//   background-color: colors.$white;
-//   color: colors.$gray-50-70;
-
-//   &-with-hover {
-//     &:hover {
-//       color: colors.$gray-50;
-//     }
-//   }
-// }
-
-// @mixin background-black {
-//   background-color: colors.$gray-50;
-//   color: colors.$gray-5;
-
-//   &-with-hover {
-//     &:hover {
-//       background-color: colors.$gray-45;
-//       color: colors.$gray-5;
-//     }
-//   }
-// }
-
-@mixin background-white {
+%background-white {
   background-color: colors.$white;
   color: colors.$gray-50-70;
 }
-@mixin background-white-with-hover {
-  @include background-white;
+
+%background-white-with-hover {
+  @extend %background-white;
   &:hover {
     color: colors.$gray-50;
   }
@@ -41,12 +19,13 @@ $shadow-color: var(--shadow-color, colors.$black);
   }
 }
 
-@mixin background-black {
+%background-black {
   background-color: colors.$gray-50;
   color: colors.$gray-5;
 }
-@mixin background-black-with-hover {
-  @include background-black;
+
+%background-black-with-hover {
+  @extend %background-black;
   &:hover {
     background-color: colors.$gray-45;
     color: colors.$gray-5;
@@ -59,4 +38,6 @@ $shadow-color: var(--shadow-color, colors.$black);
 
 :export {
   border-color: $border-color;
+  square-border-color: $square-border-color;
+  shadow-color: $shadow-color;
 }

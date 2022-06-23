@@ -32,22 +32,22 @@ const Template: Story<ButtonProps> = (args) => {
   return createButton(args);
 };
 
+export const Button = Template.bind({});
+Button.args = {
+  label: "キャッシュダウンロード",
+  classNames: [button["button"]],
+};
+
 export const RoundedButtonBlack = Template.bind({});
 RoundedButtonBlack.args = {
   label: "Maplatヘルプ",
-  classNames: [button["rounded-button-black"]],
+  classNames: [button["rounded-full-button-black"]],
 };
 
 export const RoundedButtonWhite = Template.bind({});
 RoundedButtonWhite.args = {
   label: "Maplatヘルプ",
-  classNames: [button["rounded-button"]],
-};
-
-export const RectButton = Template.bind({});
-RectButton.args = {
-  label: "キャッシュダウンロード",
-  classNames: [button["rect-button"]],
+  classNames: [button["rounded-full-button"]],
 };
 
 export const SquareButton: Story = () => {
