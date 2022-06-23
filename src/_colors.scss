@@ -48,13 +48,17 @@ $shadow-color: var(--shadow-color, colors.$black);
 
 %background-black-with-hover {
   @extend %background-black;
+  border-color: transparent;
+
   &:hover {
     background-color: colors.$gray-45;
     color: colors.$gray-5;
+    border-color: transparent;
   }
   &:active {
     background-color: colors.$gray-42;
     color: colors.$gray-5;
+    border-color: transparent;
   }
 }
 
