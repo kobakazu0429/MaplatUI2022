@@ -25,7 +25,7 @@
   border-radius: 0 0 $radius $radius;
 }
 
-%square-button-group {
+@mixin square-button-group {
   button {
     &:nth-child(1) {
       @include border-radius-top(borders.$border-radius-6);

@@ -1,4 +1,5 @@
 const path = require("path");
+const convoluteSelectorsPlugin = require("../postcssPlugins/convoluteSelectorsPlugin.js");
 
 module.exports = {
   "stories": [
@@ -24,7 +25,21 @@ module.exports = {
             modules: true
           },
         },
-        'sass-loader',
+        {
+          loader: "postcss-loader",
+          options: {
+            postcssOptions: {
+              plugins: [convoluteSelectorsPlugin],
+            },
+          },
+        },
+        "resolve-url-loader",
+        {
+          loader: 'sass-loader',
+          options: {
+            sourceMap: true,
+          },
+        },
       ],
       include: path.resolve(__dirname, '../'),
     });

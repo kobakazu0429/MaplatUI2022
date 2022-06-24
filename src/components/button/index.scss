@@ -67,7 +67,7 @@
 }
 
 .square-button-group {
-  @extend %square-button-group;
+  @include borders.square-button-group;
 
   display: flex;
   flex-direction: column;

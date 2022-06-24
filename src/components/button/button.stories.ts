@@ -1,5 +1,5 @@
 import { Meta, Story } from "@storybook/html";
-import button from "./index.scss";
+import button from "../../maplat.scss";
 import icons, { type Styles, type ClassNames } from "../../icons/maplat-icons.scss";
 
 export default {

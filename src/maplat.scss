@@ -1,6 +1,10 @@
+@use "sass:meta";
 @use "tokens/typography";
-@import "~destyle.css";
 
 .maplat {
   font-family: typography.$font-family-base;
+
+  @include meta.load-css("../node_modules/destyle.css/destyle.css");
+  @include meta.load-css("./components");
+  @include meta.load-css("./icons/maplat-icons.scss");
 }

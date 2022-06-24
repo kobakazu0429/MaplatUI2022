@@ -1,4 +1,4 @@
-import "../src/maplat.scss"
+import style from "../src/maplat.scss";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -11,5 +11,5 @@ export const parameters = {
 }
 
 document.body.onload = () => {
-  document.getElementById("root").classList.add("maplat");
+  document.getElementById("root").classList.add(style["maplat"]);
 };
