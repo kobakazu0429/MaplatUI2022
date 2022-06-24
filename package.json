@@ -5,7 +5,8 @@
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "tsm": "typed-scss-modules src --watch --implementation sass --nameFormat none --exportType default",
+    "tsm": "typed-scss-modules src --implementation sass --nameFormat none --exportType default",
+    "tsm:watch": "yarn tsm --watch",
     "build:icons": "node bin/icons.mjs",
     "build:scss": "node bin/build-css.mjs"
   },
