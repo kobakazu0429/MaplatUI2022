@@ -2,7 +2,7 @@
 @use "tokens/typography";
 
 .maplat {
-  font-family: typography.$font-family-base;
+  font-family: typography.$font-family-jp;
 
   @include meta.load-css("../node_modules/destyle.css/destyle.css");
   @include meta.load-css("./components");

@@ -1,4 +1,5 @@
-$font-family-base: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+// 日本語 (Japanese)
+$font-family-jp: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
 
 // ハングル (Hangul)
 $font-family-hangul: "Helvetica Neue", Arial, "Apple SD Gothic Neo", Gulim, "Malgun Gothic", sans-serif;
@@ -15,7 +16,7 @@ $font-size-3: 16pt;
 $font-size-4: 18pt;
 
 :export {
-  font-family-base: $font-family-base;
+  font-family-jp: $font-family-jp;
   font-family-hangul: $font-family-hangul;
   font-family-sc: $font-family-sc;
   font-family-tc: $font-family-tc;

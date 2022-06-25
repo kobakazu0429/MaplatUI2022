@@ -38,7 +38,7 @@ const createTexts = (fontFamily: string, text: string) => {
 }
 
 export const Japanese: Story = () => {
-  return createTexts(typography["font-family-base"], "abcあいう012");
+  return createTexts(typography["font-family-jp"], "abcあいう012");
 };
 export const Hangul: Story = () => {
   return createTexts(typography["font-family-hangul"], "abc표기장군012");
