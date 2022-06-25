@@ -13,7 +13,7 @@ const maplatScssPath = path.resolve(path.join(__dirname, "..", "src", "maplat.sc
 const distPath = path.resolve(path.join(__dirname, "..", "dist"));
 
 const postcssProcess = async (css) => {
-  const result = await postcss([removeExportPlugin, convoluteSelectorsPlugin]).process(css);
+  const result = await postcss([removeExportPlugin, convoluteSelectorsPlugin]).process(css, { from: undefined });
   return result.css;
 }
 
