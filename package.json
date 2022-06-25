@@ -10,7 +10,7 @@
     "build:icons": "node bin/icons.mjs",
     "build:scss": "node bin/build-css.mjs",
     "dev": "npm-run-all build:icons -p tsm:watch storybook",
-    "build": "npm-run-all -s build:icons build:scss tsm build-storybook"
+    "build": "npm-run-all -s build:icons build:scss tsm"
   },
   "devDependencies": {
     "@babel/core": "^7.18.2",
