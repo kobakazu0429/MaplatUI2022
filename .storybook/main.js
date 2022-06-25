@@ -3,7 +3,7 @@ const convoluteSelectorsPlugin = require("../postcssPlugins/convoluteSelectorsPl
 
 module.exports = {
   "stories": [
-    "../src/**/*.stories.(ts|tsx)"
+    "../src/**/*.stories.@(ts|tsx)"
   ],
   "addons": [
     "@storybook/addon-links",
