@@ -1,9 +1,10 @@
 import path from "node:path";
+import url from "node:url";
 import fs from "node:fs/promises";
 import { optimize } from "svgo";
 import { generateFonts as _generateFonts, FontAssetType, OtherAssetType } from 'fantasticon';
 
-const __dirname = path.dirname(new URL(import.meta.url).pathname);
+const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
 const iconsPath = path.resolve(path.join(__dirname, "..", "src", "icons"));
 const svgFiles = (await fs.readdir(iconsPath)).filter(filename => filename.endsWith(".svg"));

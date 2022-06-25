@@ -1,11 +1,13 @@
 import path from "node:path";
 import fs from "node:fs/promises";
+import url from "node:url";
 import sass from "sass";
 import postcss from "postcss";
 import CleanCSS from "clean-css";
 import removeExportPlugin from "../postcssPlugins/removeExportPlugin.js";
 import convoluteSelectorsPlugin from "../postcssPlugins/convoluteSelectorsPlugin.js";
 
+const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 const maplatScssPath = path.resolve(path.join(__dirname, "..", "src", "maplat.scss"));
 const distPath = path.resolve(path.join(__dirname, "..", "dist", "maplat.css"));
