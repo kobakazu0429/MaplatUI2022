@@ -1,0 +1,39 @@
+@use "tokens/borders";
+
+%border {
+  border-width: borders.$border-width-1;
+  border-style: solid;
+}
+
+%rounded {
+  border-radius: borders.$border-radius-4;
+}
+
+%rounded-md {
+  border-radius: borders.$border-radius-6;
+}
+
+%rounded-full {
+  border-radius: borders.$border-radius-full;
+}
+
+@mixin border-radius-top($radius) {
+  border-radius: $radius $radius 0 0;
+}
+
+@mixin border-radius-bottom($radius) {
+  border-radius: 0 0 $radius $radius;
+}
+
+@mixin square-button-group {
+  button {
+    &:nth-child(1) {
+      @include border-radius-top(borders.$border-radius-6);
+      border-bottom: none;
+    }
+
+    &:nth-last-child(1) {
+      @include border-radius-bottom(borders.$border-radius-6);
+    }
+  }
+}
