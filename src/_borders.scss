@@ -6,7 +6,6 @@
 }
 
 @each $direction in (top, bottom, left, right) {
-  @debug $direction;
   %border-#{$direction}-only {
     border-style: none;
     border-#{$direction}-style: solid;
