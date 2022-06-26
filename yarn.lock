@@ -7083,6 +7083,11 @@ junk@^3.1.0:
   resolved "https://registry.yarnpkg.com/junk/-/junk-3.1.0.tgz#31499098d902b7e98c5d9b9c80f43457a88abfa1"
   integrity sha512-pBxcB3LFc8QVgdggvZWyeys+hnrNWg4OcZIU/1X59k5jQdLBlCsYGRQaz234SqoRLTCgMH00fY0xRJH+F9METQ==
 
+just-throttle@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/just-throttle/-/just-throttle-4.0.1.tgz#10132a9ca787e248e744f8e96c595596b14e86b7"
+  integrity sha512-BC3LgilNVj4WQt2vj4//4n/UHSQtkl5P5fz+aOZ+c0t1sjIzBeIFL2+5T32MhTs4YrKjAgNo2DT/VRh/NwQOZA==
+
 kind-of@^3.0.2, kind-of@^3.0.3, kind-of@^3.2.0:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-3.2.2.tgz#31ea21a734bab9bbb0f32466d893aea51e4a3c64"

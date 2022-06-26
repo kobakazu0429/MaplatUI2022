@@ -1,0 +1,15 @@
+@use "sass:map";
+@use "sass:meta";
+@use "tokens/breakpoints";
+
+@mixin responsive($breakpoint) {
+  @if map.has-key(breakpoints.$breakpoints, $breakpoint) {
+    @media screen and (min-width: #{meta.inspect(map.get(breakpoints.$breakpoints, $breakpoint))}) {
+      @content;
+    }
+  }
+
+  @else {
+    @error "The specified breakpoint is undefined. " + "breakpoints: [#{map.keys(breakpoints.$breakpoints)}]";
+  }
+}

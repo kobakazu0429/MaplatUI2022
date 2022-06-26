@@ -1,0 +1,14 @@
+@use "../../_borders.scss";
+@use "../../_colors.scss";
+@use "../../_breakpoints.scss";
+
+.drawer {
+  width: 100%;
+  height: 333px;
+  background: #f00;
+
+  @include breakpoints.responsive(md) {
+    width: 420px;
+    height: 100%;
+  }
+}
