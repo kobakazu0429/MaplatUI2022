@@ -16,4 +16,5 @@ export const parameters = {
 
 document.body.onload = () => {
   document.getElementById("root").classList.add(style["maplat"]);
+  document.getElementById("root").style.height = "100vh";
 };
