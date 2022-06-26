@@ -1,4 +1,5 @@
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
+import { registerFixedViewport } from "../src/js/viewport.ts"
 import style from "../src/maplat.scss";
 
 export const parameters = {
@@ -17,4 +18,5 @@ export const parameters = {
 document.body.onload = () => {
   document.getElementById("root").classList.add(style["maplat"]);
   document.getElementById("root").style.height = "100vh";
+  registerFixedViewport();
 };
