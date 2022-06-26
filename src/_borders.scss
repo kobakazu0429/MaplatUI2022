@@ -5,6 +5,14 @@
   border-style: solid;
 }
 
+@each $direction in (top, bottom, left, right) {
+  @debug $direction;
+  %border-#{$direction}-only {
+    border-style: none;
+    border-#{$direction}-style: solid;
+  }
+}
+
 %rounded {
   border-radius: borders.$border-radius-4;
 }

@@ -1,0 +1,28 @@
+@use "../../_borders.scss";
+@use "../../_colors.scss";
+@use "../../_breakpoints.scss";
+
+$_padding: 30px;
+
+.alert {
+  @extend %background-black-translucent;
+  width: fit-content;
+  height: fit-content;
+  padding: $_padding;
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &-icon {
+    @extend %border;
+    @extend %border-right-only;
+    height: 100%;
+    font-size: 30px;
+    padding-right: $_padding;
+  }
+
+  &-content {
+    padding-left: $_padding;
+  }
+}
