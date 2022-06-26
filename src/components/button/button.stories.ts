@@ -25,7 +25,7 @@ export const Button:Story = () =>{
 
 export const RoundedButtonBlack:Story = () =>{
   const btn = document.createElement("button");
-  const i = createIcon(icons["i-help"]);
+  const i = createIcon(icons["i-help-24"]);
   i.style.paddingRight = "10px";
   btn.innerHTML =  i.outerHTML + "Maplatヘルプ";
   btn.className = button["rounded-full-button-black"];
@@ -34,7 +34,7 @@ export const RoundedButtonBlack:Story = () =>{
 
 export const RoundedButtonWhite:Story = () =>{
   const btn = document.createElement("button");
-  const i = createIcon(icons["i-reset"]);
+  const i = createIcon(icons["i-reset-24"]);
   i.style.paddingRight = "10px";
   btn.innerHTML =  i.outerHTML + "地図をリセット";
   btn.className= button["rounded-full-button"];
@@ -44,7 +44,7 @@ export const RoundedButtonWhite:Story = () =>{
 export const SquareButton: Story = () => {
   const btn = document.createElement("button");
   btn.className = button["square-button"];
-  btn.appendChild(createIcon(icons["i-gps_on-24"]));
+  btn.appendChild(createIcon(icons["i-gps-on-24"]));
   return btn;
 };
 
@@ -54,8 +54,8 @@ export const SquareButtonGroup: Story = () => {
   top.type = "button";
   bottom.type = "button";
 
-  top.appendChild(createIcon(icons["i-zoom_in"]));
-  bottom.appendChild(createIcon(icons["i-zoom_out"]));
+  top.appendChild(createIcon(icons["i-zoom-in-24"]));
+  bottom.appendChild(createIcon(icons["i-zoom-out-24"]));
 
   const wrapper = document.createElement("div");
   wrapper.appendChild(top);
@@ -68,20 +68,20 @@ export const SquareButtonGroup: Story = () => {
 export const CircleButtonGray: Story = () => {
   const btn = document.createElement("button");
   btn.className = button["circle-button-gray"];
-  btn.appendChild(createIcon(icons["i-share"]));
+  btn.appendChild(createIcon(icons["i-share-36"]));
   return btn;
 };
 
 export const CircleButtonWhite: Story = () => {
   const btn = document.createElement("button");
   btn.className = button["circle-button"];
-  btn.appendChild(createIcon(icons["i-arrow-01_prev"]));
+  btn.appendChild(createIcon(icons["i-arrow-01-prev-36"]));
   return btn;
 };
 
 export const CircleButtonMD: Story = () => {
   const btn = document.createElement("button");
   btn.className = button["circle-button-md"];
-  btn.appendChild(createIcon(icons["i-search"]));
+  btn.appendChild(createIcon(icons["i-search-36"]));
   return btn;
 };

@@ -10,7 +10,7 @@ export const Alert: Story = () => {
   div.classList.add(style["alert"]);
   div.innerHTML = `
     <div class="${style["alert-icon"]}">
-      <i class="${style["i-info"]}"></i>
+      <i class="${style["i-info-24"]}"></i>
     </div>
     <div class="${style["alert-content"]}">
       <p>表示位置が地図範囲外です。</p>
