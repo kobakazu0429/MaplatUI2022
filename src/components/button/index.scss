@@ -58,7 +58,7 @@
 .square-button {
   @extend %button;
   @extend %border;
-  @extend %rounded-md;
+  @include borders.rounded-md;
   @extend %background-white-with-hover;
 
   width: 29px;

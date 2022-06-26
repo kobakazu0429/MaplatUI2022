@@ -16,7 +16,7 @@
   border-radius: borders.$border-radius-4;
 }
 
-%rounded-md {
+@mixin rounded-md {
   border-radius: borders.$border-radius-6;
 }
 
