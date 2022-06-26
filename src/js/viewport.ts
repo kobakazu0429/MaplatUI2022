@@ -1,5 +1,7 @@
 import throttle from "just-throttle";
 
+// ref: https://zenn.dev/tak_dcxi/articles/690caf6e9c4e26
+
 export const switchViewport = (viewport: Element) => {
   const value =
     window.outerWidth > 360
