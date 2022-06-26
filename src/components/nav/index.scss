@@ -12,7 +12,6 @@
 
   @include breakpoints.responsive(md) {
     @include borders.rounded-md;
-    margin: 24px;
   }
 
   display: flex;
