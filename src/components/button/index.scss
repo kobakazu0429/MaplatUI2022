@@ -1,9 +1,18 @@
 @use "../../_borders.scss";
 @use "../../_colors.scss";
 
+$-base-icon-font-size: 24px;
+
 %button {
   padding: 10px 16px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  i {
+    font-size: $-base-icon-font-size
+  }
 }
 
 .button {
@@ -11,6 +20,7 @@
   @extend %border;
   @extend %rounded;
   @extend %background-white-with-hover;
+
 }
 
 .rounded-full-button {
@@ -23,6 +33,7 @@
 .rounded-full-button-black {
   @extend .rounded-full-button;
   @extend %background-black-with-hover;
+
 }
 
 .circle-button {
@@ -33,7 +44,6 @@
 
   width: 48px;
   height: 48px;
-  padding: 16px;
 
   &:hover, &:active {
     @extend %border;
@@ -53,6 +63,10 @@
   width: 64px;
   height: 64px;
   padding: 24px;
+
+  i {
+    font-size: calc($-base-icon-font-size * (64px / 48px))
+  }
 }
 
 .square-button {
