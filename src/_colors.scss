@@ -1,7 +1,7 @@
 @use "tokens/colors";
 
-$border-color: var(--border-color, colors.$gray-40);
-$square-border-color: var(--square-border-color, colors.$gray-10);
+$border-color: var(--maplat-border-color, colors.$gray-40);
+$square-border-color: var(--maplat-square-border-color, colors.$gray-10);
 
 %background-white {
   background-color: colors.$white;
