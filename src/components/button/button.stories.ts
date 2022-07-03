@@ -42,6 +42,7 @@ export const RoundedButtonWhite: Story = () => {
 
 export const SquareButton: Story = () => {
   const btn = document.createElement("button");
+
   btn.className = style["square-button"];
   btn.appendChild(createIcon(style["i-gps_on-24"]));
   return btn;
@@ -63,6 +64,7 @@ export const SquareButtonGroup: Story = () => {
 
 export const CircleButtonGray: Story = () => {
   const btn = document.createElement("button");
+
   btn.className = style["circle-button-gray"];
   btn.appendChild(createIcon(style["i-share"]));
   return btn;
