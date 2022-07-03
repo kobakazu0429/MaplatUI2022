@@ -1,28 +1,29 @@
 @use "../../_borders.scss";
 @use "../../_colors.scss";
+@use "../../_elevations.scss";
 @use "../../_breakpoints.scss";
 
-$_padding: 30px;
+$-padding: 30px;
 
 .alert {
-  @extend %background-black-translucent;
+  @include colors.background-black-translucent;
+  @include elevations.attention;
   width: fit-content;
   height: fit-content;
-  padding: $_padding;
-  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.2);
+  padding: $-padding;
   display: flex;
   justify-content: center;
   align-items: center;
 
   &-icon {
-    @extend %border;
-    @extend %border-right-only;
+    @include borders.border;
+    @include borders.border-right-only;
     height: 100%;
     font-size: 30px;
-    padding-right: $_padding;
+    padding-right: $-padding;
   }
 
   &-content {
-    padding-left: $_padding;
+    padding-left: $-padding;
   }
 }
