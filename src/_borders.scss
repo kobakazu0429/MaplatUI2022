@@ -1,18 +1,31 @@
 @use "tokens/borders";
 
-%border {
+@mixin border {
   border-width: borders.$border-width-1;
   border-style: solid;
 }
 
-@each $direction in (top, bottom, left, right) {
-  %border-#{$direction}-only {
-    border-style: none;
-    border-#{$direction}-style: solid;
-  }
+@mixin border-top-only {
+  border-style: none;
+  border-top-style: solid;
 }
 
-%rounded {
+@mixin border-bottom-only {
+  border-style: none;
+  border-bottom-style: solid;
+}
+
+@mixin border-left-only {
+  border-style: none;
+  border-left-style: solid;
+}
+
+@mixin border-right-only {
+  border-style: none;
+  border-right-style: solid;
+}
+
+@mixin rounded {
   border-radius: borders.$border-radius-4;
 }
 
@@ -20,7 +33,7 @@
   border-radius: borders.$border-radius-6;
 }
 
-%rounded-full {
+@mixin rounded-full {
   border-radius: borders.$border-radius-full;
 }
 
