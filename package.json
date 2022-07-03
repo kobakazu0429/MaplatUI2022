@@ -9,7 +9,7 @@
     "tsm:watch": "yarn tsm --watch",
     "build:icons": "node bin/icons.mjs",
     "build:scss": "node bin/build-css.mjs",
-    "lint:scss": "stylelint **/*.scss",
+    "lint:scss": "stylelint \"src/**/*.scss\"",
     "dev": "npm-run-all build:icons -p tsm:watch storybook",
     "build": "npm-run-all -s build:icons build:scss tsm"
   },
