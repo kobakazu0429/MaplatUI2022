@@ -1,5 +1,6 @@
 @use "../../_borders.scss";
 @use "../../_colors.scss";
+@use "../../_elevations.scss";
 
 %button {
   padding: 10px 16px;
@@ -18,6 +19,7 @@
   @extend %border;
   @extend %rounded-full;
   @extend %background-white-with-hover;
+  @include elevations.on-map-button;
 }
 
 .rounded-full-button-black {
@@ -50,6 +52,7 @@
   @extend %button;
   @extend %rounded-full;
   @extend %shadow;
+  @include elevations.on-map-button;
   width: 64px;
   height: 64px;
   padding: 24px;

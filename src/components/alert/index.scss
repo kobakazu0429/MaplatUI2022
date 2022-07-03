@@ -1,15 +1,16 @@
 @use "../../_borders.scss";
 @use "../../_colors.scss";
+@use "../../_elevations.scss";
 @use "../../_breakpoints.scss";
 
 $_padding: 30px;
 
 .alert {
   @extend %background-black-translucent;
+  @include elevations.attention;
   width: fit-content;
   height: fit-content;
   padding: $_padding;
-  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: center;
   align-items: center;
