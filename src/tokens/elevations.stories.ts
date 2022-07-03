@@ -1,5 +1,6 @@
 import { Story, Meta } from "@storybook/html";
-import style, { type ClassNames } from "./_elevations.scss";
+import style from "./_elevations.scss";
+import type { ClassNames } from "./_elevations.scss";
 
 export default {
   title: "Tokens/Elevations",
@@ -8,9 +9,9 @@ export default {
 type BorderBoxProps = {
   name: string;
   value: string;
-}
+};
 
-const createBox = ({  name, value }: BorderBoxProps) => {
+const createBox = ({ name, value }: BorderBoxProps) => {
   const box = document.createElement("div");
   box.style.borderRadius = "8px";
   box.style.height = "100px";
@@ -27,9 +28,11 @@ export const Elevations: Story = () => {
   wrapper.style.display = "flex";
   wrapper.style.gap = "20px";
 
-  (Object.keys(style) as unknown as Array<ClassNames>).filter(key=>key.startsWith("elevation")).forEach((name) => {
-    wrapper.appendChild(createBox({name, value:style[name]}));
-  });
+  (Object.keys(style) as unknown as Array<ClassNames>)
+    .filter((key) => key.startsWith("elevation"))
+    .forEach((name) => {
+      wrapper.appendChild(createBox({ name, value: style[name] }));
+    });
 
   return wrapper;
 };

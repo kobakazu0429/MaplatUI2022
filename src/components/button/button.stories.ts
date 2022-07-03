@@ -1,6 +1,7 @@
 import { Meta, Story } from "@storybook/html";
 import button from "../../maplat.scss";
-import icons, { type Styles, type ClassNames } from "../../icons/maplat-icons.scss";
+import icons from "../../icons/maplat-icons.scss";
+import type { Styles, ClassNames } from "../../icons/maplat-icons.scss";
 
 export default {
   title: "Button",
@@ -15,31 +16,30 @@ const createIcon = (icon: Styles[ClassNames]) => {
   return i;
 };
 
-export const Button:Story = () =>{
+export const Button: Story = () => {
   const btn = document.createElement("button");
-  btn.innerHTML = "キャッシュダウンロード"
+  btn.innerHTML = "キャッシュダウンロード";
   btn.className = button["button"];
   return btn;
-}
+};
 
-
-export const RoundedButtonBlack:Story = () =>{
+export const RoundedButtonBlack: Story = () => {
   const btn = document.createElement("button");
   const i = createIcon(icons["i-help"]);
   i.style.paddingRight = "10px";
-  btn.innerHTML =  i.outerHTML + "Maplatヘルプ";
+  btn.innerHTML = i.outerHTML + "Maplatヘルプ";
   btn.className = button["rounded-full-button-black"];
   return btn;
-}
+};
 
-export const RoundedButtonWhite:Story = () =>{
+export const RoundedButtonWhite: Story = () => {
   const btn = document.createElement("button");
   const i = createIcon(icons["i-reset"]);
   i.style.paddingRight = "10px";
-  btn.innerHTML =  i.outerHTML + "地図をリセット";
-  btn.className= button["rounded-full-button"];
+  btn.innerHTML = i.outerHTML + "地図をリセット";
+  btn.className = button["rounded-full-button"];
   return btn;
-}
+};
 
 export const SquareButton: Story = () => {
   const btn = document.createElement("button");
