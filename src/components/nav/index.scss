@@ -4,7 +4,7 @@
 @use "../../_breakpoints.scss";
 
 .nav {
-  @extend %background-white;
+  @include colors.background-white;
   @include elevations.on-map-information;
   width: 100%;
   max-width: 420px;

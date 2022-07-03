@@ -3,27 +3,27 @@
 @use "../../_elevations.scss";
 @use "../../_breakpoints.scss";
 
-$_padding: 30px;
+$-padding: 30px;
 
 .alert {
-  @extend %background-black-translucent;
+  @include colors.background-black-translucent;
   @include elevations.attention;
   width: fit-content;
   height: fit-content;
-  padding: $_padding;
+  padding: $-padding;
   display: flex;
   justify-content: center;
   align-items: center;
 
   &-icon {
-    @extend %border;
-    @extend %border-right-only;
+    @include borders.border;
+    @include borders.border-right-only;
     height: 100%;
     font-size: 30px;
-    padding-right: $_padding;
+    padding-right: $-padding;
   }
 
   &-content {
-    padding-left: $_padding;
+    padding-left: $-padding;
   }
 }

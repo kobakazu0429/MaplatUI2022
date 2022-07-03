@@ -1,6 +1,5 @@
 import { Meta, Story } from "@storybook/html";
-import button from "../../maplat.scss";
-import icons from "../../icons/maplat-icons.scss";
+import style from "../../maplat.scss";
 import type { Styles, ClassNames } from "../../icons/maplat-icons.scss";
 
 export default {
@@ -19,69 +18,66 @@ const createIcon = (icon: Styles[ClassNames]) => {
 export const Button: Story = () => {
   const btn = document.createElement("button");
   btn.innerHTML = "キャッシュダウンロード";
-  btn.className = button["button"];
+  btn.className = style["button"];
   return btn;
 };
 
 export const RoundedButtonBlack: Story = () => {
   const btn = document.createElement("button");
-  const i = createIcon(icons["i-help"]);
+  const i = createIcon(style["i-help"]);
   i.style.paddingRight = "10px";
   btn.innerHTML = i.outerHTML + "Maplatヘルプ";
-  btn.className = button["rounded-full-button-black"];
+  btn.className = style["rounded-full-button-black"];
   return btn;
 };
 
 export const RoundedButtonWhite: Story = () => {
   const btn = document.createElement("button");
-  const i = createIcon(icons["i-reset"]);
+  const i = createIcon(style["i-reset"]);
   i.style.paddingRight = "10px";
   btn.innerHTML = i.outerHTML + "地図をリセット";
-  btn.className = button["rounded-full-button"];
+  btn.className = style["rounded-full-button"];
   return btn;
 };
 
 export const SquareButton: Story = () => {
   const btn = document.createElement("button");
-  btn.className = button["square-button"];
-  btn.appendChild(createIcon(icons["i-gps_on-24"]));
+  btn.className = style["square-button"];
+  btn.appendChild(createIcon(style["i-gps_on-24"]));
   return btn;
 };
 
 export const SquareButtonGroup: Story = () => {
-  const top = document.createElement("button");
-  const bottom = document.createElement("button");
-  top.type = "button";
-  bottom.type = "button";
-
-  top.appendChild(createIcon(icons["i-zoom_in"]));
-  bottom.appendChild(createIcon(icons["i-zoom_out"]));
-
-  const wrapper = document.createElement("div");
-  wrapper.appendChild(top);
-  wrapper.appendChild(bottom);
-  wrapper.classList.add(button["square-button-group"]);
-
-  return wrapper;
+  const div = document.createElement("div");
+  div.classList.add(style["square-button-group"]);
+  div.innerHTML = `
+    <button class="${style["square-button"]}">
+      <i class="${style["i-zoom_in"]}"></i>
+    </button>
+    <button class="${style["square-button"]}">
+      <i class="${style["i-zoom_out"]}"></i>
+    </button>
+  `;
+  return div;
 };
 
 export const CircleButtonGray: Story = () => {
   const btn = document.createElement("button");
-  btn.className = button["circle-button-gray"];
-  btn.appendChild(createIcon(icons["i-share"]));
+  btn.className = style["circle-button-gray"];
+  btn.appendChild(createIcon(style["i-share"]));
   return btn;
 };
 
 export const CircleButtonWhite: Story = () => {
   const btn = document.createElement("button");
-  btn.className = button["circle-button"];
-  btn.appendChild(createIcon(icons["i-arrow-01_prev"]));
+  btn.className = style["circle-button"];
+  btn.appendChild(createIcon(style["i-arrow-01_prev"]));
   return btn;
 };
 
 export const CircleButtonMD: Story = () => {
   const btn = document.createElement("button");
-  btn.className = button["circle-button-md"];
-  btn.appendChild(createIcon(icons["i-search"]));
+  btn.className = style["circle-button-md"];
+  btn.appendChild(createIcon(style["i-search"]));
   return btn;
 };
