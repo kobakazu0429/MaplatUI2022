@@ -14,7 +14,9 @@ export default {
 
 const hasWidthAndHeight = (obj: any): obj is ViewportStyle => {
   if (!obj) return false;
+  // @ts-ignore: TS2339
   if (!Object.hasOwn(obj, "width")) return false;
+  // @ts-ignore: TS2339
   if (!Object.hasOwn(obj, "height")) return false;
   return true;
 };
