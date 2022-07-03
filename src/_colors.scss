@@ -2,7 +2,6 @@
 
 $border-color: var(--border-color, colors.$gray-40);
 $square-border-color: var(--square-border-color, colors.$gray-10);
-$shadow-color: var(--shadow-color, colors.$black);
 
 %background-white {
   background-color: colors.$white;
@@ -83,5 +82,4 @@ $shadow-color: var(--shadow-color, colors.$black);
 :export {
   border-color: $border-color;
   square-border-color: $square-border-color;
-  shadow-color: $shadow-color;
 }
