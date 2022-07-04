@@ -45,6 +45,7 @@
     "clean-css": "^5.3.0",
     "destyle.css": "^3.0.2",
     "just-throttle": "^4.0.1",
+    "swiper": "^8.2.6",
     "ts-pattern": "^4.0.3"
   }
 }
