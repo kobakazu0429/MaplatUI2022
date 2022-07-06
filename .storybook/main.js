@@ -5,6 +5,7 @@ module.exports = {
   "stories": [
     "../src/**/*.stories.@(ts|tsx)"
   ],
+  "staticDirs": ['../public'],
   "addons": [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
