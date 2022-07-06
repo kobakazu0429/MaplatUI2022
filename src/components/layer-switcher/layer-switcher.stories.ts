@@ -2,6 +2,7 @@ import { Meta, Story } from "@storybook/html";
 import { useScript } from "./../../js/useScript";
 import Swiper, { Navigation, Keyboard, Mousewheel } from "swiper";
 import style from "../../maplat.scss";
+import { tabs } from "../../js/tabs";
 
 export default {
   title: "LayerSwitcher",
@@ -26,36 +27,53 @@ const createSlide = () => {
 
 export const LayerSwitcher: Story = () => {
   const div = document.createElement("div");
-  div.classList.add(style["layer-switcher"]);
-  div.style.height = "200px";
-
+  div.classList.add(style["tab-container"]);
   div.innerHTML = `
-  <div class="${style["swiper"]} ${style["layer-switcher-swiper"]}">
-    <div class="${style["swiper-wrapper"]}">
-      ${createSlide()}
-      ${createSlide()}
-      ${createSlide()}
-      ${createSlide()}
-      ${createSlide()}
-      ${createSlide()}
-      ${createSlide()}
-      ${createSlide()}
-      ${createSlide()}
-      ${createSlide()}
-      ${createSlide()}
-      ${createSlide()}
-      ${createSlide()}
+    <div class="${style["tabs"]}">
+      <button class="${style["tab"]}">古地図・絵地図</button>
+      <button class="${style["tab"]}">現代地図</button>
     </div>
-  </div>
-  <div class="${style["layer-switcher-prev-button"]}">
-    <i class="${style["i-arrow-02-prev-36"]}"></i>
-  </div>
-  <div class="${style["layer-switcher-next-button"]}">
-    <i class="${style["i-arrow-02-next-36"]}"></i>
-  </div>
-`;
+    <div class="${style["tab-panes"]}">
+      <div class="${style["tab-pane"]}">
+        <div class="${style["layer-switcher"]}">
+          <div class="${style["swiper"]} ${style["layer-switcher-swiper"]}">
+            <div class="${style["swiper-wrapper"]}">
+              ${createSlide()}
+              ${createSlide()}
+              ${createSlide()}
+              ${createSlide()}
+              ${createSlide()}
+              ${createSlide()}
+              ${createSlide()}
+              ${createSlide()}
+              ${createSlide()}
+              ${createSlide()}
+              ${createSlide()}
+              ${createSlide()}
+              ${createSlide()}
+            </div>
+          </div>
+          <div class="${style["layer-switcher-prev-button"]}">
+            <i class="${style["i-arrow-02-prev-36"]}"></i>
+          </div>
+          <div class="${style["layer-switcher-next-button"]}">
+            <i class="${style["i-arrow-02-next-36"]}"></i>
+          </div>
+        </div>
+      </div>
+      <div class="${style["tab-pane"]}">DEF</div>
+    </div>
+  `;
 
   useScript(() => {
+    tabs(
+      div,
+      style["tab"],
+      style["tab-pane"],
+      style["tab-active"],
+      style["tab-pane-active"]
+    );
+
     const swiper = new Swiper("." + style["swiper"], {
       modules: [Navigation, Keyboard, Mousewheel],
       keyboard: {
