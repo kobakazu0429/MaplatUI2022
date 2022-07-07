@@ -36,7 +36,7 @@ $-button-width: 40px;
       @include borders.rounded-md-top;
       opacity: 0.64;
       padding: 24px 48px;
-      margin: 0 $margin / 2;
+      margin: 0 calc($margin / 2);
 
       &:first-child {
         margin-left: 2 * $margin;
@@ -60,6 +60,114 @@ $-button-width: 40px;
         height: 100%;
       }
     }
+  }
+}
+
+// https://css-tricks.com/sliding-nightmare-understanding-range-input/
+
+$-track-w: 200px;
+$-track-h: 4px;
+$-thumb-d: 24px;
+$-filll-c: #C7C7C7;
+
+@mixin track() {
+  box-sizing: border-box;
+  border: none;
+  width: $-track-w;
+  height: $-track-h;
+
+  $padding: $-thumb-d * 0.5;
+  $track-c: #696969;
+
+  background:
+    linear-gradient(
+      to right,
+      transparent 0 $padding,
+      $-filll-c $padding var(--maplat-sx),
+      $track-c var(--maplat-sx) calc(100% - $padding),
+      transparent calc(100% - $padding) 100%
+    );
+}
+
+@mixin fill() {
+  height: $-track-h;
+  background: $-filll-c;
+}
+
+@mixin thumb() {
+  box-sizing: border-box;
+  border: none;
+  width: $-thumb-d;
+  height: $-thumb-d;
+  background-image: url("../../icons/opacity-slider-24.svg");
+  background-repeat: no-repeat;
+}
+
+.wrap {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: $-track-w;
+  height: 3.5 * $-thumb-d;
+}
+
+input[type="range"] {
+  &,
+  &::-webkit-slider-thumb {
+    appearance: none;
+  }
+
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  min-height: $-thumb-d;
+  background: transparent;
+
+  --maplat-range: calc(var(--maplat-max) - var(--maplat-min));
+  --maplat-ratio: calc((var(--maplat-val) - var(--maplat-min)) / var(--maplat-range));
+  --maplat-sx: calc(0.5 * #{$-thumb-d} + var(--maplat-ratio) * (100% - #{$-thumb-d}));
+
+  width: $-track-w;
+  height: $-thumb-d;
+
+  &::-webkit-slider-runnable-track {
+    @include track;
+  }
+
+  &::-moz-range-track {
+    @include track;
+  }
+
+  &::-moz-range-progress {
+    @include fill;
+  }
+
+  &::-ms-track {
+    @include track;
+  }
+
+  &::-webkit-slider-thumb {
+    margin-top: 0.5 * ($-track-h - $-thumb-d);
+
+    @include thumb;
+  }
+
+  &::-moz-range-thumb {
+    @include thumb;
+  }
+
+  &::-ms-fill-lower {
+    @include fill;
+  }
+
+  &::-ms-thumb {
+    margin-top: 0;
+
+    @include thumb;
+  }
+
+  &::-ms-tooltip {
+    display: none;
   }
 }
 

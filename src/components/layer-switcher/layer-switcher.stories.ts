@@ -30,7 +30,13 @@ export const LayerSwitcher: Story = () => {
   div.classList.add(style["tab-container"]);
   div.innerHTML = `
     <div class="${style["tabs"]}">
-      <button class="${style["tab"]}">古地図・絵地図</button>
+      <button class="${style["tab"]}">古地図・絵地図
+        <div id="wrap" class="${
+          style["wrap"]
+        }" style="--maplat-min: 0;--maplat-max: 100;--maplat-val: 100">
+          <input id="r" type="range" min="0" max="100" step="1" value="100">
+        </div>
+      </button>
       <button class="${style["tab"]}">現代地図</button>
     </div>
     <div class="${style["tab-panes"]}">
@@ -72,6 +78,19 @@ export const LayerSwitcher: Story = () => {
       style["tab-pane"],
       style["tab-active"],
       style["tab-pane-active"]
+    );
+
+    const _R = document.getElementById("r") as HTMLInputElement;
+    const _W = document.getElementById("wrap") as HTMLDivElement;
+
+    // document.documentElement.classList.add(style["js"]);
+
+    _R.addEventListener(
+      "input",
+      (_e) => {
+        _W.style.setProperty("--maplat-val", +_R.value as any);
+      },
+      false
     );
 
     const swiper = new Swiper("." + style["swiper"], {
