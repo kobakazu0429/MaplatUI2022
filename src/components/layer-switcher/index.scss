@@ -29,6 +29,8 @@ $-button-width: 40px;
   flex-direction: column;
 
   .tabs {
+    display: flex;
+
     .tab {
       $margin: 12px;
 
@@ -37,6 +39,11 @@ $-button-width: 40px;
       opacity: 0.64;
       padding: 24px 48px;
       margin: 0 calc($margin / 2);
+
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
 
       &:first-child {
         margin-left: 2 * $margin;
@@ -101,6 +108,7 @@ $-filll-c: #C7C7C7;
   height: $-thumb-d;
   background-image: url("../../icons/opacity-slider-24.svg");
   background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 .wrap {
@@ -108,7 +116,6 @@ $-filll-c: #C7C7C7;
   align-items: center;
   position: relative;
   width: $-track-w;
-  height: 3.5 * $-thumb-d;
 }
 
 input[type="range"] {

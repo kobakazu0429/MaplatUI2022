@@ -31,6 +31,7 @@ export const LayerSwitcher: Story = () => {
   div.innerHTML = `
     <div class="${style["tabs"]}">
       <button class="${style["tab"]}">古地図・絵地図
+        <i class="${style["i-transparency-36"]}"></i>
         <div id="wrap" class="${
           style["wrap"]
         }" style="--maplat-min: 0;--maplat-max: 100;--maplat-val: 100">
@@ -82,8 +83,6 @@ export const LayerSwitcher: Story = () => {
 
     const _R = document.getElementById("r") as HTMLInputElement;
     const _W = document.getElementById("wrap") as HTMLDivElement;
-
-    // document.documentElement.classList.add(style["js"]);
 
     _R.addEventListener(
       "input",
