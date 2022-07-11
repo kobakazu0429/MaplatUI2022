@@ -23,7 +23,11 @@ module.exports = {
         {
           loader: 'css-loader',
           options: {
-            modules: true
+            modules: {
+              mode: "local",
+              localIdentName: "[local]",
+              exportOnlyLocals: false,
+            }
           },
         },
         {
