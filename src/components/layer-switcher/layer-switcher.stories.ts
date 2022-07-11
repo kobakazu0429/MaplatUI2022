@@ -3,6 +3,7 @@ import { useScript } from "./../../js/useScript";
 import Swiper, { Navigation, Keyboard, Mousewheel } from "swiper";
 import style from "../../maplat.scss";
 import { tabs } from "../../js/tabs";
+import { offcanvas } from "../../js/offcanvas";
 
 export default {
   title: "LayerSwitcher",
@@ -29,6 +30,7 @@ export const LayerSwitcher: Story = () => {
   const div = document.createElement("div");
   div.classList.add(style["tab-container"]);
   div.innerHTML = `
+  <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
     <div class="${style["tabs"]}">
       <button class="${style["tab"]}">古地図・絵地図
         <i class="${style["i-transparency-36"]}"></i>
@@ -39,8 +41,12 @@ export const LayerSwitcher: Story = () => {
         </div>
       </button>
       <button class="${style["tab"]}">現代地図</button>
+      <button class="${style["tab2"]}" id="layer-switcher-toggle">
+        <i class="${style["i-down-36"]}"></i>
+      </button>
     </div>
-    <div class="${style["tab-panes"]}">
+
+    <div class="${style["tab-panes"]}" id="footerSlideContent">
       <div class="${style["tab-pane"]}">
         <div class="${style["layer-switcher"]}">
           <div class="${style["swiper"]} ${style["layer-switcher-swiper"]}">
@@ -70,7 +76,7 @@ export const LayerSwitcher: Story = () => {
       </div>
       <div class="${style["tab-pane"]}">DEF</div>
     </div>
-  `;
+  </div>`;
 
   useScript(() => {
     tabs(
@@ -83,6 +89,16 @@ export const LayerSwitcher: Story = () => {
 
     const _R = document.getElementById("r") as HTMLInputElement;
     const _W = document.getElementById("wrap") as HTMLDivElement;
+
+    const layerSwitcherToggle = document.getElementById(
+      "layer-switcher-toggle"
+    );
+    layerSwitcherToggle?.addEventListener("click", () => {
+      offcanvas("#offcanvasBottom");
+      const icon = layerSwitcherToggle.querySelector("i");
+      icon?.classList.toggle(style["i-down-36"]);
+      icon?.classList.toggle(style["i-up-36"]);
+    });
 
     _R.addEventListener(
       "input",

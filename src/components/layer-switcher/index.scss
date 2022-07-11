@@ -22,6 +22,31 @@ $-button-width: 40px;
   justify-content: center;
 }
 
+.offcanvas {
+  position: fixed;
+  bottom: 0;
+  z-index: 1045;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  background-color: #fff;
+  background-clip: padding-box;
+  outline: 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.offcanvas-bottom {
+  right: 0;
+  left: 0;
+  height: 30vh;
+  max-height: 100%;
+  transform: none;
+}
+
+.offcanvas-bottom-hidden {
+  transform: translateY(calc(100% - 72px));
+}
+
 .tab-container {
   height: 100%;
   width: 100%;
@@ -32,6 +57,29 @@ $-button-width: 40px;
     display: flex;
 
     .tab {
+      $margin: 12px;
+
+      @include colors.background-black;
+      @include borders.rounded-md-top;
+      opacity: 0.64;
+      padding: 24px 48px;
+      margin: 0 calc($margin / 2);
+
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      &:first-child {
+        margin-left: 2 * $margin;
+      }
+
+      &-active {
+        opacity: 1;
+      }
+    }
+
+    .tab2 {
       $margin: 12px;
 
       @include colors.background-black;
