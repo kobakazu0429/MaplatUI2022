@@ -30,7 +30,7 @@ export const LayerSwitcher: Story = () => {
   const div = document.createElement("div");
   div.classList.add(style["tab-container"]);
   div.innerHTML = `
-  <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+  <div class="${style["offcanvas"]} ${style["offcanvas-bottom"]}">
     <div class="${style["tabs"]}">
       <button class="${style["tab"]}">古地図・絵地図
         <i class="${style["i-transparency-36"]}"></i>
@@ -94,7 +94,7 @@ export const LayerSwitcher: Story = () => {
       "layer-switcher-toggle"
     );
     layerSwitcherToggle?.addEventListener("click", () => {
-      offcanvas("#offcanvasBottom");
+      offcanvas("." + style["offcanvas"]);
       const icon = layerSwitcherToggle.querySelector("i");
       icon?.classList.toggle(style["i-down-36"]);
       icon?.classList.toggle(style["i-up-36"]);
@@ -133,7 +133,6 @@ export const LayerSwitcher: Story = () => {
       slidePrevClass: style["swiper-slide-prev"],
       slideVisibleClass: style["swiper-slide-visible"],
     });
-    console.log(swiper);
   });
 
   return div;

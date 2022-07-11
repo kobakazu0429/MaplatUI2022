@@ -24,27 +24,20 @@ $-button-width: 40px;
 
 .offcanvas {
   position: fixed;
-  bottom: 0;
-  z-index: 1045;
-  display: flex;
-  flex-direction: column;
-  max-width: 100%;
-  background-color: #fff;
-  background-clip: padding-box;
   outline: 0;
   transition: transform 0.3s ease-in-out;
 }
 
 .offcanvas-bottom {
+  bottom: 0;
   right: 0;
   left: 0;
-  height: 30vh;
-  max-height: 100%;
   transform: none;
 }
 
 .offcanvas-bottom-hidden {
-  transform: translateY(calc(100% - 72px));
+  $tab-button-height: 72px;
+  transform: translateY(calc(100% - $tab-button-height));
 }
 
 .tab-container {
