@@ -1,9 +1,7 @@
 import { Meta, Story } from "@storybook/html";
 import { useScript } from "./../../js/useScript";
-import Swiper, { Navigation, Keyboard, Mousewheel } from "swiper";
 import style from "../../maplat.scss";
-import { tabs } from "../../js/tabs";
-import { offcanvas } from "../../js/offcanvas";
+import { layerSwitcher } from "./index";
 
 export default {
   title: "LayerSwitcher",
@@ -79,60 +77,7 @@ export const LayerSwitcher: Story = () => {
   </div>`;
 
   useScript(() => {
-    tabs(
-      div,
-      style["tab"],
-      style["tab-pane"],
-      style["tab-active"],
-      style["tab-pane-active"]
-    );
-
-    const _R = document.getElementById("r") as HTMLInputElement;
-    const _W = document.getElementById("wrap") as HTMLDivElement;
-
-    const layerSwitcherToggle = document.getElementById(
-      "layer-switcher-toggle"
-    );
-    layerSwitcherToggle?.addEventListener("click", () => {
-      offcanvas("." + style["offcanvas"]);
-      const icon = layerSwitcherToggle.querySelector("i");
-      icon?.classList.toggle(style["i-down-36"]);
-      icon?.classList.toggle(style["i-up-36"]);
-    });
-
-    _R.addEventListener(
-      "input",
-      (_e) => {
-        _W.style.setProperty("--maplat-val", +_R.value as any);
-      },
-      false
-    );
-
-    const swiper = new Swiper("." + style["swiper"], {
-      modules: [Navigation, Keyboard, Mousewheel],
-      keyboard: {
-        enabled: true,
-      },
-      mousewheel: true,
-      loop: true,
-      slidesPerView: "auto",
-      spaceBetween: 10,
-      navigation: {
-        nextEl: "." + style["layer-switcher-next-button"],
-        prevEl: "." + style["layer-switcher-prev-button"],
-        // disabledClass: style["layer-switcher-navigation-disabled"],
-        // hiddenClass: style["layer-switcher-navigation-hidden"],
-        // lockClass: style["layer-switcher-navigation-lock"],
-        // navigationDisabledClass: style[""],
-      },
-      wrapperClass: style["swiper-wrapper"],
-      slideActiveClass: style["swiper-slide-active"],
-      slideBlankClass: style["swiper-slide-invisible-blank"],
-      slideClass: style["swiper-slide"],
-      slideNextClass: style["swiper-slide-next"],
-      slidePrevClass: style["swiper-slide-prev"],
-      slideVisibleClass: style["swiper-slide-visible"],
-    });
+    layerSwitcher(div);
   });
 
   return div;
