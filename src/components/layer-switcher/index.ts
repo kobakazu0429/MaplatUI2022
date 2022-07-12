@@ -3,7 +3,10 @@ import style from "../../maplat.scss";
 import { tabs } from "../../js/tabs";
 import { offcanvas } from "../../js/offcanvas";
 
-export const layerSwitcher = (containerElement: HTMLDivElement) => {
+export const layerSwitcher = (
+  containerElement: HTMLDivElement,
+  onClick: (clickedSlide: HTMLElement) => void
+) => {
   tabs(
     containerElement,
     style["tab"],
@@ -33,7 +36,7 @@ export const layerSwitcher = (containerElement: HTMLDivElement) => {
     false
   );
 
-  const swiper = new Swiper("." + style["swiper"], {
+  const _swiper = new Swiper("." + style["swiper"], {
     modules: [Navigation, Mousewheel],
     mousewheel: true,
     loop: true,
@@ -54,5 +57,10 @@ export const layerSwitcher = (containerElement: HTMLDivElement) => {
     slideNextClass: style["swiper-slide-next"],
     slidePrevClass: style["swiper-slide-prev"],
     slideVisibleClass: style["swiper-slide-visible"],
+    on: {
+      click(swiper, _event) {
+        onClick(swiper.clickedSlide);
+      },
+    },
   });
 };

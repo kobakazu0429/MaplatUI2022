@@ -7,9 +7,9 @@ export default {
   title: "LayerSwitcher",
 } as Meta;
 
-const createSlide = () => {
+const createSlide = (id: number) => {
   return `
-  <div class="${style["swiper-slide"]} ${style["layer-slide"]}">
+  <div class="${style["swiper-slide"]} ${style["layer-slide"]}" data-layer-id="${id}">
     <div class="${style["layer-infomation"]}">
       <i class="${style["i-time-24"]}"></i>
       明治期 / 1868年以降
@@ -49,19 +49,19 @@ export const LayerSwitcher: Story = () => {
         <div class="${style["layer-switcher"]}">
           <div class="${style["swiper"]} ${style["layer-switcher-swiper"]}">
             <div class="${style["swiper-wrapper"]}">
-              ${createSlide()}
-              ${createSlide()}
-              ${createSlide()}
-              ${createSlide()}
-              ${createSlide()}
-              ${createSlide()}
-              ${createSlide()}
-              ${createSlide()}
-              ${createSlide()}
-              ${createSlide()}
-              ${createSlide()}
-              ${createSlide()}
-              ${createSlide()}
+              ${createSlide(1)}
+              ${createSlide(2)}
+              ${createSlide(3)}
+              ${createSlide(4)}
+              ${createSlide(5)}
+              ${createSlide(6)}
+              ${createSlide(7)}
+              ${createSlide(8)}
+              ${createSlide(9)}
+              ${createSlide(10)}
+              ${createSlide(11)}
+              ${createSlide(12)}
+              ${createSlide(13)}
             </div>
           </div>
           <div class="${style["layer-switcher-prev-button"]}">
@@ -77,7 +77,9 @@ export const LayerSwitcher: Story = () => {
   </div>`;
 
   useScript(() => {
-    layerSwitcher(div);
+    layerSwitcher(div, (el) => {
+      console.log(el.dataset.layerId);
+    });
   });
 
   return div;
