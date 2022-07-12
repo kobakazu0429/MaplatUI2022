@@ -33,12 +33,24 @@
   border-radius: borders.$border-radius-6;
 }
 
+@mixin under-rounded-md {
+  border-radius: borders.$border-radius-6 + 1px;
+}
+
 @mixin rounded-full {
   border-radius: borders.$border-radius-full;
 }
 
 @mixin border-radius-top($radius) {
   border-radius: $radius $radius 0 0;
+}
+
+@mixin rounded-md-top {
+  @include border-radius-top(borders.$border-radius-6);
+}
+
+@mixin rounded-md-bottom {
+  @include border-radius-bottom(borders.$border-radius-6);
 }
 
 @mixin border-radius-bottom($radius) {
@@ -48,12 +60,12 @@
 @mixin square-button-group {
   button {
     &:nth-child(1) {
-      @include border-radius-top(borders.$border-radius-6);
+      @include rounded-md-top;
       border-bottom: none;
     }
 
     &:nth-last-child(1) {
-      @include border-radius-bottom(borders.$border-radius-6);
+      @include rounded-md-bottom;
     }
   }
 }

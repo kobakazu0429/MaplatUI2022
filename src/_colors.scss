@@ -73,6 +73,19 @@ $square-border-color: var(--maplat-square-border-color, colors.$gray-10);
   border-color: colors.$gray-35;
 }
 
+@mixin background-black-translucent-with-hover {
+  color: colors.$gray-5;
+  background-color: colors.$black-80;
+
+  &:hover {
+    background-color: colors.$black-40;
+  }
+
+  &:active {
+    background-color: colors.$black-25;
+  }
+}
+
 @mixin shadow {
   background-color: colors.$white;
 
@@ -83,6 +96,11 @@ $square-border-color: var(--maplat-square-border-color, colors.$gray-10);
   &:active {
     background: colors.$gray-17;
   }
+}
+
+@mixin layer-infomation {
+  background-color: colors.$gray-47;
+  color: colors.$gray-5;
 }
 
 :export {

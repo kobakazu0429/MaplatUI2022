@@ -1,0 +1,313 @@
+@use "../../_borders.scss";
+@use "../../_colors.scss";
+@use "../../_elevations.scss";
+@use "../../_breakpoints.scss";
+
+$-padding: 12px;
+$-button-width: 40px;
+
+.swiper-slide {
+  flex-shrink: initial;
+}
+
+@mixin -button {
+  @include borders.rounded-md;
+  @include colors.background-black-translucent-with-hover;
+  width: $-button-width;
+  height: 140px;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.offcanvas {
+  position: fixed;
+  outline: 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.offcanvas-bottom {
+  bottom: 0;
+  right: 0;
+  left: 0;
+  transform: none;
+}
+
+.offcanvas-bottom-hidden {
+  $tab-button-height: 72px;
+  transform: translateY(calc(100% - $tab-button-height));
+}
+
+.tab-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .tabs {
+    display: flex;
+
+    .tab {
+      $margin: 12px;
+
+      @include colors.background-black;
+      @include borders.rounded-md-top;
+      opacity: 0.64;
+      padding: 24px 48px;
+      margin: 0 calc($margin / 2);
+
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      &:first-child {
+        margin-left: 2 * $margin;
+      }
+
+      &-active {
+        opacity: 1;
+      }
+    }
+
+    .tab2 {
+      $margin: 12px;
+
+      @include colors.background-black;
+      @include borders.rounded-md-top;
+      opacity: 0.64;
+      padding: 24px 48px;
+      margin: 0 calc($margin / 2);
+
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      &:first-child {
+        margin-left: 2 * $margin;
+      }
+
+      &-active {
+        opacity: 1;
+      }
+    }
+  }
+
+  .tab-panes {
+    background-color: yellow;
+
+    .tab-pane {
+      display: none;
+
+      &-active {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+// https://css-tricks.com/sliding-nightmare-understanding-range-input/
+
+$-track-w: 200px;
+$-track-h: 4px;
+$-thumb-d: 24px;
+$-filll-c: #C7C7C7;
+
+@mixin track() {
+  box-sizing: border-box;
+  border: none;
+  width: $-track-w;
+  height: $-track-h;
+
+  $padding: $-thumb-d * 0.5;
+  $track-c: #696969;
+
+  background:
+    linear-gradient(
+      to right,
+      transparent 0 $padding,
+      $-filll-c $padding var(--maplat-sx),
+      $track-c var(--maplat-sx) calc(100% - $padding),
+      transparent calc(100% - $padding) 100%
+    );
+}
+
+@mixin fill() {
+  height: $-track-h;
+  background: $-filll-c;
+}
+
+@mixin thumb() {
+  box-sizing: border-box;
+  border: none;
+  width: $-thumb-d;
+  height: $-thumb-d;
+  background-image: url("../../icons/opacity-slider-24.svg");
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.wrap {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: $-track-w;
+}
+
+input[type="range"] {
+  &,
+  &::-webkit-slider-thumb {
+    appearance: none;
+  }
+
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  min-height: $-thumb-d;
+  background: transparent;
+
+  --maplat-range: calc(var(--maplat-max) - var(--maplat-min));
+  --maplat-ratio: calc((var(--maplat-val) - var(--maplat-min)) / var(--maplat-range));
+  --maplat-sx: calc(0.5 * #{$-thumb-d} + var(--maplat-ratio) * (100% - #{$-thumb-d}));
+
+  width: $-track-w;
+  height: $-thumb-d;
+
+  &::-webkit-slider-runnable-track {
+    @include track;
+  }
+
+  &::-moz-range-track {
+    @include track;
+  }
+
+  &::-moz-range-progress {
+    @include fill;
+  }
+
+  &::-ms-track {
+    @include track;
+  }
+
+  &::-webkit-slider-thumb {
+    margin-top: 0.5 * ($-track-h - $-thumb-d);
+
+    @include thumb;
+  }
+
+  &::-moz-range-thumb {
+    @include thumb;
+  }
+
+  &::-ms-fill-lower {
+    @include fill;
+  }
+
+  &::-ms-thumb {
+    margin-top: 0;
+
+    @include thumb;
+  }
+
+  &::-ms-tooltip {
+    display: none;
+  }
+}
+
+.layer-switcher {
+  @include colors.background-black;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: $-padding;
+  padding: $-padding;
+
+  &-next-button,
+  &-prev-button {
+    @include -button;
+    z-index: 10;
+    display: none;
+
+    @include breakpoints.responsive(md) {
+      display: flex;
+    }
+
+    i {
+      font-size: 40px;
+    }
+  }
+
+  &-prev-button {
+    order: 1;
+  }
+
+  &-swiper {
+    order: 2;
+    height: 100%;
+  }
+
+  &-next-button {
+    order: 3;
+  }
+}
+
+.layer-slide {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &-img-wrapper {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    object-fit: cover;
+
+    img {
+      @include borders.rounded-md-bottom;
+      width: 100%;
+      height: 100%;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 30%;
+      background-image: linear-gradient(to top, rgb(51 51 51 / 75%), rgb(118 118 118 / 0%));
+    }
+  }
+}
+
+.layer-infomation {
+  @include borders.rounded-md-top;
+  @include colors.layer-infomation;
+
+  min-width: 300px;
+  white-space: nowrap;
+  display: flex;
+  $-padding: 8px;
+  padding: $-padding;
+  column-gap: $-padding;
+  font-size: 14px;
+}
+
+.layer-name {
+  position: absolute;
+  bottom: 8px;
+  left: 12px;
+  color: #FAFAFA;
+  text-shadow: 2px 2px 2px rgb(0 0 0 / 16%);
+  font-size: 14px;
+}

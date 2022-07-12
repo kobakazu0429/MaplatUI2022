@@ -5,6 +5,7 @@ module.exports = {
   "stories": [
     "../src/**/*.stories.@(ts|tsx)"
   ],
+  "staticDirs": ['../public'],
   "addons": [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
@@ -22,7 +23,11 @@ module.exports = {
         {
           loader: 'css-loader',
           options: {
-            modules: true
+            modules: {
+              mode: "local",
+              localIdentName: "[local]",
+              exportOnlyLocals: false,
+            }
           },
         },
         {
