@@ -25,6 +25,10 @@
   border-right-style: solid;
 }
 
+@mixin rounded-none {
+  border-radius: 0;
+}
+
 @mixin rounded {
   border-radius: borders.$border-radius-4;
 }

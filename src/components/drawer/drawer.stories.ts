@@ -120,8 +120,6 @@ BottomDrawer.parameters = {
   },
 };
 
-export const LeftDrawer: Story = () => {
-  const div = document.createElement("div");
-  div.classList.add(style["drawer"]);
-  return div;
+export const LeftDrawer: Story = (...params) => {
+  return BottomDrawer(...params);
 };
