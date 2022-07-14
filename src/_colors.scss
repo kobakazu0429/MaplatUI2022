@@ -3,6 +3,12 @@
 $border-color: var(--maplat-border-color, colors.$gray-40);
 $square-border-color: var(--maplat-square-border-color, colors.$gray-10);
 
+@mixin text {
+  background-color: colors.$white;
+  color: colors.$gray-50;
+  border-color: colors.$gray-20;
+}
+
 @mixin background-white {
   background-color: colors.$white;
   color: colors.$gray-50-70;

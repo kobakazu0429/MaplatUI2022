@@ -3,6 +3,8 @@
 
 .maplat {
   font-family: typography.$font-family-jp;
+  position: relative;
+  overflow: hidden;
 
   @include meta.load-css("../node_modules/destyle.css/destyle.css");
   @include meta.load-css("../node_modules/swiper/swiper-bundle.min.css");
