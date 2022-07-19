@@ -18,6 +18,6 @@ jobs:
           yarn install
           yarn build:icons
           yarn tsm
-          yarn lint:icons
+          yarn lint:scss
           yarn build:scss
           yarn tsc
