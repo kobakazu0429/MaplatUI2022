@@ -11,7 +11,6 @@ $-padding-horizontal: 30px;
   position: absolute;
   left: 0;
   bottom: 0;
-  background: #FFFFFF;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -24,6 +23,7 @@ $-padding-horizontal: 30px;
     width: 100%;
     max-width: 700px;
     transform: none;
+    padding: 0;
   }
 
   &-bar {
@@ -33,6 +33,7 @@ $-padding-horizontal: 30px;
 
     width: 100%;
     height: 36px;
+    background: #FFFFFF;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,8 +60,15 @@ $-padding-horizontal: 30px;
     @include colors.text;
     @include borders.border;
     @include borders.border-bottom-only;
+
+    @include breakpoints.responsive(md) {
+      @include borders.none;
+      margin-bottom: 1px;
+    }
+
     height: 60px;
     width: 100%;
+    background: #FFFFFF;
     display: flex;
     align-items: center;
     padding: $-padding-vertical $-padding-horizontal;
@@ -72,6 +80,7 @@ $-padding-horizontal: 30px;
     height: 100%;
     max-height: 300px;
     overflow: scroll;
+    background: #FFFFFF;
     display: flex;
     flex-direction: column;
     row-gap: 24px;
@@ -92,6 +101,25 @@ $-padding-horizontal: 30px;
 
     dd {
       font-size: 16px;
+    }
+
+    &-buttons {
+      display: flex;
+      column-gap: 8px;
+    }
+  }
+
+  &-close {
+    @include breakpoints.responsive(md) {
+      @include colors.background-white;
+      @include borders.border;
+      @include borders.border-top-only;
+
+      width: 100%;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 }

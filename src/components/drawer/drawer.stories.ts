@@ -64,7 +64,16 @@ export const BottomDrawer: Story = () => {
         <dt>地図キャッシュサイズ</dt>
         <dd>11.3 MBytes</dd>
       </div>
+
+      <div class="${style["drawer-content"]} ${style["drawer-content-buttons"]}">
+        <button class="${style["button"]}">キャッシュダウンロード</button>
+        <button class="${style["button"]}">キャッシュ削除</button>
+      </div>
     </dl>
+
+    <button class="${style["drawer-close"]}">
+      <i class="${style["i-close-36"]}"></i>閉じる
+    </button>
   `;
 
   useScript(() => {
