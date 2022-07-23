@@ -110,8 +110,9 @@ $-padding-horizontal: 30px;
   }
 
   &-close {
+
     @include breakpoints.responsive(md) {
-      @include colors.background-white;
+      @include colors.background-white-with-hover;
       @include borders.border;
       @include borders.border-top-only;
 
@@ -120,6 +121,7 @@ $-padding-horizontal: 30px;
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-shrink: 0;
     }
   }
 }
