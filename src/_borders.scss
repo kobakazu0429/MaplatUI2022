@@ -5,6 +5,10 @@
   border-style: solid;
 }
 
+@mixin none {
+  border-style: none;
+}
+
 @mixin border-top-only {
   border-style: none;
   border-top-style: solid;
