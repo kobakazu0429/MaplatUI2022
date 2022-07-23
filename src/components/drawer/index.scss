@@ -12,6 +12,7 @@ $-padding-horizontal: 30px;
   left: 0;
   bottom: 0;
   display: flex;
+  background: #FFFFFF;
   flex-direction: column;
   justify-content: flex-start;
   padding-bottom: 20px;
@@ -19,6 +20,7 @@ $-padding-horizontal: 30px;
 
   @include breakpoints.responsive(md) {
     @include borders.rounded-none;
+    background: transparent;
     height: 100%;
     width: 100%;
     max-width: 700px;
@@ -105,11 +107,13 @@ $-padding-horizontal: 30px;
 
     &-buttons {
       display: flex;
-      column-gap: 8px;
+      gap: 8px;
+      flex-wrap: wrap;
     }
   }
 
   &-close {
+    display: none;
 
     @include breakpoints.responsive(md) {
       @include colors.background-white-with-hover;
