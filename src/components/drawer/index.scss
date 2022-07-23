@@ -85,12 +85,12 @@ $-padding-horizontal: 30px;
   &-content {
     width: 100%;
 
-    &-header {
+    dt {
       font-size: 12px;
       margin-bottom: 8px;
     }
 
-    &-body {
+    dd {
       font-size: 16px;
     }
   }

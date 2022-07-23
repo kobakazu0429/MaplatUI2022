@@ -25,46 +25,46 @@ export const BottomDrawer: Story = () => {
     <div class="${style["drawer-header"]}">
       和州奈良之図 (1844年)
     </div>
-    <div class="${style["drawer-contents"]}">
+    <dl class="${style["drawer-contents"]}">
       <div class="${style["drawer-content"]}">
-        <div class="${style["drawer-content-header"]}">製作者</div>
-        <div class="${style["drawer-content-body"]}">絵図屋庄八</div>
+        <dt>製作者</dt>
+        <dd>絵図屋庄八</dd>
       </div>
       <div class="${style["drawer-content"]}">
-        <div class="${style["drawer-content-header"]}">作成時期</div>
-        <div class="${style["drawer-content-body"]}">1844年</div>
+        <dt>作成時期</dt>
+        <dd>1844年</dd>
       </div>
       <div class="${style["drawer-content"]}">
-        <div class="${style["drawer-content-header"]}">地図キャッシュサイズ</div>
-        <div class="${style["drawer-content-body"]}">11.3 MBytes</div>
-      </div>
-
-      <div class="${style["drawer-content"]}">
-        <div class="${style["drawer-content-header"]}">製作者</div>
-        <div class="${style["drawer-content-body"]}">絵図屋庄八</div>
-      </div>
-      <div class="${style["drawer-content"]}">
-        <div class="${style["drawer-content-header"]}">作成時期</div>
-        <div class="${style["drawer-content-body"]}">1844年</div>
-      </div>
-      <div class="${style["drawer-content"]}">
-        <div class="${style["drawer-content-header"]}">地図キャッシュサイズ</div>
-        <div class="${style["drawer-content-body"]}">11.3 MBytes</div>
+        <dt>地図キャッシュサイズ</dt>
+        <dd>11.3 MBytes</dd>
       </div>
 
       <div class="${style["drawer-content"]}">
-        <div class="${style["drawer-content-header"]}">製作者</div>
-        <div class="${style["drawer-content-body"]}">絵図屋庄八</div>
+        <dt>製作者</dt>
+        <dd>絵図屋庄八</dd>
       </div>
       <div class="${style["drawer-content"]}">
-        <div class="${style["drawer-content-header"]}">作成時期</div>
-        <div class="${style["drawer-content-body"]}">1844年</div>
+        <dt>作成時期</dt>
+        <dd>1844年</dd>
       </div>
       <div class="${style["drawer-content"]}">
-        <div class="${style["drawer-content-header"]}">地図キャッシュサイズ</div>
-        <div class="${style["drawer-content-body"]}">11.3 MBytes</div>
+        <dt>地図キャッシュサイズ</dt>
+        <dd>11.3 MBytes</dd>
       </div>
-    </div>
+
+      <div class="${style["drawer-content"]}">
+        <dt>製作者</dt>
+        <dd>絵図屋庄八</dd>
+      </div>
+      <div class="${style["drawer-content"]}">
+        <dt>作成時期</dt>
+        <dd>1844年</dd>
+      </div>
+      <div class="${style["drawer-content"]}">
+        <dt>地図キャッシュサイズ</dt>
+        <dd>11.3 MBytes</dd>
+      </div>
+    </dl>
   `;
 
   useScript(() => {
