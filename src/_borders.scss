@@ -5,6 +5,10 @@
   border-style: solid;
 }
 
+@mixin none {
+  border-style: none;
+}
+
 @mixin border-top-only {
   border-style: none;
   border-top-style: solid;
@@ -25,6 +29,10 @@
   border-right-style: solid;
 }
 
+@mixin rounded-none {
+  border-radius: 0;
+}
+
 @mixin rounded {
   border-radius: borders.$border-radius-4;
 }
@@ -33,8 +41,8 @@
   border-radius: borders.$border-radius-6;
 }
 
-@mixin under-rounded-md {
-  border-radius: borders.$border-radius-6 + 1px;
+@mixin rounded-xl {
+  border-radius: borders.$border-radius-12;
 }
 
 @mixin rounded-full {
@@ -45,6 +53,10 @@
   border-radius: $radius $radius 0 0;
 }
 
+@mixin border-radius-bottom($radius) {
+  border-radius: 0 0 $radius $radius;
+}
+
 @mixin rounded-md-top {
   @include border-radius-top(borders.$border-radius-6);
 }
@@ -53,8 +65,8 @@
   @include border-radius-bottom(borders.$border-radius-6);
 }
 
-@mixin border-radius-bottom($radius) {
-  border-radius: 0 0 $radius $radius;
+@mixin rounded-xl-top {
+  @include border-radius-top(borders.$border-radius-12);
 }
 
 @mixin square-button-group {

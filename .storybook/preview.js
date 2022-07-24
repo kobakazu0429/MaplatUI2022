@@ -17,6 +17,14 @@ export const parameters = {
 
 document.body.onload = () => {
   document.getElementById("root").classList.add(style["maplat"]);
-  document.getElementById("root").style.height = "100vh";
+
+  // for iOS
+  document.getElementById("root").style.height = "100dvh";
+
+  // fallback
+  if (!document.getElementById("root").style.height) {
+    document.getElementById("root").style.height = "100vh"
+  }
+
   registerFixedViewport();
 };
