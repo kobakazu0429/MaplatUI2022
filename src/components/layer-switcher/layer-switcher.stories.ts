@@ -40,7 +40,7 @@ export const LayerSwitcher: Story = () => {
       </button>
       <button class="${style["tab"]}">現代地図</button>
       <button class="${style["tab2"]}" id="layer-switcher-toggle">
-        <i class="${style["i-down-36"]}"></i>
+        <i class="${style["i-down-24"]}"></i>
       </button>
     </div>
 
