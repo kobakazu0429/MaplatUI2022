@@ -33,18 +33,23 @@ export const LayerSwitcher: Story = () => {
   div.innerHTML = `
   <div class="${style["offcanvas"]} ${style["offcanvas-bottom"]}">
     <div class="${style["tabs"]}">
-      <button class="${style["tab"]}">古地図・絵地図
+      <div>
+        <button class="${style["tab"]}">古地図・絵地図</button>
+        <button class="${style["tab"]}">現代地図</button>
+        <button class="${style["tab2"]}" id="layer-switcher-toggle">
+          <i class="${style["i-down-36"]}"></i>
+        </button>
+      </div>
+      <div>
         <i class="${style["i-transparency-36"]}"></i>
-        <div id="wrap" class="${
-          style["wrap"]
-        }" style="--maplat-min: 0;--maplat-max: 100;--maplat-val: 100">
+        <div
+          id="wrap"
+          class="${style["wrap"]}"
+          style="--maplat-min: 0;--maplat-max: 100;--maplat-val: 100"
+        >
           <input id="r" type="range" min="0" max="100" step="1" value="100">
         </div>
-      </button>
-      <button class="${style["tab"]}">現代地図</button>
-      <button class="${style["tab2"]}" id="layer-switcher-toggle">
-        <i class="${style["i-down-36"]}"></i>
-      </button>
+      </div>
     </div>
 
     <div class="${style["tab-panes"]}" id="footerSlideContent">
