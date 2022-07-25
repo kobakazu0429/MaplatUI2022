@@ -87,3 +87,12 @@ export const LayerSwitcher: Story = () => {
 
   return div;
 };
+
+export const MobileLayerSwitcher: Story = (...params) => {
+  return LayerSwitcher(...params);
+};
+MobileLayerSwitcher.parameters = {
+  viewport: {
+    defaultViewport: "iphone12mini",
+  },
+};
