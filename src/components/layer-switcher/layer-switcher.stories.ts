@@ -5,6 +5,9 @@ import { layerSwitcher } from "./index";
 
 export default {
   title: "LayerSwitcher",
+  parameters: {
+    layout: "fullscreen",
+  },
 } as Meta;
 
 const createSlide = (id: number) => {

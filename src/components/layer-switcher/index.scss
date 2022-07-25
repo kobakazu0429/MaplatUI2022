@@ -36,8 +36,7 @@ $-button-width: 40px;
 }
 
 .offcanvas-bottom-hidden {
-  $tab-button-height: 72px;
-  transform: translateY(calc(100% - $tab-button-height));
+  transform: translateY(calc(100% - var(--maplat-layer-switcher-tab-height)));
 }
 
 .tab-container {
