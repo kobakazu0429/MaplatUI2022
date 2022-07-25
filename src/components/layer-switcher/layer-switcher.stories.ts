@@ -31,7 +31,7 @@ export const LayerSwitcher: Story = () => {
   <div class="${style["offcanvas"]} ${style["offcanvas-bottom"]}">
     <div class="${style["tabs"]}">
       <button class="${style["tab"]}">古地図・絵地図
-        <i class="${style["i-transparency-36"]}"></i>
+        <i class="${style["i-map-fade-switch-24"]}"></i>
         <div id="wrap" class="${
           style["wrap"]
         }" style="--maplat-min: 0;--maplat-max: 100;--maplat-val: 100">
@@ -65,10 +65,10 @@ export const LayerSwitcher: Story = () => {
             </div>
           </div>
           <div class="${style["layer-switcher-prev-button"]}">
-            <i class="${style["i-arrow-02-prev-36"]}"></i>
+            <i class="${style["i-slide-left-24"]}"></i>
           </div>
           <div class="${style["layer-switcher-next-button"]}">
-            <i class="${style["i-arrow-02-next-36"]}"></i>
+            <i class="${style["i-slide-right-24"]}"></i>
           </div>
         </div>
       </div>
