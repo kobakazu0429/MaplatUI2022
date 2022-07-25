@@ -47,9 +47,11 @@ export const Icons: Story = () => {
   wrapper.style.overflowY = "scroll";
   wrapper.style.height = "100vh";
 
-  (Object.keys(icons) as ClassNames[]).forEach((iconName) => {
-    wrapper.appendChild(createIcon(iconName));
-  });
+  (Object.keys(icons) as ClassNames[])
+    .filter((key) => key.startsWith("i-"))
+    .forEach((iconName) => {
+      wrapper.appendChild(createIcon(iconName));
+    });
 
   return wrapper;
 };
