@@ -1,5 +1,9 @@
 @use "tokens/elevations";
 
+@mixin none {
+  box-shadow: elevations.$elevation-0;
+}
+
 @mixin on-map-button {
   box-shadow: elevations.$elevation-30;
 }
