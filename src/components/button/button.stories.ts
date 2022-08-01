@@ -24,11 +24,21 @@ export const Button: Story = () => {
 
 export const RoundedButtonBlack: Story = () => {
   const btn = document.createElement("button");
-  const i = createIcon(style["i-help-24"]);
-  i.style.paddingRight = "10px";
-  btn.innerHTML = i.outerHTML + "Maplatヘルプ";
   btn.className = style["rounded-full-button-black"];
+  btn.innerHTML = `
+    <i class="${style["i-help-24"]}"></i>
+    <span>Maplatヘルプ</span>
+  `;
   return btn;
+};
+
+export const MobileRoundedButtonBlack: Story = (...params) => {
+  return RoundedButtonBlack(...params);
+};
+MobileRoundedButtonBlack.parameters = {
+  viewport: {
+    defaultViewport: "iphone12mini",
+  },
 };
 
 export const RoundedButtonWhite: Story = () => {
