@@ -83,3 +83,24 @@ export const CircleButtonMD: Story = () => {
   btn.appendChild(createIcon(style["i-search-24"]));
   return btn;
 };
+
+export const UserButton: Story = () => {
+  const btn = document.createElement("button");
+  btn.className = style["user-button"];
+  btn.innerHTML = `
+    <div class="${style["user-icon-wrapper"]}">
+      <img src="/user_icon.png" class="${style["user-icon"]}" />
+    </div>
+    <span>山田 太郎</span>
+  `;
+  return btn;
+};
+
+export const MobileUserButton: Story = (...params) => {
+  return UserButton(...params);
+};
+MobileUserButton.parameters = {
+  viewport: {
+    defaultViewport: "iphone12mini",
+  },
+};
