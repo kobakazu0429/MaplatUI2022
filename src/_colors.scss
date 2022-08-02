@@ -92,6 +92,20 @@ $square-border-color: var(--maplat-square-border-color, colors.$gray-10);
   }
 }
 
+@mixin outline-with-hover {
+  color: colors.$gray-5;
+  background-color: transparent;
+  border-color: colors.$gray-40;
+
+  &:hover {
+      border-color: colors.$gray-35;
+  }
+
+  &:active {
+    border-color: colors.$gray-30;
+  }
+}
+
 @mixin shadow {
   background-color: colors.$white;
 

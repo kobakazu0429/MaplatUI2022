@@ -114,3 +114,18 @@ MobileUserButton.parameters = {
     defaultViewport: "iphone12mini",
   },
 };
+
+export const LoginButton: Story = () => {
+  const button = document.createElement("button");
+  button.classList.add(style["login-button"]);
+  button.innerHTML = `
+    <i class="${style["i-login-twitter-24"]}"></i>
+    <span>Twitterでログイン</span>
+  `;
+  return button;
+};
+LoginButton.parameters = {
+  backgrounds: {
+    default: "dark",
+  },
+};
