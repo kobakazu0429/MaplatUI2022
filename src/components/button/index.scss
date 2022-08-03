@@ -1,5 +1,6 @@
 @use "../../_borders.scss";
 @use "../../_colors.scss";
+@use "../../_breakpoints.scss";
 @use "../../_elevations.scss";
 
 $-base-icon-font-size: 24px;
@@ -38,6 +39,57 @@ $-base-icon-font-size: 24px;
 .rounded-full-button-black {
   @include rounded-full;
   @include colors.background-black-with-hover;
+  padding: 10px;
+
+  span {
+    display: none;
+  }
+
+  @include breakpoints.responsive(md) {
+    padding: 10px 16px;
+
+    i {
+      padding-right: 10px;
+    }
+
+    span {
+      display: initial;
+    }
+  }
+}
+
+.user-button {
+  @include rounded-full;
+  @include colors.background-black-with-hover;
+  padding: 0;
+  height: 32px;
+  width: 32px;
+
+  @include breakpoints.responsive(md) {
+    width: auto;
+  }
+
+  .user-icon-wrapper {
+    height: 100%;
+    width: 32px;
+
+    .user-icon {
+      height: 100%;
+
+      @include borders.rounded-full;
+    }
+  }
+
+  span {
+    display: none;
+  }
+
+  @include breakpoints.responsive(md) {
+    span {
+      display: initial;
+      padding: 10px;
+    }
+  }
 }
 
 .circle-button {
@@ -100,4 +152,18 @@ $-base-icon-font-size: 24px;
 
   display: flex;
   flex-direction: column;
+}
+
+.login-button {
+  @include button;
+  @include borders.border;
+  @include borders.rounded;
+  @include colors.outline-with-hover;
+  justify-content: left;
+  width: 100%;
+  height: 46px;
+
+  i {
+    margin-right: 30px;
+  }
 }

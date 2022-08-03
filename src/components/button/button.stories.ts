@@ -24,11 +24,21 @@ export const Button: Story = () => {
 
 export const RoundedButtonBlack: Story = () => {
   const btn = document.createElement("button");
-  const i = createIcon(style["i-help-24"]);
-  i.style.paddingRight = "10px";
-  btn.innerHTML = i.outerHTML + "Maplatヘルプ";
   btn.className = style["rounded-full-button-black"];
+  btn.innerHTML = `
+    <i class="${style["i-help-24"]}"></i>
+    <span>Maplatヘルプ</span>
+  `;
   return btn;
+};
+
+export const MobileRoundedButtonBlack: Story = (...params) => {
+  return RoundedButtonBlack(...params);
+};
+MobileRoundedButtonBlack.parameters = {
+  viewport: {
+    defaultViewport: "iphone12mini",
+  },
 };
 
 export const RoundedButtonWhite: Story = () => {
@@ -82,4 +92,40 @@ export const CircleButtonMD: Story = () => {
   btn.className = style["circle-button-md"];
   btn.appendChild(createIcon(style["i-search-24"]));
   return btn;
+};
+
+export const UserButton: Story = () => {
+  const btn = document.createElement("button");
+  btn.className = style["user-button"];
+  btn.innerHTML = `
+    <div class="${style["user-icon-wrapper"]}">
+      <img src="/user_icon.png" class="${style["user-icon"]}" />
+    </div>
+    <span>山田 太郎</span>
+  `;
+  return btn;
+};
+
+export const MobileUserButton: Story = (...params) => {
+  return UserButton(...params);
+};
+MobileUserButton.parameters = {
+  viewport: {
+    defaultViewport: "iphone12mini",
+  },
+};
+
+export const LoginButton: Story = () => {
+  const button = document.createElement("button");
+  button.classList.add(style["login-button"]);
+  button.innerHTML = `
+    <i class="${style["i-login-twitter-24"]}"></i>
+    <span>Twitterでログイン</span>
+  `;
+  return button;
+};
+LoginButton.parameters = {
+  backgrounds: {
+    default: "dark",
+  },
 };
