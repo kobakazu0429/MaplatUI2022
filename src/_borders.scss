@@ -29,6 +29,12 @@
   border-right-style: solid;
 }
 
+@mixin horizontal-only {
+  border-style: none;
+  border-top-style: solid;
+  border-bottom-style: solid;
+}
+
 @mixin rounded-none {
   border-radius: 0;
 }
