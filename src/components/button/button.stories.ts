@@ -3,7 +3,7 @@ import style from "../../maplat.scss";
 import type { Styles, ClassNames } from "../../icons/maplat-icons.scss";
 
 export default {
-  title: "Button",
+  title: "Component/Button",
   argTypes: {
     label: { control: "text" },
   },

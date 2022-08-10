@@ -5,7 +5,7 @@ import Hammer from "hammerjs";
 import { useScript } from "../../js/useScript";
 
 export default {
-  title: "Drawer",
+  title: "Component/Drawer",
   parameters: {
     layout: "fullscreen",
     backgrounds: {

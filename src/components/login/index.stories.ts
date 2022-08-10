@@ -2,7 +2,7 @@ import { Meta, Story } from "@storybook/html";
 import style from "../../maplat.scss";
 
 export default {
-  title: "Login",
+  title: "Component/Login",
 } as Meta;
 
 export const Login: Story = () => {
