@@ -34,6 +34,10 @@ $-base-icon-font-size: 24px;
 .rounded-full-button {
   @include rounded-full;
   @include colors.background-white-with-hover;
+
+  i {
+    padding-right: 10px;
+  }
 }
 
 .rounded-full-button-black {

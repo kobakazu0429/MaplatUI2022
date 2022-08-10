@@ -4,7 +4,7 @@ import { tabs } from "../../js/tabs";
 import { offcanvas } from "../../js/offcanvas";
 
 export const layerSwitcher = (
-  containerElement: HTMLDivElement,
+  containerElement: Element,
   onClick: (clickedSlide: HTMLElement) => void
 ) => {
   tabs(

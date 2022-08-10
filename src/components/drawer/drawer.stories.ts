@@ -80,7 +80,7 @@ export const BottomDrawer: Story = () => {
   `;
 
   useScript(() => {
-    drawer(div);
+    drawer({ drawerElement: div });
   });
 
   return div;

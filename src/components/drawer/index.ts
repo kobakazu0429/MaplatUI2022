@@ -1,7 +1,15 @@
 import Hammer from "hammerjs";
 import style from "../../maplat.scss";
 
-export const drawer = (drawerElement: Element) => {
+interface DrawerOption {
+  drawerElement: HTMLElement;
+  onOpen?: () => void;
+  onClose?: () => void;
+}
+
+export const drawer = ({ drawerElement, onOpen, onClose }: DrawerOption) => {
+  const open = () => drawerElement.classList.remove(style["drawer-close"]);
+  const close = () => drawerElement.classList.add(style["drawer-close"]);
   const bar = drawerElement.querySelector<HTMLElement>(
     "." + style["drawer-bar"]
   );
@@ -12,14 +20,16 @@ export const drawer = (drawerElement: Element) => {
   );
   if (!closeButton) throw new Error(".drawer-close-button is not exist");
   closeButton.addEventListener("click", () => {
-    drawerElement.classList.add(style["drawer-close"]);
+    close();
+    if (onClose) onClose();
   });
   const drawerHeader = drawerElement.querySelector<HTMLElement>(
     "." + style["drawer-header"]
   );
   if (!drawerHeader) throw new Error(".drawer-header is not exist");
   drawerHeader.addEventListener("click", () => {
-    drawerElement.classList.remove(style["drawer-close"]);
+    open();
+    if (onOpen) onOpen();
   });
 
   const mc = new Hammer(bar);
@@ -61,4 +71,6 @@ export const drawer = (drawerElement: Element) => {
       currentDeltaY += e.deltaY;
     }
   });
+
+  return { open, close };
 };
