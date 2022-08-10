@@ -1,8 +1,7 @@
 import { Meta, Story } from "@storybook/html";
 import style from "../../maplat.scss";
-
-import Hammer from "hammerjs";
 import { useScript } from "../../js/useScript";
+import { drawer } from "./index";
 
 export default {
   title: "Component/Drawer",
@@ -81,63 +80,7 @@ export const BottomDrawer: Story = () => {
   `;
 
   useScript(() => {
-    const bar = document.querySelector<HTMLElement>("." + style["drawer-bar"]);
-    if (!bar) throw new Error(".drawer-bar is not exist");
-
-    const closeButton = document.querySelector<HTMLButtonElement>(
-      "." + style["drawer-close-button"]
-    );
-    if (!closeButton) throw new Error(".drawer-close-button is not exist");
-    closeButton.addEventListener("click", () => {
-      div.classList.add(style["drawer-close"]);
-    });
-    const drawerHeader = document.querySelector<HTMLElement>(
-      "." + style["drawer-header"]
-    );
-    if (!drawerHeader) throw new Error(".drawer-header is not exist");
-    drawerHeader.addEventListener("click", () => {
-      div.classList.remove(style["drawer-close"]);
-    });
-
-    const mc = new Hammer(bar);
-    mc.get("swipe").set({ direction: Hammer.DIRECTION_VERTICAL });
-    mc.get("pan").set({ direction: Hammer.DIRECTION_VERTICAL });
-
-    const MAX_Y = 275;
-    const MIN_Y = 0;
-    let currentDeltaY = MAX_Y;
-
-    const isSwipeRelease = (velocity: number) => {
-      const threshold = 0.2;
-      return Math.abs(velocity) > threshold;
-    };
-
-    mc.on("swipe", (e) => {
-      if (!isSwipeRelease(e.velocity)) return;
-
-      if (e.direction === Hammer.DIRECTION_UP) {
-        // from bottom to top
-        currentDeltaY = MIN_Y;
-        div.style.transition = `transform 0.3s ease-in-out`;
-        div.style.transform = `translate3d(0, ${MIN_Y}px, 0)`;
-      } else if (e.direction === Hammer.DIRECTION_DOWN) {
-        // from top to bottom
-        currentDeltaY = MAX_Y;
-        div.style.transition = `transform 0.3s ease-in-out`;
-        div.style.transform = `translate3d(0, ${MAX_Y}px, 0)`;
-      }
-    });
-
-    mc.on("pan", (e) => {
-      const toY = currentDeltaY + e.deltaY;
-
-      if (!(MIN_Y <= toY && toY <= MAX_Y)) return;
-      div.style.transition = `none`;
-      div.style.transform = `translate3d(0, ${toY}px, 0)`;
-      if (e.isFinal) {
-        currentDeltaY += e.deltaY;
-      }
-    });
+    drawer(div);
   });
 
   return div;
