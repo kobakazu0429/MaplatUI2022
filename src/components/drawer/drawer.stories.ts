@@ -8,9 +8,6 @@ export default {
   title: "Component/Drawer",
   parameters: {
     layout: "fullscreen",
-    backgrounds: {
-      default: "dark",
-    },
   },
 } as Meta;
 
@@ -23,7 +20,14 @@ export const BottomDrawer: Story = () => {
       <i></i>
     </div>
     <div class="${style["drawer-header"]}">
-      和州奈良之図 (1844年)
+      <div class="${style["drawer-header-title"]}">
+        和州奈良之図 (1844年)
+      </div>
+      <div class="${style["drawer-header-icons"]}">
+        <i class="${style["i-share-24"]}"></i>
+        <i class="${style["i-download-24"]}"></i>
+        <i class="${style["i-info-24"]}"></i>
+      </div>
     </div>
     <dl class="${style["drawer-contents"]}">
       <div class="${style["drawer-content"]}">
@@ -71,7 +75,7 @@ export const BottomDrawer: Story = () => {
       </div>
     </dl>
 
-    <button class="${style["drawer-close"]}">
+    <button class="${style["drawer-close-button"]}">
       <i class="${style["i-close-24"]}"></i>閉じる
     </button>
   `;
@@ -79,6 +83,21 @@ export const BottomDrawer: Story = () => {
   useScript(() => {
     const bar = document.querySelector<HTMLElement>("." + style["drawer-bar"]);
     if (!bar) throw new Error(".drawer-bar is not exist");
+
+    const closeButton = document.querySelector<HTMLButtonElement>(
+      "." + style["drawer-close-button"]
+    );
+    if (!closeButton) throw new Error(".drawer-close-button is not exist");
+    closeButton.addEventListener("click", () => {
+      div.classList.add(style["drawer-close"]);
+    });
+    const drawerHeader = document.querySelector<HTMLElement>(
+      "." + style["drawer-header"]
+    );
+    if (!drawerHeader) throw new Error(".drawer-header is not exist");
+    drawerHeader.addEventListener("click", () => {
+      div.classList.remove(style["drawer-close"]);
+    });
 
     const mc = new Hammer(bar);
     mc.get("swipe").set({ direction: Hammer.DIRECTION_VERTICAL });
@@ -126,6 +145,9 @@ export const BottomDrawer: Story = () => {
 BottomDrawer.parameters = {
   viewport: {
     defaultViewport: "iphone12mini",
+  },
+  backgrounds: {
+    default: "dark",
   },
 };
 
