@@ -1,0 +1,21 @@
+@mixin mouse-device-only {
+  @media (hover: hover) {
+    @content;
+  }
+}
+
+@mixin touch-device-only {
+  @media (hover: none) {
+    @content;
+  }
+}
+
+.visible-mouse-device-only {
+  @include touch-device-only {
+    display: none!important;
+  }
+}
+
+.invisible {
+  display: none!important;
+}
