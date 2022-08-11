@@ -8,7 +8,7 @@
   transform: rotate(calc(var(--maplat-direction-rotate-as-degree-number, 0) * 1deg));
 
   @include breakpoints.responsive(md) {
-    width: 100px;
-    height: 100px;
+    width: 130px;
+    height: 130px;
   }
 }
