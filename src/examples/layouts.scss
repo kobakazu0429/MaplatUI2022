@@ -1,0 +1,63 @@
+.parent {
+  display: grid;
+
+  /* stylelint-disable declaration-block-no-redundant-longhand-properties */
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+    "top-left top-right"
+    "bottom-left bottom-right";
+  /* stylelint-enable declaration-block-no-redundant-longhand-properties */
+
+  grid-gap: 0;
+  z-index: 100;
+}
+
+$-padding: 10px;
+
+@mixin layout() {
+  display: flex;
+  grid-gap: 10px;
+  justify-content: flex-start;
+}
+
+@mixin left() {
+  flex-direction: row;
+  padding-left: $-padding;
+}
+
+@mixin right() {
+  flex-direction: row-reverse;
+  padding-right: $-padding;
+}
+
+.maplat-layout-top-left {
+  @include layout;
+  @include left;
+  grid-area: top-left;
+  align-items: flex-start;
+}
+
+.maplat-layout-top-right {
+  @include layout;
+  @include right;
+  grid-area: top-right;
+  align-items: flex-end;
+  padding-top: $-padding;
+}
+
+.maplat-layout-bottom-left {
+  @include layout;
+  @include left;
+  grid-area: bottom-left;
+  align-items: flex-end;
+}
+
+.maplat-layout-bottom-right {
+  @include layout;
+  @include right;
+  grid-area: bottom-right;
+  align-items: flex-end;
+  padding-bottom: var(--maplat-layout-bottom-right-padding-bottom, $-padding);
+  transition: padding 0.3s ease-in-out;
+}
