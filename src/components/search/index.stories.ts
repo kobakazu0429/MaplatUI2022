@@ -1,6 +1,16 @@
 import type { Meta, Story } from "@storybook/html";
 import style from "../../maplat.scss";
 
+const argTypes = {
+  searchWords: {
+    control: { type: "text" },
+    defaultValue: "",
+  },
+};
+
+type ArgKeys = keyof typeof argTypes;
+type Args = Record<ArgKeys, any>;
+
 export default {
   title: "Component/Search",
   parameters: {
@@ -9,16 +19,17 @@ export default {
       default: "dark",
     },
   },
+  argTypes,
 } as Meta;
 
-export const BeforeSearch: Story = () => {
+export const BeforeSearch: Story = (args) => {
   const div = document.createElement("div");
   div.classList.add(style["search"]);
   div.innerHTML = `
     <div class="${style["search-header"]}">
       <div class="${style["search-header-title"]}">
       <i class="${style["i-search-24"]}"></i>
-        <input type="search" placeholder="こちらに入力してください。" />
+        <input type="search" placeholder="こちらに入力してください。" value="${args.searchWords}" />
       </div>
       <div class="${style["search-header-close"]}">
         <i class="${style["i-close-24"]}"></i>
@@ -38,7 +49,7 @@ BeforeSearchMobile.parameters = {
   },
 };
 
-export const SearchResult: Story = () => {
+export const SearchResult: Story<Args> = (args) => {
   const searchResult = `
     <button class="${style["search-result"]}">
       <div class="${style["search-result-body"]}">
@@ -59,7 +70,7 @@ export const SearchResult: Story = () => {
     <div class="${style["search-header"]}">
       <div class="${style["search-header-title"]}">
       <i class="${style["i-search-24"]}"></i>
-        <input type="search" placeholder="こちらに入力してください。" />
+        <input type="search" placeholder="こちらに入力してください。" value="${args.searchWords}" />
       </div>
       <div class="${style["search-header-close"]}">
         <i class="${style["i-close-24"]}"></i>
@@ -76,12 +87,15 @@ export const SearchResult: Story = () => {
   `;
   return div;
 };
-SearchResult.argTypes = {
-  search: { control: "text" },
+SearchResult.args = {
+  searchWords: "興福寺",
 };
 
-export const SearchMobileResult: Story = (...params) => {
+export const SearchMobileResult: Story<Args> = (...params) => {
   return SearchResult(...params);
+};
+SearchMobileResult.args = {
+  searchWords: "興福寺",
 };
 SearchMobileResult.parameters = {
   viewport: {
