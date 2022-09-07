@@ -14,7 +14,7 @@ export const Direction: Story = () => {
 export const EastDirection: Story = () => {
   const div = document.createElement("div");
   div.classList.add(style["direction"]);
-  div.style.setProperty("--maplat-direction-rotate-as-degree-number", 90);
+  div.style.setProperty("--maplat-direction-rotate-as-degree-number", "90");
   return div;
 };
 
