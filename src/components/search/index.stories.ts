@@ -1,4 +1,7 @@
 import type { Meta, Story } from "@storybook/html";
+import { useScript } from "../../js/useScript";
+import { Drawer } from "../drawer/utils";
+import { drawer } from "../drawer";
 import style from "../../maplat.scss";
 
 const argTypes = {
@@ -12,7 +15,7 @@ type ArgKeys = keyof typeof argTypes;
 type Args = Record<ArgKeys, any>;
 
 export default {
-  title: "Component/Search",
+  title: "Examples/Search",
   parameters: {
     layout: "fullscreen",
     backgrounds: {
@@ -22,24 +25,22 @@ export default {
   argTypes,
 } as Meta;
 
-export const BeforeSearch: Story = (args) => {
-  const div = document.createElement("div");
-  div.classList.add(style["search"]);
-  div.innerHTML = `
-    <div class="${style["search-header"]}">
-      <div class="${style["search-header-title"]}">
-      <i class="${style["i-search-24"]}"></i>
-        <input type="search" placeholder="こちらに入力してください。" value="${args.searchWords}" />
-      </div>
-      <div class="${style["search-header-close"]}">
-        <i class="${style["i-close-24"]}"></i>
-      </div>
-    </div>
+const header = (args: any) => `
+  <i class="${style["i-search-24"]} ${style["search-drawer-input-icon"]}"></i>
+  <input type="search" placeholder="こちらに入力してください。" value="${args.searchWords}" class="${style["search-drawer-input"]}" />
+`;
 
-    <div class="${style["search-main"]}">こちらに検索結果が表示されます。</div>
-  `;
+export const BeforeSearch: Story = (args) => {
+  const main = `こちらに検索結果が表示されます。`;
+  const div = Drawer({ header: header(args), main });
+
+  useScript(() => {
+    drawer({ drawerElement: div });
+  });
+
   return div;
 };
+
 export const BeforeSearchMobile: Story = (...params) => {
   return BeforeSearch(...params);
 };
@@ -53,8 +54,8 @@ export const SearchResult: Story<Args> = (args) => {
   const searchResult = `
     <button class="${style["search-result"]}">
       <div class="${style["search-result-body"]}">
-        <div class="${style["search-result-body-title"]}">興福寺</div>
-        <div class="${style["search-result-body-description"]}">
+        <div class="${style["search-result-title"]}">興福寺</div>
+        <div class="${style["search-result-description"]}">
           興福寺（こうふくじ）は、奈良県奈良市登大路町（のぼりおおじちょう）にある法相宗の大本山の寺院。山号はなし。本尊は中金堂の釈迦如来。南都七大寺の一つ。藤原氏の祖・藤原鎌足とその子息・藤原不比等ゆかりの寺院で藤原氏の氏寺であり、古代から中世にかけて強大な勢力を誇った。「古都奈良の文化財」の一部として世界遺産に登録されている。
         </div>
       </div>
@@ -64,27 +65,21 @@ export const SearchResult: Story<Args> = (args) => {
     </button>
   `;
 
-  const div = document.createElement("div");
-  div.classList.add(style["search"]);
-  div.innerHTML = `
-    <div class="${style["search-header"]}">
-      <div class="${style["search-header-title"]}">
-      <i class="${style["i-search-24"]}"></i>
-        <input type="search" placeholder="こちらに入力してください。" value="${args.searchWords}" />
-      </div>
-      <div class="${style["search-header-close"]}">
-        <i class="${style["i-close-24"]}"></i>
-      </div>
-    </div>
-
+  const main = `
     <div class="${style["search-main"]}">
-     ${searchResult}
-     ${searchResult}
-     ${searchResult}
-     ${searchResult}
-     ${searchResult}
+      ${searchResult}
+      ${searchResult}
+      ${searchResult}
+      ${searchResult}
+      ${searchResult}
     </div>
   `;
+  const div = Drawer({ header: header(args), main });
+
+  useScript(() => {
+    drawer({ drawerElement: div });
+  });
+
   return div;
 };
 SearchResult.args = {
