@@ -1,0 +1,47 @@
+@use "../../_breakpoints.scss";
+
+.drawer-example-title {
+  font-size: 14px;
+}
+
+.drawer-example-icons {
+  display: none;
+
+  @include breakpoints.responsive(md) {
+    margin-left: auto;
+    display: flex;
+
+    i {
+      font-size: 20px;
+    }
+
+    i + i {
+      margin-left: 20px;
+    }
+  }
+}
+
+.drawer-example-contents {
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+}
+
+.drawer-example-content {
+  width: 100%;
+
+  dt {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  dd {
+    font-size: 16px;
+  }
+}
+
+.drawer-example-content-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
