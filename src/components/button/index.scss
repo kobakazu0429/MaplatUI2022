@@ -58,6 +58,7 @@ $-base-icon-font-size: 24px;
 
   @include breakpoints.responsive(md) {
     padding: 10px 16px;
+    min-width: 180px;
 
     i {
       padding-right: 10px;

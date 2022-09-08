@@ -55,6 +55,7 @@ export const drawer = ({ drawerElement, onOpen, onClose }: DrawerOption) => {
     drawerElement.classList.add(style["drawer-close"]);
     if (onClose) onClose();
   };
+  close();
   const bar = drawerElement.querySelector<HTMLElement>(
     "." + style["drawer-bar"]
   );

@@ -4,15 +4,15 @@
 @use "../../_breakpoints.scss";
 
 .nav {
-  @include colors.background-white;
+  @include colors.background-white-with-hover;
   @include elevations.on-map-information;
   width: 100%;
-  max-width: 420px;
   height: 64px;
   padding: 25px 16px;
 
   @include breakpoints.responsive(md) {
     @include borders.rounded-md;
+    width: 420px;
   }
 
   display: flex;

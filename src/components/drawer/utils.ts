@@ -1,12 +1,14 @@
 import style from "../../maplat.scss";
 
 interface Props {
+  id?: string;
   header: string;
   main: string;
 }
 
 export const Drawer = (props: Props): HTMLElement => {
   const div = document.createElement("div");
+  if (props.id) div.id = props.id;
   div.classList.add(style["drawer"]);
   div.innerHTML = `
     <div class="${style["drawer-bar"]}"><i></i></div>

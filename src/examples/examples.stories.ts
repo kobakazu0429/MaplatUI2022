@@ -2,6 +2,8 @@ import { Meta, Story } from "@storybook/html";
 import style from "../maplat.scss";
 import layouts from "./layouts.scss";
 import { drawer } from "../components/drawer";
+import { Drawer as DrawerBase } from "../components/drawer/utils";
+import drawerExampleStyle from "../components/drawer/example.scss";
 import { layerSwitcher } from "../components/layer-switcher";
 import { useScript } from "../js/useScript";
 
@@ -14,72 +16,87 @@ export default {
   },
 } as Meta;
 
-const Drawer = `
-<div class="${style["drawer"]} ${style["drawer-close"]}">
-  <div class="${style["drawer-bar"]}">
-    <i></i>
-  </div>
-  <div class="${style["drawer-header"]}">
-    <div class="${style["drawer-header-title"]}">
+const MAP_INFOMATION_DRAWER_ID = "MAP_INFOMATION_DRAWER_ID";
+const MapInfomation = () => {
+  const header = `
+    <div class="${drawerExampleStyle["drawer-example-title"]}">
       和州奈良之図 (1844年)
     </div>
-    <div class="${style["drawer-header-icons"]}">
+    <div class="${drawerExampleStyle["drawer-example-icons"]}">
       <i class="${style["i-share-24"]}"></i>
       <i class="${style["i-download-24"]}"></i>
       <i class="${style["i-info-24"]}"></i>
     </div>
-  </div>
-  <dl class="${style["drawer-contents"]}">
-    <div class="${style["drawer-content"]}">
+  `;
+
+  const content = `
+    <div class="${drawerExampleStyle["drawer-example-content"]}">
       <dt>製作者</dt>
       <dd>絵図屋庄八</dd>
     </div>
-    <div class="${style["drawer-content"]}">
+    <div class="${drawerExampleStyle["drawer-example-content"]}">
       <dt>作成時期</dt>
       <dd>1844年</dd>
     </div>
-    <div class="${style["drawer-content"]}">
+    <div class="${drawerExampleStyle["drawer-example-content"]}">
       <dt>地図キャッシュサイズ</dt>
       <dd>11.3 MBytes</dd>
     </div>
+  `;
 
-    <div class="${style["drawer-content"]}">
-      <dt>製作者</dt>
-      <dd>絵図屋庄八</dd>
-    </div>
-    <div class="${style["drawer-content"]}">
-      <dt>作成時期</dt>
-      <dd>1844年</dd>
-    </div>
-    <div class="${style["drawer-content"]}">
-      <dt>地図キャッシュサイズ</dt>
-      <dd>11.3 MBytes</dd>
-    </div>
+  const main = `
+    <dl class="${drawerExampleStyle["drawer-example-contents"]}">
+      ${content}
+      ${content}
+      ${content}
+      ${content}
+      ${content}
 
-    <div class="${style["drawer-content"]}">
-      <dt>製作者</dt>
-      <dd>絵図屋庄八</dd>
-    </div>
-    <div class="${style["drawer-content"]}">
-      <dt>作成時期</dt>
-      <dd>1844年</dd>
-    </div>
-    <div class="${style["drawer-content"]}">
-      <dt>地図キャッシュサイズ</dt>
-      <dd>11.3 MBytes</dd>
-    </div>
+      <div class="${drawerExampleStyle["drawer-example-content-buttons"]}">
+        <button class="${style["button"]}">キャッシュダウンロード</button>
+        <button class="${style["button"]}">キャッシュ削除</button>
+      </div>
+    </dl>
+  `;
 
-    <div class="${style["drawer-content"]} ${style["drawer-content-buttons"]}">
-      <button class="${style["button"]}">キャッシュダウンロード</button>
-      <button class="${style["button"]}">キャッシュ削除</button>
-    </div>
-  </dl>
+  const div = DrawerBase({ id: MAP_INFOMATION_DRAWER_ID, header, main });
+  return div.outerHTML;
+};
 
-  <button class="${style["drawer-close-button"]}">
-    <i class="${style["i-close-24"]}"></i>閉じる
-  </button>
-</div>
-`;
+const SEARCH_DRAWER_ID = "SEARCH_DRAWER_ID";
+const Search = () => {
+  const header = `
+    <i class="${style["i-search-24"]} ${style["search-drawer-input-icon"]}"></i>
+    <input type="search" placeholder="こちらに入力してください。" value="お寺" class="${style["search-drawer-input"]}" />
+  `;
+
+  const searchResult = `
+    <button class="${style["search-result"]}">
+      <div class="${style["search-result-body"]}">
+        <div class="${style["search-result-title"]}">興福寺</div>
+        <div class="${style["search-result-description"]}">
+          興福寺（こうふくじ）は、奈良県奈良市登大路町（のぼりおおじちょう）にある法相宗の大本山の寺院。山号はなし。本尊は中金堂の釈迦如来。南都七大寺の一つ。藤原氏の祖・藤原鎌足とその子息・藤原不比等ゆかりの寺院で藤原氏の氏寺であり、古代から中世にかけて強大な勢力を誇った。「古都奈良の文化財」の一部として世界遺産に登録されている。
+        </div>
+      </div>
+      <div class="${style["search-result-img"]}">
+        <img src="https://placehold.jp/200x200.png" />
+      </div>
+    </button>
+  `;
+
+  const main = `
+    <div class="${style["search-main"]}">
+      ${searchResult}
+      ${searchResult}
+      ${searchResult}
+      ${searchResult}
+      ${searchResult}
+    </div>
+  `;
+
+  const div = DrawerBase({ id: SEARCH_DRAWER_ID, header, main });
+  return div.outerHTML;
+};
 
 const createSlide = (id: number) => {
   return `
@@ -155,11 +172,42 @@ const LayerSwitcher = `
 </div>
 `;
 
+const SEARCH_BUTTON_ID = "SEARCH_BUTTON_ID";
+const SearchButton = `<button class="${style["circle-button-md"]}" id="${SEARCH_BUTTON_ID}"><i class="${style["i-search-24"]}"></i></button>`;
+
+const NAV_ID = "NAV_ID";
+const Nav = `
+  <button class="${style["nav"]}" id="${NAV_ID}">
+    <div class="${style["nav-title"]}">和州奈良之図 (1844年)</div>
+    <div class="${style["nav-icons"]}">
+      <i class="${style["i-share-24"]}"></i>
+      <i class="${style["i-download-24"]}"></i>
+      <i class="${style["i-info-24"]}"></i>
+    </div>
+  </button>
+`;
+
+const TopLeft = `
+  <div class="${layouts["maplat-layout-top-left"]}">
+    <div class="${layouts["maplat-layout-row-left"]}">
+      ${Nav}
+      ${SearchButton}
+    </div>
+    <div class="${layouts["maplat-layout-row-left"]}">
+      <button class="${style["rounded-full-button"]}"><i class="${style["i-share-24"]}"></i>地図を共有</button>
+    </div>
+  </div>
+`;
+
 const TopRight = `
-  <div style="flex-direction: column;" class="${layouts["maplat-layout-top-right"]}">
-    <div style="display:flex;flex-direction:column;grid-gap:10px">
+  <div class="${layouts["maplat-layout-top-right"]}">
+    <div class="${layouts["maplat-layout-row-right"]}">
       <button class="${style["rounded-full-button-black"]}"><i class="${style["i-help-24"]}"></i><span>Maplatヘルプ</span></button>
+    </div>
+    <div class="${layouts["maplat-layout-row-right"]}">
       <button class="${style["rounded-full-button-black"]}"><i class="${style["i-sns-login-24"]}"></i><span>SNSログイン</span></button>
+    </div>
+    <div class="${layouts["maplat-layout-row-right"]}">
       <button class="${style["rounded-full-button-black"]}"><i class="${style["i-other-24"]}"></i><span>その他</span></button>
     </div>
 
@@ -169,9 +217,13 @@ const TopRight = `
 
 const BottomRight = `
   <div class="${layouts["maplat-layout-bottom-right"]}">
-    <div style="display:flex;flex-direction:column;grid-gap:10px">
+    <div class="${layouts["maplat-layout-row-right"]}">
       <button class="${style["square-button"]}"><i class="${style["i-pin-24"]}"></i></button>
+    </div>
+    <div class="${layouts["maplat-layout-row-right"]}">
       <button class="${style["square-button"]}"><i class="${style["i-gps-on-24"]}"></i></button>
+    </div>
+    <div class="${layouts["maplat-layout-row-right"]}">
       <div class="${style["square-button-group"]} ${style["visible-mouse-device-only"]}">
         <button class="${style["square-button"]}">
           <i class="${style["i-plus-24"]}"></i>
@@ -182,11 +234,13 @@ const BottomRight = `
       </div>
     </div>
 
-    <div style="display:grid;grid-template-columns: repeat(2, 1fr);grid-template-rows: repeat(2, 1fr);grid-gap:10px">
+    <div class="${layouts["maplat-layout-row-right"]}">
+      <div style="display:grid;grid-template-columns: repeat(2, 1fr);grid-template-rows: repeat(2, 1fr);grid-gap:10px">
       <button class="${style["rounded-full-button"]}"><i class="${style["i-poi-24"]}"></i>POI一覧を見る</button>
       <button class="${style["rounded-full-button"]}"><i class="${style["i-crop-24"]}"></i>地図領域の表示</button>
       <button class="${style["rounded-full-button"]}"><i class="${style["i-map-switch-24"]}"></i>地図を切り替え</button>
       <button class="${style["rounded-full-button"]}"><i class="${style["i-map-reset-24"]}"></i>地図をリセット</button>
+      </div>
     </div>
   </div>
 `;
@@ -201,16 +255,19 @@ export const Examples: Story = () => {
   wrapper.style.height = "100vh";
 
   wrapper.innerHTML = `
-    ${Drawer}
+    ${MapInfomation()}
+    ${Search()}
     ${LayerSwitcher}
+    ${TopLeft}
     ${TopRight}
     ${BottomRight}
-  `;
+    `;
 
   useScript(() => {
-    const drawerElement = wrapper.querySelector<HTMLDivElement>(
-      "." + style["drawer"]
+    const mapInfomationDrawerElement = document.getElementById(
+      MAP_INFOMATION_DRAWER_ID
     );
+    const searchDrawerElement = document.getElementById(SEARCH_DRAWER_ID);
     const layerSwitcherContainerElement = wrapper.querySelector<HTMLDivElement>(
       "." + style["tab-container"]
     );
@@ -219,15 +276,33 @@ export const Examples: Story = () => {
     );
 
     if (
-      !drawerElement ||
+      !searchDrawerElement ||
+      !mapInfomationDrawerElement ||
       !layerSwitcherContainerElement ||
       !maplatLayoutBottomRight
     ) {
       throw new Error("elements is not exist");
     }
 
-    const { open, close } = drawer({
-      drawerElement,
+    const { open: openMapInfomationDrawer, close: closeMapInfomationDrawer } =
+      drawer({
+        drawerElement: mapInfomationDrawerElement,
+        onOpen: () => {
+          layerSwitcherContainerElement.classList.add(style["invisible"]);
+          document
+            .querySelector<HTMLDivElement>(".maplat")
+            ?.style.setProperty(
+              "--maplat-layout-bottom-right-padding-bottom",
+              `10px`
+            );
+        },
+        onClose: () => {
+          layerSwitcherContainerElement.classList.remove(style["invisible"]);
+        },
+      });
+
+    const { open: openSearchDrawer, close: closeSearchDrawer } = drawer({
+      drawerElement: searchDrawerElement,
       onOpen: () => {
         layerSwitcherContainerElement.classList.add(style["invisible"]);
         document
@@ -240,6 +315,13 @@ export const Examples: Story = () => {
       onClose: () => {
         layerSwitcherContainerElement.classList.remove(style["invisible"]);
       },
+    });
+
+    document.getElementById(NAV_ID)?.addEventListener("click", () => {
+      openMapInfomationDrawer();
+    });
+    document.getElementById(SEARCH_BUTTON_ID)?.addEventListener("click", () => {
+      openSearchDrawer();
     });
 
     layerSwitcher(layerSwitcherContainerElement, (el) => {
