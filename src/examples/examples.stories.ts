@@ -194,7 +194,7 @@ const TopLeft = `
       ${SearchButton}
     </div>
     <div class="${layouts["maplat-layout-row-left"]}">
-      <button class="${style["rounded-full-button"]}"><i class="${style["i-share-24"]}"></i>地図を共有</button>
+      <button class="${style["rounded-full-button"]} ${style["sm-only"]}"><i class="${style["i-share-24"]}"></i>地図を共有</button>
     </div>
   </div>
 `;
