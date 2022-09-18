@@ -8,6 +8,7 @@ module.exports = {
     "at-rule-disallowed-list": ["extend"],
     "scss/dollar-variable-empty-line-before": null,
     "value-keyword-case": null,
+    "declaration-block-no-redundant-longhand-properties": [true, { ignoreShorthands: ["padding", "grid", "grid-template", "flex-flow"] }],
     "selector-pseudo-class-no-unknown": [true, { ignorePseudoClasses: ["export"] }],
     "property-no-unknown": [true, { ignoreSelectors: [":export"] }],
     "custom-property-pattern": "maplat-.+",
