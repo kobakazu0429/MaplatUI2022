@@ -62,6 +62,12 @@ $-gap: 10px;
     padding-left: $-padding;
     padding-top: $-padding;
   }
+
+  // stylelint-disable-next-line   selector-id-pattern
+  #SEARCH_BUTTON_ID {
+    margin-left: $-padding;
+    margin-top: $-padding;
+  }
 }
 
 .maplat-layout-top-right {
@@ -69,7 +75,19 @@ $-gap: 10px;
   @include top;
   @include right;
   grid-area: top-right;
+  justify-content: flex-end;
   align-items: flex-end;
+  flex-direction: column;
+  position: absolute;
+  top: 64px;
+  right: 0;
+
+  @include breakpoints.responsive(md) {
+    position: flex;
+    top: 0;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
 }
 
 .maplat-layout-bottom-left {
@@ -100,4 +118,14 @@ $-gap: 10px;
   display: flex;
   flex-direction: row-reverse;
   column-gap: $-gap;
+}
+
+.maplat-layout-col-to-row {
+  display: flex;
+  flex-direction: row;
+  gap: $-gap;
+
+  @include breakpoints.responsive(md) {
+    flex-direction: column;
+  }
 }

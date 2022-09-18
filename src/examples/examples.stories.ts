@@ -201,14 +201,16 @@ const TopLeft = `
 
 const TopRight = `
   <div class="${layouts["maplat-layout-top-right"]}">
-    <div class="${layouts["maplat-layout-row-right"]}">
-      <button class="${style["rounded-full-button-black"]}"><i class="${style["i-help-24"]}"></i><span>Maplatヘルプ</span></button>
-    </div>
-    <div class="${layouts["maplat-layout-row-right"]}">
-      <button class="${style["rounded-full-button-black"]}"><i class="${style["i-sns-login-24"]}"></i><span>SNSログイン</span></button>
-    </div>
-    <div class="${layouts["maplat-layout-row-right"]}">
-      <button class="${style["rounded-full-button-black"]}"><i class="${style["i-other-24"]}"></i><span>その他</span></button>
+    <div class="${layouts["maplat-layout-col-to-row"]}">
+      <div class="${layouts["maplat-layout-row-right"]}">
+        <button class="${style["rounded-full-button-black"]}"><i class="${style["i-help-24"]}"></i><span>Maplatヘルプ</span></button>
+      </div>
+      <div class="${layouts["maplat-layout-row-right"]}">
+        <button class="${style["rounded-full-button-black"]}"><i class="${style["i-sns-login-24"]}"></i><span>SNSログイン</span></button>
+      </div>
+      <div class="${layouts["maplat-layout-row-right"]}">
+        <button class="${style["rounded-full-button-black"]}"><i class="${style["i-other-24"]}"></i><span>その他</span></button>
+      </div>
     </div>
 
     <div class="${style["direction"]}"></div>
