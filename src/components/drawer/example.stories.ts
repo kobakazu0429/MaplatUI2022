@@ -60,7 +60,8 @@ export const BottomDrawer: Story = () => {
   const div = Drawer({ header, main });
 
   useScript(() => {
-    drawer({ drawerElement: div });
+    const { open } = drawer({ drawerElement: div });
+    open();
   });
 
   return div;
