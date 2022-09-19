@@ -1,27 +1,30 @@
 const path = require("path");
+const postcssPseudoClassesPlugin = require("postcss-pseudo-classes");
 const convoluteSelectorsPlugin = require("../postcssPlugins/convoluteSelectorsPlugin.js");
 
-module.exports = {
-  "stories": [
+module.exports = /** @type {import("@storybook/core-common").StorybookConfig} */ ({
+  stories: [
     "../src/**/*.stories.@(ts|tsx)"
   ],
-  "staticDirs": ['../public'],
-  "addons": [
+  staticDirs: ["../public"],
+  addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-interactions"
+    "@storybook/addon-interactions",
+    "@ergosign/storybook-addon-pseudo-states-html",
+    "@ergosign/storybook-addon-pseudo-states-html/preset-postcss",
   ],
-  "framework": "@storybook/html",
+  framework: "@storybook/html",
   core: {
-    builder: 'webpack5',
+    builder: "webpack5",
   },
   webpackFinal: async (config) => {
     config.module.rules.push({
       test: /\.scss$/,
       use: [
-        'style-loader',
+        "style-loader",
         {
-          loader: 'css-loader',
+          loader: "css-loader",
           options: {
             modules: {
               mode: "local",
@@ -34,21 +37,24 @@ module.exports = {
           loader: "postcss-loader",
           options: {
             postcssOptions: {
-              plugins: [convoluteSelectorsPlugin],
+              plugins: [
+                postcssPseudoClassesPlugin({ blacklist: [":export"] }),
+                convoluteSelectorsPlugin
+              ],
             },
           },
         },
         "resolve-url-loader",
         {
-          loader: 'sass-loader',
+          loader: "sass-loader",
           options: {
             sourceMap: true,
           },
         },
       ],
-      include: path.resolve(__dirname, '../'),
+      include: path.resolve(__dirname, "../"),
     });
 
     return config;
   },
-};
+});
