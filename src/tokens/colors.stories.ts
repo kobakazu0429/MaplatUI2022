@@ -32,9 +32,12 @@ const createColorBoxs = (colors: Array<ColorBoxProps>) => {
 
 export const Colors: Story = () => {
   return createColorBoxs(
-    (Object.keys(colors) as unknown as Array<ClassNames>).map((name) => ({
-      name,
-      color: colors[name],
-    }))
+    (Object.keys(colors) as unknown as Array<ClassNames>)
+      // @ts-ignore
+      .filter((name) => name !== "maplat")
+      .map((name) => ({
+        name,
+        color: colors[name],
+      }))
   );
 };
