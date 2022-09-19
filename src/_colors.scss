@@ -71,6 +71,15 @@ $square-border-color: var(--maplat-square-border-color, colors.$gray-10);
     color: colors.$gray-5;
     border-color: transparent;
   }
+
+  &:focus-visible {
+    outline: rgba(colors.$gray-50, 0.4) solid 4px;
+  }
+
+  &:disabled {
+    background-color: colors.$gray-50-70;
+    cursor: not-allowed;
+  }
 }
 
 @mixin background-black-translucent {
