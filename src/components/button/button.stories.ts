@@ -1,4 +1,6 @@
 import { Meta, Story } from "@storybook/html";
+import { withPseudo } from "@ergosign/storybook-addon-pseudo-states-html";
+import { maplatPseudoParametersWithInteractiveCase } from "./../../../utils/pseudo-states";
 import style from "../../maplat.scss";
 import type { Styles, ClassNames } from "../../icons/maplat-icons.scss";
 
@@ -6,6 +8,10 @@ export default {
   title: "Component/Button",
   argTypes: {
     label: { control: "text" },
+  },
+  decorators: [withPseudo],
+  parameters: {
+    ...maplatPseudoParametersWithInteractiveCase,
   },
 } as Meta;
 
