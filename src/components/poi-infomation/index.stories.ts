@@ -1,8 +1,9 @@
 import { Meta, Story } from "@storybook/html";
+import { useScript } from "../../js/useScript";
 import style from "../../maplat.scss";
 
 export default {
-  title: "POI Infomation",
+  title: "Component/POI Infomation",
   parameters: {
     layout: "fullscreen",
     backgrounds: {
@@ -12,6 +13,7 @@ export default {
 } as Meta;
 
 const SHARE_ID = "share";
+const SHARE_BUTTON_ID = "goto-share";
 
 export const POIInfomation: Story = () => {
   const div = document.createElement("div");
@@ -60,13 +62,22 @@ export const POIInfomation: Story = () => {
     </div>
 
     <div class="${style["poi-infomation-footer"]}">
-      <a href="#${SHARE_ID}" class="${style["circle-button-gray"]}">
+      <button class="${style["circle-button-gray"]}" id="${SHARE_BUTTON_ID}">
         <i class="${style["i-share-24"]}"></i>
-      </a>
+      </button>
       <button class="${style["circle-button"]}"><i class="${style["i-back-24"]}"></i></button>
       <button class="${style["circle-button"]}"><i class="${style["i-next-24"]}"></i></button>
     </div>
   `;
+
+  useScript(() => {
+    document.getElementById(SHARE_BUTTON_ID)?.addEventListener("click", () => {
+      document.getElementById(SHARE_ID)?.scrollIntoView({
+        behavior: "smooth",
+      });
+    });
+  });
+
   return div;
 };
 

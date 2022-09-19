@@ -4,7 +4,7 @@ import style from "../../maplat.scss";
 import { layerSwitcher } from "./index";
 
 export default {
-  title: "LayerSwitcher",
+  title: "Component/LayerSwitcher",
   parameters: {
     layout: "fullscreen",
   },

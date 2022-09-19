@@ -1,0 +1,65 @@
+@use "../../_colors.scss";
+@use "../../_borders.scss";
+@use "../../_elevations.scss";
+@use "../../_breakpoints.scss";
+
+input[type="search"].search-drawer-input {
+  width: 100%;
+}
+
+i.search-drawer-input-icon {
+  border-right: 1px solid black;
+}
+
+.search-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
+  overflow: scroll;
+}
+
+.search-result {
+  @include borders.border;
+  @include borders.border-bottom-only;
+  @include colors.shadow;
+
+  &:first-child {
+    @include borders.horizontal-only;
+  }
+
+  width: 100%;
+  padding: 16px 24px;
+  display: flex;
+
+  .search-result-body {
+    width: calc(100% - 98px);
+    padding-right: 24px;
+  }
+
+  .search-result-title {
+    width: 100%;
+    padding-bottom: 12px;
+  }
+
+  .search-result-description {
+    width: 100%;
+    // stylelint-disable-next-line value-no-vendor-prefix
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .search-result-img {
+    height: calc(130px - 16px * 2);
+    width: calc(130px - 16px * 2);
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

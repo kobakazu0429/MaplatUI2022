@@ -10,6 +10,7 @@
     "build:icons": "node bin/icons.mjs",
     "build:scss": "node bin/build-css.mjs",
     "lint:scss": "stylelint \"src/**/*.scss\"",
+    "lint:scss:fix": "yarn lint:scss --fix",
     "dev": "npm-run-all build:icons -p tsm:watch storybook",
     "build": "npm-run-all -s build:icons build:scss tsm"
   },

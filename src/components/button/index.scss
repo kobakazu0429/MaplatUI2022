@@ -11,6 +11,11 @@ $-base-icon-font-size: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 12px;
+
+  @include breakpoints.responsive(md) {
+    font-size: 16px;
+  }
 
   i {
     font-size: $-base-icon-font-size;
@@ -34,19 +39,29 @@ $-base-icon-font-size: 24px;
 .rounded-full-button {
   @include rounded-full;
   @include colors.background-white-with-hover;
+  justify-content: start;
+
+  i {
+    padding-right: 10px;
+  }
 }
 
 .rounded-full-button-black {
   @include rounded-full;
   @include colors.background-black-with-hover;
-  padding: 10px;
+  width: 32px;
+  height: 32px;
 
   span {
     display: none;
   }
 
   @include breakpoints.responsive(md) {
+    width: auto;
+    height: auto;
+    justify-content: start;
     padding: 10px 16px;
+    min-width: 180px;
 
     i {
       padding-right: 10px;
@@ -127,12 +142,18 @@ $-base-icon-font-size: 24px;
   @include borders.rounded-full;
   @include colors.shadow;
   @include elevations.on-map-button;
-  width: 64px;
-  height: 64px;
-  padding: 24px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
 
   i {
     font-size: calc($-base-icon-font-size * (64px / 48px));
+  }
+
+  @include breakpoints.responsive(md) {
+    width: 64px;
+    height: 64px;
+    padding: 24px;
   }
 }
 

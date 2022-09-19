@@ -2,7 +2,7 @@ import { Meta, Story } from "@storybook/html";
 import style from "../../maplat.scss";
 
 export default {
-  title: "Alert",
+  title: "Component/Alert",
 } as Meta;
 
 export const Alert: Story = () => {

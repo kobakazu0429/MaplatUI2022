@@ -3,7 +3,7 @@ import style from "../../maplat.scss";
 import type { Styles, ClassNames } from "../../icons/maplat-icons.scss";
 
 export default {
-  title: "Button",
+  title: "Component/Button",
   argTypes: {
     label: { control: "text" },
   },
@@ -44,7 +44,6 @@ MobileRoundedButtonBlack.parameters = {
 export const RoundedButtonWhite: Story = () => {
   const btn = document.createElement("button");
   const i = createIcon(style["i-map-reset-24"]);
-  i.style.paddingRight = "10px";
   btn.innerHTML = i.outerHTML + "地図をリセット";
   btn.className = style["rounded-full-button"];
   return btn;

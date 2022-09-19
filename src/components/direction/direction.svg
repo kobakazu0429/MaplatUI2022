@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 158 158">
+  <defs>
+    <filter id="a" x="0" y="0" width="158" height="158" filterUnits="userSpaceOnUse">
+      <feOffset dx="2" dy="2"/>
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-opacity=".478"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="b" x="58.472" y="13.966" width="42.088" height="43.101" filterUnits="userSpaceOnUse">
+      <feOffset dx="2" dy="2"/>
+      <feGaussianBlur stdDeviation="5" result="blur-2"/>
+      <feFlood flood-opacity=".161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g filter="url(#a)">
+    <circle data-name="楕円形 5" cx="64" cy="64" r="64" transform="translate(13 13)" fill="rgba(255,255,255,0.5)"/>
+  </g>
+  <path data-name="パス 45" d="M86.919 75.884h-7.387v-8.565h7.392a1.667 1.667 0 1 0 0-3.333h-7.392V49.218a1.667 1.667 0 0 0-3.105-.842L66.806 64.81a1.666 1.666 0 0 0 1.438 2.508h7.95v8.566h-7.993a1.667 1.667 0 1 0 0 3.333h7.993v46.129a1.667 1.667 0 1 0 3.333 0V79.22h7.392a1.667 1.667 0 1 0 0-3.333Zm-15.768-11.9 5.043-8.618v8.618Z" fill="rgba(51,51,51,0.7)"/>
+  <g transform="translate(.002 -.004)" filter="url(#b)" data-name="グループ 39">
+    <path data-name="パス 46" d="M80.64 26.968h2.923v13.1H80.64l-6.242-8.208v8.208h-2.923v-13.1h2.735l6.43 8.433Z" fill="rgba(255,44,44,0.7)"/>
+  </g>
+</svg>

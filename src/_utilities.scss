@@ -1,0 +1,31 @@
+@use "./breakpoints";
+
+@mixin mouse-device-only {
+  @media (hover: hover) {
+    @content;
+  }
+}
+
+@mixin touch-device-only {
+  @media (hover: none) {
+    @content;
+  }
+}
+
+.visible-mouse-device-only {
+  @include touch-device-only {
+    display: none !important;
+  }
+}
+
+.invisible {
+  display: none !important;
+}
+
+.sm-only {
+  display: none !important;
+
+  @include breakpoints.responsive(md) {
+    display: inherit !important;
+  }
+}

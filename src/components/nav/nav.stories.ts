@@ -2,7 +2,7 @@ import { Meta, Story } from "@storybook/html";
 import style from "../../maplat.scss";
 
 export default {
-  title: "Nav",
+  title: "Component/Nav",
   parameters: {
     layout: "fullscreen",
   },

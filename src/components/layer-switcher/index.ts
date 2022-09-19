@@ -1,10 +1,10 @@
 import Swiper, { Navigation, Mousewheel } from "swiper";
 import style from "../../maplat.scss";
 import { tabs } from "../../js/tabs";
-import { offcanvas } from "../../js/offcanvas";
+import { offcanvas, offcanvasRegister } from "../../js/offcanvas";
 
 export const layerSwitcher = (
-  containerElement: HTMLDivElement,
+  containerElement: Element,
   onClick: (clickedSlide: HTMLElement) => void
 ) => {
   tabs(
@@ -21,6 +21,7 @@ export const layerSwitcher = (
   const layerSwitcherToggle = containerElement.querySelector(
     "#layer-switcher-toggle"
   );
+  offcanvasRegister("." + style["offcanvas"]);
   layerSwitcherToggle?.addEventListener("click", () => {
     offcanvas("." + style["offcanvas"]);
     const icon = layerSwitcherToggle.querySelector("i");

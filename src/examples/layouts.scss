@@ -1,0 +1,131 @@
+@use "../breakpoints.scss";
+
+.parent {
+  display: grid;
+
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-areas:
+    "top-left"
+    "top-right"
+    "bottom-left"
+    "bottom-right";
+
+  @include breakpoints.responsive(md) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+      "top-left top-right"
+      "bottom-left bottom-right";
+  }
+
+  grid-gap: 0;
+  z-index: 100;
+}
+
+$-padding: 10px;
+$-gap: 10px;
+
+@mixin layout() {
+  display: flex;
+  grid-gap: $-gap;
+  justify-content: flex-start;
+
+  flex-direction: row;
+
+  @include breakpoints.responsive(md) {
+    flex-direction: column;
+  }
+}
+
+@mixin left() {
+  padding-left: $-padding;
+}
+
+@mixin right() {
+  padding-right: $-padding;
+}
+
+@mixin top() {
+  padding-top: $-padding;
+}
+
+.maplat-layout-top-left {
+  @include layout;
+  padding: 0;
+  grid-area: top-left;
+  align-items: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  @include breakpoints.responsive(md) {
+    padding-left: $-padding;
+    padding-top: $-padding;
+  }
+
+  // stylelint-disable-next-line   selector-id-pattern
+  #SEARCH_BUTTON_ID {
+    margin-left: $-padding;
+    margin-top: $-padding;
+  }
+}
+
+.maplat-layout-top-right {
+  @include layout;
+  @include top;
+  @include right;
+  grid-area: top-right;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+  position: absolute;
+  top: 64px;
+  right: 0;
+
+  @include breakpoints.responsive(md) {
+    position: flex;
+    top: 0;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+}
+
+.maplat-layout-bottom-left {
+  @include layout;
+  @include left;
+  grid-area: bottom-left;
+  align-items: flex-end;
+}
+
+.maplat-layout-bottom-right {
+  @include layout;
+  @include right;
+  grid-area: bottom-right;
+  align-items: flex-end;
+  padding-bottom: var(--maplat-layout-bottom-right-padding-bottom, $-padding);
+  transition: padding 0.3s ease-in-out;
+  flex-direction: row-reverse;
+}
+
+.maplat-layout-row-left {
+  display: flex;
+  flex-direction: row;
+  column-gap: $-gap;
+  flex-wrap: wrap;
+}
+
+.maplat-layout-row-right {
+  display: flex;
+  flex-direction: row-reverse;
+  column-gap: $-gap;
+}
+
+.maplat-layout-col-to-row {
+  display: flex;
+  flex-direction: row;
+  gap: $-gap;
+
+  @include breakpoints.responsive(md) {
+    flex-direction: column;
+  }
+}
