@@ -21,3 +21,15 @@ jobs:
           yarn lint:scss
           yarn build:scss
           yarn tsc
+          yarn build-storybook
+
+      - name: Lost Pixel
+        id: lp
+        uses: lost-pixel/lost-pixel@v2.7.0
+        env:
+          LOST_PIXEL_MODE: update
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: lost-pixel-artefacts
+          path: .lostpixel
