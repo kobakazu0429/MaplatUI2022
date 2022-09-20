@@ -328,7 +328,7 @@ input[type="range"] {
       left: 0;
       width: 100%;
       height: 30%;
-      background-image: linear-gradient(to top, rgb(51 51 51 / 75%), rgb(118 118 118 / 0%));
+      background-image: linear-gradient(to top, rgba(51, 51, 51, 75%), rgba(118, 118, 118, 0%));
     }
   }
 }
@@ -351,6 +351,6 @@ input[type="range"] {
   bottom: 8px;
   left: 12px;
   color: #FAFAFA;
-  text-shadow: 2px 2px 2px rgb(0 0 0 / 16%);
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 16%);
   font-size: 14px;
 }
