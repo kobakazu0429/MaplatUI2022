@@ -4,4 +4,5 @@ module.exports = /** @type {import("lost-pixel").CustomProjectConfig} */ ({
   },
   generateOnly: true,
   failOnDifference: true,
+  threshold: 0.1
 });
