@@ -25,7 +25,7 @@ jobs:
 
       - name: Lost Pixel
         id: lp
-        uses: lost-pixel/lost-pixel@2.15.0
+        uses: lost-pixel/lost-pixel@v2.15.0
         continue-on-error: true
 
       - name: Upload artefacts if failure
