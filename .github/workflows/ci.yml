@@ -21,3 +21,23 @@ jobs:
           yarn lint:scss
           yarn build:scss
           yarn tsc
+          yarn build-storybook
+
+      - name: Lost Pixel
+        id: lp
+        uses: lost-pixel/lost-pixel@v2.15.0
+        continue-on-error: true
+
+      - name: Upload artefacts if Lost Pixel failed
+        uses: actions/upload-artifact@v3
+        if: ${{ steps.lp.outcome == 'failure' }}
+        with:
+          name: lost-pixel-artefacts
+          path: .lostpixel
+
+      - name: Terminate CI if Lost Pixel failed
+        uses: actions/github-script@v3
+        if: ${{ steps.lp.outcome == 'failure' }}
+        with:
+          script: |
+            core.setFailed('Lost Pixel has failed, but CI has not terminated because `continue-on-error` is true. Intentionally terminate it here.')
