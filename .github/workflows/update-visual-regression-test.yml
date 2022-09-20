@@ -28,7 +28,7 @@ jobs:
 
       - name: Lost Pixel
         id: lp
-        uses: lost-pixel/lost-pixel@v2.7.0
+        uses: lost-pixel/lost-pixel@2.15.0
         env:
           LOST_PIXEL_MODE: update
 

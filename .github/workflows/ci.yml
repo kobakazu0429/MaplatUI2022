@@ -25,11 +25,12 @@ jobs:
 
       - name: Lost Pixel
         id: lp
-        uses: lost-pixel/lost-pixel@v2.7.0
-        env:
-          LOST_PIXEL_MODE: update
+        uses: lost-pixel/lost-pixel@2.15.0
+        continue-on-error: true
 
-      - uses: actions/upload-artifact@v3
+      - name: Upload artefacts if failure
+        uses: actions/upload-artifact@v3
+        if: ${{ failure() && steps.lp.conclusion == 'failure' }}
         with:
           name: lost-pixel-artefacts
           path: .lostpixel
