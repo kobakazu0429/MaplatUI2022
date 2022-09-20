@@ -1,0 +1,43 @@
+name: Update Visual Regression Test
+
+on: workflow_dispatch
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build
+        run: |
+          yarn build:icons
+          yarn tsm
+          yarn lint:scss
+          yarn build:scss
+          yarn tsc
+          yarn build-storybook
+
+      - name: Lost Pixel
+        id: lp
+        uses: lost-pixel/lost-pixel@v2.7.0
+        env:
+          LOST_PIXEL_MODE: update
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        if: ${{ failure() && steps.lp.conclusion == 'failure' }}
+        with:
+          commit-message: update lost-pixel baselines
+          delete-branch: true
+          branch: "lost-pixel-update/${{ github.ref_name }}"
+          title: "Lost Pixel update - ${{ github.ref_name }}"
+          body: Automated baseline update PR created by Lost Pixel
