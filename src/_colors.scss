@@ -73,7 +73,7 @@ $square-border-color: var(--maplat-square-border-color, colors.$gray-10);
   }
 
   &:focus-visible {
-    outline: rgba(colors.$gray-50, 0.4) solid 4px;
+    outline: rgba(colors.$gray-50, 40%) solid 4px;
   }
 
   &:disabled {
