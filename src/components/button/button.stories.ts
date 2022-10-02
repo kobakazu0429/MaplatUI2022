@@ -134,3 +134,10 @@ LoginButton.parameters = {
     default: "dark",
   },
 };
+
+export const ClearButton: Story = () => {
+  const button = document.createElement("button");
+  button.className = style["clear-button"];
+  button.appendChild(createIcon(style["i-close-24"]));
+  return button;
+};

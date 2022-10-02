@@ -22,41 +22,43 @@ export const POIInfomation: Story = () => {
     <div class="${style["poi-infomation-header"]}">
       <div class="${style["poi-infomation-header-title"]}">興福寺</div>
       <div class="${style["poi-infomation-header-close"]}">
-        <i class="${style["i-close-24"]}"></i>
+        <button class="${style["clear-button"]}"><i class="${style["i-close-24"]}"></i></button>
       </div>
     </div>
 
     <div class="${style["poi-infomation-main"]}">
       <div class="${style["poi-infomation-contents"]}">
-        <div class="${style["poi-infomation-contents-title"]}">興福寺</div>
         <img class="${style["poi-infomation-contents-img"]}" src="https://placehold.jp/600x300.png?text=%20" />
-        <div class="${style["poi-infomation-contents-description"]}">
+        <p class="${style["poi-infomation-contents-description"]}">
           興福寺（こうふくじ）は、奈良県奈良市登大路町（のぼりおおじちょう）にある、南都六宗の一つ、法相宗大本山である日本の仏教寺院。南都七大寺の一つに数えられる。寺院本尊は中金堂の釈迦如来であり、南円堂（本尊・不空羂索観世音菩薩〈不空羂索観音〉）は西国三十三所第9番札所となっている。
-        </div>
+        </p>
 
         <img class="${style["poi-infomation-contents-img"]}" src="https://placehold.jp/600x300.png?text=%20" />
-        <div class="${style["poi-infomation-contents-description"]}">
+        <p class="${style["poi-infomation-contents-description"]}">
           興福寺（こうふくじ）は、奈良県奈良市登大路町（のぼりおおじちょう）にある、南都六宗の一つ、法相宗大本山である日本の仏教寺院。南都七大寺の一つに数えられる。寺院本尊は中金堂の釈迦如来であり、南円堂（本尊・不空羂索観世音菩薩〈不空羂索観音〉）は西国三十三所第9番札所となっている。
-        </div>
+        </p>
 
         <img class="${style["poi-infomation-contents-img"]}" src="https://placehold.jp/600x300.png?text=%20" />
-        <div class="${style["poi-infomation-contents-description"]}">
+        <p class="${style["poi-infomation-contents-description"]}">
           興福寺（こうふくじ）は、奈良県奈良市登大路町（のぼりおおじちょう）にある、南都六宗の一つ、法相宗大本山である日本の仏教寺院。南都七大寺の一つに数えられる。寺院本尊は中金堂の釈迦如来であり、南円堂（本尊・不空羂索観世音菩薩〈不空羂索観音〉）は西国三十三所第9番札所となっている。
-        </div>
+        </p>
 
         <img class="${style["poi-infomation-contents-img"]}" src="https://placehold.jp/600x300.png?text=%20" />
-        <div class="${style["poi-infomation-contents-description"]}">
+        <p class="${style["poi-infomation-contents-description"]}">
           興福寺（こうふくじ）は、奈良県奈良市登大路町（のぼりおおじちょう）にある、南都六宗の一つ、法相宗大本山である日本の仏教寺院。南都七大寺の一つに数えられる。寺院本尊は中金堂の釈迦如来であり、南円堂（本尊・不空羂索観世音菩薩〈不空羂索観音〉）は西国三十三所第9番札所となっている。
-        </div>
+        </p>
       </div>
 
+      <hr />
+
       <div class="${style["poi-infomation-share"]}" id="${SHARE_ID}">
-        <div>このPOIを共有する</div>
+        <p>このPOIを共有する</p>
         <button class="${style["button"]}"><i class="${style["i-copy-24"]}"></i>URLをコピー</button>
-        <a class="${style["button"]}"><i class="${style["i-twitter-24"]}"></i>Twitter</a>
-        <a class="${style["button"]}"><i class="${style["i-facebook-24"]}"></i>Facebook</a>
+        <a class="${style["button"]}" href="#"><i class="${style["i-twitter-24"]}"></i>Twitter</a>
+        <a class="${style["button"]}" href="#"><i class="${style["i-facebook-24"]}"></i>Facebook</a>
 
         <hr />
+
         <img src="/qr-code.png" />
       </div>
     </div>

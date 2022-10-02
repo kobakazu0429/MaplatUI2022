@@ -3,6 +3,12 @@
 $border-color: var(--maplat-border-color, colors.$gray-40);
 $square-border-color: var(--maplat-square-border-color, colors.$gray-10);
 
+@mixin focus-visible {
+  &:focus-visible {
+    outline: rgba(colors.$gray-50, 40%) solid 4px;
+  }
+}
+
 @mixin text {
   background-color: colors.$white;
   color: colors.$gray-50;
@@ -10,13 +16,15 @@ $square-border-color: var(--maplat-square-border-color, colors.$gray-10);
 }
 
 @mixin background-white {
+  @include focus-visible;
   background-color: colors.$white;
   color: colors.$gray-50-70;
-  border-color: colors.$gray-30;
+  border-color: colors.$gray-20;
 }
 
 @mixin background-white-with-hover {
   @include background-white;
+  @include focus-visible;
 
   &:hover {
     color: colors.$gray-50;
@@ -26,6 +34,10 @@ $square-border-color: var(--maplat-square-border-color, colors.$gray-10);
   &:active {
     background-color: colors.$gray-12;
     border-color: colors.$gray-50-70;
+  }
+
+  &:disabled {
+    background-color: colors.$gray-50-70;
   }
 }
 
@@ -37,6 +49,7 @@ $square-border-color: var(--maplat-square-border-color, colors.$gray-10);
 
 @mixin background-gray-with-hover {
   @include background-gray;
+  @include focus-visible;
 
   &:hover {
     background-color: colors.$gray-13;
@@ -49,6 +62,10 @@ $square-border-color: var(--maplat-square-border-color, colors.$gray-10);
     color: colors.$gray-50-70;
     border-color: colors.$gray-30;
   }
+
+  &:disabled {
+    background-color: colors.$gray-50-70;
+  }
 }
 
 @mixin background-black {
@@ -58,6 +75,7 @@ $square-border-color: var(--maplat-square-border-color, colors.$gray-10);
 
 @mixin background-black-with-hover {
   @include background-black;
+  @include focus-visible;
   border-color: transparent;
 
   &:hover {
@@ -70,10 +88,6 @@ $square-border-color: var(--maplat-square-border-color, colors.$gray-10);
     background-color: colors.$gray-42;
     color: colors.$gray-5;
     border-color: transparent;
-  }
-
-  &:focus-visible {
-    outline: rgba(colors.$gray-50, 40%) solid 4px;
   }
 
   &:disabled {

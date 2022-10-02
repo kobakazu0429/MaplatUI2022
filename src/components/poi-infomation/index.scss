@@ -2,14 +2,13 @@
 @use "../../_borders.scss";
 @use "../../_elevations.scss";
 @use "../../_breakpoints.scss";
+@use "../../_typography.scss";
 
 $-padding-wrapper: 16px;
 
 .poi-infomation {
   @include borders.border;
   @include colors.background-white;
-  border-color: #E3E3E3;
-
   width: 100%;
   height: 100%;
   display: flex;
@@ -24,8 +23,7 @@ $-padding-wrapper: 16px;
   &-header {
     @include borders.border;
     @include borders.border-bottom-only;
-    border-color: #E3E3E3;
-
+    @include colors.background-white;
     width: 100%;
     height: 64px;
     display: flex;
@@ -34,10 +32,10 @@ $-padding-wrapper: 16px;
     flex-shrink: 0;
 
     &-title {
+      @include typography.heading3;
       width: 100%;
       flex-grow: 1;
       padding-left: $-padding-wrapper;
-      font-size: 14px;
     }
 
     &-close {
@@ -47,6 +45,15 @@ $-padding-wrapper: 16px;
       display: flex;
       justify-content: center;
       align-items: center;
+
+      button {
+        width: 64px * 0.75;
+        height: 64px * 0.75;
+
+        i {
+          @include typography.attention-icon;
+        }
+      }
     }
   }
 
@@ -58,6 +65,10 @@ $-padding-wrapper: 16px;
     padding: 20px 30px;
     overflow: scroll;
     row-gap: 30px;
+
+    hr {
+      @include colors.background-white;
+    }
   }
 
   &-contents {
@@ -66,43 +77,37 @@ $-padding-wrapper: 16px;
     flex-direction: column;
     row-gap: 12px;
 
-    &-title {
-      width: 100%;
-      font-size: 24px;
-    }
-
     &-img {
       width: 100%;
       height: auto;
     }
 
     &-description {
+      @include typography.body1;
       width: 100%;
       height: auto;
     }
   }
 
   &-share {
-    @include borders.border;
-    @include borders.border-top-only;
-    border-color: #E3E3E3;
+    @include colors.background-white;
     width: 100%;
     display: flex;
     flex-direction: column;
     row-gap: 8px;
 
-    div:nth-child(1) {
+    hr {
       margin: calc(30px - 8px) 0;
+    }
+
+    p {
+      @include typography.body1;
     }
 
     a,
     button {
       width: 100%;
       justify-content: left;
-    }
-
-    hr {
-      margin: calc(30px - 8px) 0;
     }
 
     img {
@@ -114,16 +119,15 @@ $-padding-wrapper: 16px;
   &-footer {
     @include borders.border;
     @include borders.border-top-only;
-    border-color: #E3E3E3;
-
+    @include colors.background-white;
+    @include typography.body1;
     width: 100%;
-    height: 74px;
+    height: 64px;
     display: flex;
     flex-direction: row;
     justify-content: left;
     align-items: center;
     flex-shrink: 0;
-    font-size: 24px;
     column-gap: 12px;
     padding: 0 $-padding-wrapper;
 

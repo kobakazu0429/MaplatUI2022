@@ -63,10 +63,17 @@ $-gap: 10px;
     padding-top: $-padding;
   }
 
-  // stylelint-disable-next-line   selector-id-pattern
+  // stylelint-disable-next-line selector-id-pattern
   #SEARCH_BUTTON_ID {
     margin-left: $-padding;
     margin-top: $-padding;
+  }
+
+  @include breakpoints.responsive(md) {
+    // stylelint-disable-next-line selector-id-pattern
+    #SEARCH_BUTTON_ID {
+      margin: 0;
+    }
   }
 }
 

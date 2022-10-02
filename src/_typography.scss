@@ -1,30 +1,39 @@
 @use "tokens/typography";
 
 @mixin heading1 {
-  font-size: typography.$font-size-36;
+  font-size: 36px !important;
+  line-height: 44px !important;
 }
 
 @mixin heading2 {
-  font-size: typography.$font-size-28;
+  font-size: 28px !important;
+  line-height: 36px !important;
 }
 
 @mixin heading3 {
-  font-size: typography.$font-size-20;
+  font-size: 20px !important;
+  line-height: 28px !important;
 }
 
 @mixin body1 {
-  font-size: typography.$font-size-3;
-  line-height: 28px;
+  font-size: 16px !important;
+  line-height: 28px !important;
 }
 
 @mixin body2 {
-  font-size: typography.$font-size-2;
+  font-size: 14px !important;
+  line-height: 24px !important;
+}
+
+@mixin body3 {
+  font-size: 12px !important;
+  line-height: 16px !important;
 }
 
 @mixin button {
-  font-size: typography.$font-size-2;
+  font-size: 16px !important;
 }
 
 @mixin attention-icon {
-  font-size: typography.$font-size-44;
+  font-size: 44px !important;
 }
