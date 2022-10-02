@@ -1,0 +1,30 @@
+@use "tokens/typography";
+
+@mixin heading1 {
+  font-size: typography.$font-size-36;
+}
+
+@mixin heading2 {
+  font-size: typography.$font-size-28;
+}
+
+@mixin heading3 {
+  font-size: typography.$font-size-20;
+}
+
+@mixin body1 {
+  font-size: typography.$font-size-3;
+  line-height: 28px;
+}
+
+@mixin body2 {
+  font-size: typography.$font-size-2;
+}
+
+@mixin button {
+  font-size: typography.$font-size-2;
+}
+
+@mixin attention-icon {
+  font-size: typography.$font-size-44;
+}
