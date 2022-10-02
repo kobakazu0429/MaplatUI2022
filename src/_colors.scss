@@ -78,7 +78,6 @@ $square-border-color: var(--maplat-square-border-color, colors.$gray-10);
 
   &:disabled {
     background-color: colors.$gray-50-70;
-    cursor: not-allowed;
   }
 }
 

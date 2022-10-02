@@ -20,6 +20,10 @@ $-base-icon-font-size: 24px;
   i {
     font-size: $-base-icon-font-size;
   }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 }
 
 @mixin rounded-full {
