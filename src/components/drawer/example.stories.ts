@@ -17,13 +17,13 @@ export default {
 
 export const BottomDrawer: Story = () => {
   const header = `
-    <div class="${exampleStyle["drawer-example-title"]}">
+    <button class="${style["nav-title"]}">
       和州奈良之図 (1844年)
-    </div>
-    <div class="${exampleStyle["drawer-example-icons"]}">
-      <i class="${style["i-share-24"]}"></i>
-      <i class="${style["i-download-24"]}"></i>
-      <i class="${style["i-info-24"]}"></i>
+    </button>
+    <div class="${style["nav-icons"]} ${style["over-md"]}">
+      <button class="${style["clear-button"]}"><i class="${style["i-share-24"]}"></i></button>
+      <button class="${style["clear-button"]}"><i class="${style["i-download-24"]}"></i></button>
+      <button class="${style["clear-button"]}"><i class="${style["i-info-24"]}"></i></button>
     </div>
   `;
 

@@ -1,26 +1,5 @@
 @use "../../_breakpoints.scss";
 
-.drawer-example-title {
-  font-size: 14px;
-}
-
-.drawer-example-icons {
-  display: none;
-
-  @include breakpoints.responsive(md) {
-    margin-left: auto;
-    display: flex;
-
-    i {
-      font-size: 20px;
-    }
-
-    i + i {
-      margin-left: 20px;
-    }
-  }
-}
-
 .drawer-example-contents {
   display: flex;
   flex-direction: column;

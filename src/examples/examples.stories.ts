@@ -19,13 +19,13 @@ export default {
 const MAP_INFOMATION_DRAWER_ID = "MAP_INFOMATION_DRAWER_ID";
 const MapInfomation = () => {
   const header = `
-    <div class="${drawerExampleStyle["drawer-example-title"]}">
+    <div class="${style["nav-title"]}">
       和州奈良之図 (1844年)
     </div>
-    <div class="${drawerExampleStyle["drawer-example-icons"]}">
-      <i class="${style["i-share-24"]}"></i>
-      <i class="${style["i-download-24"]}"></i>
-      <i class="${style["i-info-24"]}"></i>
+    <div class="${style["nav-icons"]}">
+      <button class="${style["clear-button"]}"><i class="${style["i-share-24"]}"></i></button>
+      <button class="${style["clear-button"]}"><i class="${style["i-download-24"]}"></i></button>
+      <button class="${style["clear-button"]}"><i class="${style["i-info-24"]}"></i></button>
     </div>
   `;
 
@@ -141,6 +141,9 @@ const LayerSwitcher = `
     <div class="${style["tab-panes"]}" id="footerSlideContent">
       <div class="${style["tab-pane"]}">
         <div class="${style["layer-switcher"]}">
+          <button class="${style["layer-switcher-prev-button"]}">
+            <i class="${style["i-slide-left-24"]}"></i>
+          </button>
           <div class="${style["swiper"]} ${style["layer-switcher-swiper"]}">
             <div class="${style["swiper-wrapper"]}">
               ${createSlide(1)}
@@ -158,12 +161,9 @@ const LayerSwitcher = `
               ${createSlide(13)}
             </div>
           </div>
-          <div class="${style["layer-switcher-prev-button"]}">
-            <i class="${style["i-slide-left-24"]}"></i>
-          </div>
-          <div class="${style["layer-switcher-next-button"]}">
+          <button class="${style["layer-switcher-next-button"]}">
             <i class="${style["i-slide-right-24"]}"></i>
-          </div>
+          </button>
         </div>
       </div>
       <div class="${style["tab-pane"]}">DEF</div>
@@ -177,14 +177,14 @@ const SearchButton = `<button class="${style["circle-button-md"]}" id="${SEARCH_
 
 const NAV_ID = "NAV_ID";
 const Nav = `
-  <button class="${style["nav"]}" id="${NAV_ID}">
-    <div class="${style["nav-title"]}">和州奈良之図 (1844年)</div>
+  <div class="${style["nav"]}" id="${NAV_ID}">
+    <button class="${style["nav-title"]}">和州奈良之図 (1844年)</button>
     <div class="${style["nav-icons"]}">
-      <i class="${style["i-share-24"]}"></i>
-      <i class="${style["i-download-24"]}"></i>
-      <i class="${style["i-info-24"]}"></i>
+      <button class="${style["clear-button"]}"><i class="${style["i-share-24"]}"></i></button>
+      <button class="${style["clear-button"]}"><i class="${style["i-download-24"]}"></i></button>
+      <button class="${style["clear-button"]}"><i class="${style["i-info-24"]}"></i></button>
     </div>
-  </button>
+  </div>
 `;
 
 const TopLeft = `
@@ -194,7 +194,7 @@ const TopLeft = `
       ${SearchButton}
     </div>
     <div class="${layouts["maplat-layout-row-left"]}">
-      <button class="${style["rounded-full-button"]} ${style["sm-only"]}"><i class="${style["i-share-24"]}"></i>地図を共有</button>
+      <button class="${style["rounded-full-button"]} ${style["over-md"]}"><i class="${style["i-share-24"]}"></i>地図を共有</button>
     </div>
   </div>
 `;
@@ -259,10 +259,10 @@ export const Examples: Story = () => {
   wrapper.innerHTML = `
     ${MapInfomation()}
     ${Search()}
-    ${LayerSwitcher}
     ${TopLeft}
     ${TopRight}
     ${BottomRight}
+    ${LayerSwitcher}
     `;
 
   useScript(() => {
@@ -319,9 +319,11 @@ export const Examples: Story = () => {
       },
     });
 
-    document.getElementById(NAV_ID)?.addEventListener("click", () => {
-      openMapInfomationDrawer();
-    });
+    document
+      .querySelector(`#${NAV_ID} .${style["nav-title"]}`)
+      ?.addEventListener("click", () => {
+        openMapInfomationDrawer();
+      });
     document.getElementById(SEARCH_BUTTON_ID)?.addEventListener("click", () => {
       openSearchDrawer();
     });

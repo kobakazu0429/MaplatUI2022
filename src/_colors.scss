@@ -129,14 +129,16 @@ $square-border-color: var(--maplat-square-border-color, colors.$gray-10);
 }
 
 @mixin shadow {
+  @include focus-visible;
+
   background-color: colors.$white;
 
   &:hover {
-    background: colors.$gray-12;
+    background-color: colors.$gray-12;
   }
 
   &:active {
-    background: colors.$gray-17;
+    background-color: colors.$gray-17;
   }
 }
 
