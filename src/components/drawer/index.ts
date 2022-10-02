@@ -60,6 +60,15 @@ export const drawer = ({ drawerElement, onOpen, onClose }: DrawerOption) => {
     "." + style["drawer-bar"]
   );
   if (!bar) throw new Error(".drawer-bar is not exist");
+  const header = drawerElement.querySelector<HTMLElement>(
+    "." + style["drawer-header"]
+  );
+  if (!header) throw new Error(".drawer-header is not exist");
+
+  const main = drawerElement.querySelector<HTMLElement>(
+    "." + style["drawer-main"]
+  );
+  if (!main) throw new Error(".drawer-main is not exist");
 
   const closeButton = drawerElement.querySelector<HTMLButtonElement>(
     "." + style["drawer-close"]
@@ -96,6 +105,9 @@ export const drawer = ({ drawerElement, onOpen, onClose }: DrawerOption) => {
 
     drawerElement.style.transition = `transform 0.3s ease-in-out`;
     drawerElement.style.transform = `translate3d(0, ${currentDeltaY}px, 0)`;
+    main.style.height = `calc(100% - ${
+      currentDeltaY + bar.clientHeight + header.clientHeight
+    }px)`;
   });
 
   mc.on("pan", (e) => {
@@ -107,6 +119,9 @@ export const drawer = ({ drawerElement, onOpen, onClose }: DrawerOption) => {
 
     drawerElement.style.transition = `none`;
     drawerElement.style.transform = `translate3d(0, ${toY}px, 0)`;
+    main.style.height = `calc(100% - ${
+      toY + bar.clientHeight + header.clientHeight
+    }px)`;
     if (e.isFinal) {
       currentDeltaY += e.deltaY;
     }
