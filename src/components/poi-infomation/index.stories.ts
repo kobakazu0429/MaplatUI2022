@@ -22,7 +22,7 @@ export const POIInfomation: Story = () => {
     <div class="${style["poi-infomation-header"]}">
       <div class="${style["poi-infomation-header-title"]}">興福寺</div>
       <div class="${style["poi-infomation-header-close"]}">
-        <button class="${style["clear-button"]}"><i class="${style["i-close-24"]}"></i></button>
+        <button class="${style["clear-black-button"]}"><i class="${style["i-close-24"]}"></i></button>
       </div>
     </div>
 

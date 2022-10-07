@@ -135,9 +135,16 @@ LoginButton.parameters = {
   },
 };
 
-export const ClearButton: Story = () => {
+export const ClearBlackButton: Story = () => {
   const button = document.createElement("button");
-  button.className = style["clear-button"];
+  button.className = style["clear-black-button"];
+  button.appendChild(createIcon(style["i-close-24"]));
+  return button;
+};
+
+export const ClearWhiteButton: Story = () => {
+  const button = document.createElement("button");
+  button.className = style["clear-white-button"];
   button.appendChild(createIcon(style["i-close-24"]));
   return button;
 };

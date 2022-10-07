@@ -3,9 +3,15 @@
 $border-color: var(--maplat-border-color, colors.$gray-40);
 $square-border-color: var(--maplat-square-border-color, colors.$gray-10);
 
-@mixin focus-visible {
+@mixin focus-visible-black {
   &:focus-visible {
     outline: rgba(colors.$gray-50, 40%) solid 4px;
+  }
+}
+
+@mixin focus-visible-white {
+  &:focus-visible {
+    outline: rgba(colors.$white, 40%) solid 4px;
   }
 }
 
@@ -15,8 +21,19 @@ $square-border-color: var(--maplat-square-border-color, colors.$gray-10);
   border-color: colors.$gray-20;
 }
 
+@mixin clear-black {
+  @include focus-visible-black;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+@mixin clear-white {
+  @include clear-black;
+  @include focus-visible-white;
+}
+
 @mixin background-white {
-  @include focus-visible;
+  @include focus-visible-black;
   background-color: colors.$white;
   color: colors.$gray-50-70;
   border-color: colors.$gray-20;
@@ -24,7 +41,7 @@ $square-border-color: var(--maplat-square-border-color, colors.$gray-10);
 
 @mixin background-white-with-hover {
   @include background-white;
-  @include focus-visible;
+  @include focus-visible-black;
 
   &:hover {
     color: colors.$gray-50;
@@ -49,7 +66,7 @@ $square-border-color: var(--maplat-square-border-color, colors.$gray-10);
 
 @mixin background-gray-with-hover {
   @include background-gray;
-  @include focus-visible;
+  @include focus-visible-black;
 
   &:hover {
     background-color: colors.$gray-13;
@@ -75,7 +92,7 @@ $square-border-color: var(--maplat-square-border-color, colors.$gray-10);
 
 @mixin background-black-with-hover {
   @include background-black;
-  @include focus-visible;
+  @include focus-visible-black;
   border-color: transparent;
 
   &:hover {
@@ -129,7 +146,7 @@ $square-border-color: var(--maplat-square-border-color, colors.$gray-10);
 }
 
 @mixin shadow {
-  @include focus-visible;
+  @include focus-visible-black;
 
   background-color: colors.$white;
 

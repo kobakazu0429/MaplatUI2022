@@ -69,9 +69,9 @@ export const Login: Story = () => {
   const div = document.createElement("div");
   div.classList.add(style["login"]);
   div.innerHTML = `
-    <div class="${style["login-close"]}">
+    <button class="${style["login-close"]} ${style["clear-white-button"]}">
       <i class="${style["i-close-24"]}"></i>
-    </div>
+    </button>
 
     <div class="${style["login-buttons"]}">
       ${button("twitter").outerHTML}
@@ -86,9 +86,9 @@ export const Logout: Story = () => {
   const div = document.createElement("div");
   div.classList.add(style["login"]);
   div.innerHTML = `
-    <div class="${style["login-close"]}">
+    <button class="${style["login-close"]} ${style["clear-white-button"]}">
       <i class="${style["i-close-24"]}"></i>
-    </div>
+    </button>
 
     <div class="${style["login-buttons"]}">
       ${button("logout").outerHTML}
