@@ -1,6 +1,10 @@
 @use "../breakpoints.scss";
+@use "../_elevations.scss";
+
+$-padding: 24px;
 
 .parent {
+  @include elevations.on-map-information-base;
   display: grid;
 
   grid-template-columns: 1fr;
@@ -29,10 +33,10 @@
   }
 }
 
-$-padding: 10px;
 $-gap: 10px;
 
 @mixin layout() {
+  @include elevations.on-map-information-base;
   display: flex;
   grid-gap: $-gap;
   justify-content: flex-start;

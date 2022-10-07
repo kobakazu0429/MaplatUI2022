@@ -2,16 +2,24 @@
 
 @mixin none {
   box-shadow: elevations.$elevation-0;
+  z-index: 0;
 }
 
 @mixin on-map-button {
   box-shadow: elevations.$elevation-30;
+  z-index: 10;
+}
+
+@mixin on-map-information-base {
+  z-index: 20;
 }
 
 @mixin on-map-information {
   box-shadow: elevations.$elevation-40;
+  z-index: 30;
 }
 
 @mixin attention {
   box-shadow: elevations.$elevation-50;
+  z-index: 50;
 }
