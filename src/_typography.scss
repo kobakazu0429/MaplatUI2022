@@ -1,4 +1,5 @@
 @use "tokens/typography";
+@use "./_breakpoints.scss";
 
 @mixin heading1 {
   font-size: 36px !important;
@@ -44,5 +45,9 @@
 }
 
 @mixin icon {
-  font-size: 32px !important;
+  font-size: 26px !important;
+
+  @include breakpoints.responsive(md) {
+    font-size: 32px !important;
+  }
 }

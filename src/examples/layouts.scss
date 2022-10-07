@@ -46,10 +46,6 @@ $-gap: 10px;
   justify-content: flex-start;
 
   flex-direction: row;
-
-  @include breakpoints.responsive(md) {
-    flex-direction: column;
-  }
 }
 
 @mixin left() {
@@ -62,10 +58,6 @@ $-gap: 10px;
 
 @mixin right() {
   padding-right: $-padding-sm;
-
-  @include breakpoints.responsive(md) {
-    padding-right: $-padding-md;
-  }
 }
 
 @mixin top() {
@@ -125,6 +117,7 @@ $-gap: 10px;
     top: 0;
     align-items: flex-end;
     justify-content: flex-end;
+    padding-right: $-padding-md;
   }
 }
 
@@ -133,6 +126,10 @@ $-gap: 10px;
   @include left;
   grid-area: bottom-left;
   align-items: flex-end;
+
+  @include breakpoints.responsive(md) {
+    flex-direction: column;
+  }
 }
 
 .maplat-layout-bottom-right {
@@ -146,6 +143,11 @@ $-gap: 10px;
   bottom: var(--maplat-layout-bottom-right-bottom, $-padding-md);
   transition: bottom 0.3s;
   flex-direction: row-reverse;
+  padding-left: $-padding-sm;
+
+  @include breakpoints.responsive(md) {
+    padding-left: 0;
+  }
 }
 
 .maplat-layout-row-left {
@@ -159,6 +161,12 @@ $-gap: 10px;
   display: flex;
   flex-direction: row-reverse;
   column-gap: $-gap;
+}
+
+.maplat-layout-col {
+  display: flex;
+  flex-direction: column;
+  row-gap: $-gap;
 }
 
 .maplat-layout-col-to-row {

@@ -47,10 +47,10 @@
 
   @include breakpoints.responsive(md) {
     height: auto;
-  }
 
-  i {
-    padding-right: 8px;
+    i {
+      padding-right: 8px;
+    }
   }
 }
 

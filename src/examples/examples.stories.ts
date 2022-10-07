@@ -233,20 +233,22 @@ const TopRight = `
 
 const BottomRight = `
   <div class="${layouts["maplat-layout-bottom-right"]}">
-    <div class="${layouts["maplat-layout-row-right"]}">
-      <button class="${style["square-button"]}"><i class="${style["i-pin-24"]}"></i></button>
-    </div>
-    <div class="${layouts["maplat-layout-row-right"]}">
-      <button class="${style["square-button"]}"><i class="${style["i-gps-on-24"]}"></i></button>
-    </div>
-    <div class="${layouts["maplat-layout-row-right"]}">
-      <div class="${style["square-button-group"]} ${style["visible-mouse-device-only"]}">
-        <button class="${style["square-button"]}">
-          <i class="${style["i-plus-24"]}"></i>
-        </button>
-        <button class="${style["square-button"]}">
-          <i class="${style["i-minus-24"]}"></i>
-        </button>
+    <div class="${layouts["maplat-layout-col"]}">
+      <div class="${layouts["maplat-layout-row-right"]}">
+        <button class="${style["square-button"]}"><i class="${style["i-pin-24"]}"></i></button>
+      </div>
+      <div class="${layouts["maplat-layout-row-right"]}">
+        <button class="${style["square-button"]}"><i class="${style["i-gps-on-24"]}"></i></button>
+      </div>
+      <div class="${layouts["maplat-layout-row-right"]} ${style["visible-mouse-device-only"]}">
+        <div class="${style["square-button-group"]}">
+          <button class="${style["square-button"]}">
+            <i class="${style["i-plus-24"]}"></i>
+          </button>
+          <button class="${style["square-button"]}">
+            <i class="${style["i-minus-24"]}"></i>
+          </button>
+        </div>
       </div>
     </div>
 
