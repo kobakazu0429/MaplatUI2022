@@ -148,3 +148,8 @@ export const ClearWhiteButton: Story = () => {
   button.appendChild(createIcon(style["i-close-24"]));
   return button;
 };
+ClearWhiteButton.parameters = {
+  backgrounds: {
+    default: "dark",
+  },
+};
