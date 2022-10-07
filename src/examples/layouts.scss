@@ -1,7 +1,8 @@
 @use "../breakpoints.scss";
 @use "../_elevations.scss";
 
-$-padding: 24px;
+$-padding-sm: 10px;
+$-padding-md: 24px;
 
 .parent {
   @include elevations.on-map-information-base;
@@ -28,8 +29,11 @@ $-padding: 24px;
   .login {
     @include elevations.on-map-information;
     position: absolute;
-    top: $-padding;
-    right: $-padding;
+
+    @include breakpoints.responsive(md) {
+      top: $-padding-md;
+      right: $-padding-md;
+    }
   }
 }
 
@@ -49,15 +53,27 @@ $-gap: 10px;
 }
 
 @mixin left() {
-  padding-left: $-padding;
+  padding-left: $-padding-sm;
+
+  @include breakpoints.responsive(md) {
+    padding-left: $-padding-md;
+  }
 }
 
 @mixin right() {
-  padding-right: $-padding;
+  padding-right: $-padding-sm;
+
+  @include breakpoints.responsive(md) {
+    padding-right: $-padding-md;
+  }
 }
 
 @mixin top() {
-  padding-top: $-padding;
+  padding-top: $-padding-sm;
+
+  @include breakpoints.responsive(md) {
+    padding-top: $-padding-md;
+  }
 }
 
 .maplat-layout-top-left {
@@ -69,14 +85,19 @@ $-gap: 10px;
   flex-wrap: wrap;
 
   @include breakpoints.responsive(md) {
-    padding-left: $-padding;
-    padding-top: $-padding;
+    padding-left: $-padding-md;
+    padding-top: $-padding-md;
   }
 
   // stylelint-disable-next-line selector-id-pattern
   #SEARCH_BUTTON_ID {
-    margin-left: $-padding;
-    margin-top: $-padding;
+    margin-left: $-padding-sm;
+    margin-top: $-padding-sm;
+
+    @include breakpoints.responsive(md) {
+      margin-left: $-padding-md;
+      margin-top: $-padding-md;
+    }
   }
 
   @include breakpoints.responsive(md) {
@@ -122,7 +143,7 @@ $-gap: 10px;
   justify-content: flex-end;
   position: absolute;
   right: 0;
-  bottom: var(--maplat-layout-bottom-right-bottom, $-padding);
+  bottom: var(--maplat-layout-bottom-right-bottom, $-padding-md);
   transition: bottom 0.3s;
   flex-direction: row-reverse;
 }

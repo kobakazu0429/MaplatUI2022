@@ -1,4 +1,5 @@
 @use "tokens/colors";
+@use "./utilities";
 
 $border-color: var(--maplat-border-color, colors.$gray-40);
 $square-border-color: var(--maplat-square-border-color, colors.$gray-10);
@@ -43,9 +44,11 @@ $square-border-color: var(--maplat-square-border-color, colors.$gray-10);
   @include background-white;
   @include focus-visible-black;
 
-  &:hover {
-    color: colors.$gray-50;
-    border-color: colors.$gray-50-70;
+  @include utilities.mouse-device-only {
+    &:hover {
+      color: colors.$gray-50;
+      border-color: colors.$gray-50-70;
+    }
   }
 
   &:active {
@@ -68,10 +71,12 @@ $square-border-color: var(--maplat-square-border-color, colors.$gray-10);
   @include background-gray;
   @include focus-visible-black;
 
-  &:hover {
-    background-color: colors.$gray-13;
-    color: colors.$gray-50-70;
-    border-color: colors.$gray-30;
+  @include utilities.mouse-device-only {
+    &:hover {
+      background-color: colors.$gray-13;
+      color: colors.$gray-50-70;
+      border-color: colors.$gray-30;
+    }
   }
 
   &:active {
@@ -95,10 +100,12 @@ $square-border-color: var(--maplat-square-border-color, colors.$gray-10);
   @include focus-visible-black;
   border-color: transparent;
 
-  &:hover {
-    background-color: colors.$gray-45;
-    color: colors.$gray-5;
-    border-color: transparent;
+  @include utilities.mouse-device-only {
+    &:hover {
+      background-color: colors.$gray-45;
+      color: colors.$gray-5;
+      border-color: transparent;
+    }
   }
 
   &:active {
@@ -122,12 +129,14 @@ $square-border-color: var(--maplat-square-border-color, colors.$gray-10);
   color: colors.$gray-5;
   background-color: colors.$black-80;
 
-  &:hover {
-    background-color: colors.$black-40;
-  }
+  @include utilities.mouse-device-only {
+    &:hover {
+      background-color: colors.$black-40;
+    }
 
-  &:active {
-    background-color: colors.$black-25;
+    &:active {
+      background-color: colors.$black-25;
+    }
   }
 }
 
@@ -136,8 +145,10 @@ $square-border-color: var(--maplat-square-border-color, colors.$gray-10);
   background-color: transparent;
   border-color: colors.$gray-40;
 
-  &:hover {
-    border-color: colors.$gray-35;
+  @include utilities.mouse-device-only {
+    &:hover {
+      border-color: colors.$gray-35;
+    }
   }
 
   &:active {
@@ -150,8 +161,10 @@ $square-border-color: var(--maplat-square-border-color, colors.$gray-10);
 
   background-color: colors.$white;
 
-  &:hover {
-    background-color: colors.$gray-12;
+  @include utilities.mouse-device-only {
+    &:hover {
+      background-color: colors.$gray-12;
+    }
   }
 
   &:active {

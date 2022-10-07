@@ -316,11 +316,12 @@ export const Examples: Story = () => {
     ) {
       throw new Error("elements is not exist");
     }
-
+    let closeSearchDrawerFunc: () => void | undefined;
     const { open: openMapInfomationDrawer, close: closeMapInfomationDrawer } =
       drawer({
         drawerElement: mapInfomationDrawerElement,
         onOpen: () => {
+          closeSearchDrawerFunc?.();
           layerSwitcherContainerElement.classList.add(style["invisible"]);
           document
             .querySelector<HTMLDivElement>(".maplat")
@@ -340,6 +341,7 @@ export const Examples: Story = () => {
     const { open: openSearchDrawer, close: closeSearchDrawer } = drawer({
       drawerElement: searchDrawerElement,
       onOpen: () => {
+        closeMapInfomationDrawer();
         layerSwitcherContainerElement.classList.add(style["invisible"]);
         document
           .querySelector<HTMLDivElement>(".maplat")
@@ -349,6 +351,7 @@ export const Examples: Story = () => {
         layerSwitcherContainerElement.classList.remove(style["invisible"]);
       },
     });
+    closeSearchDrawerFunc = closeSearchDrawer;
 
     document
       .querySelector(`#${NAV_ID} .${style["nav-title"]}`)
