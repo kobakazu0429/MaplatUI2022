@@ -286,7 +286,7 @@ input[type="range"] {
     }
 
     i {
-      font-size: 40px;
+      @include typography.attention-icon;
     }
   }
 

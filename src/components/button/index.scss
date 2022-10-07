@@ -4,22 +4,24 @@
 @use "../../_elevations.scss";
 @use "../../_typography.scss";
 
-$-base-icon-font-size: 24px;
-
 @mixin button {
   @include typography.button;
-  padding: 10px 16px;
+  padding: 10px 6px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  i {
-    font-size: $-base-icon-font-size;
+  @include breakpoints.responsive(md) {
+    padding: 10px 16px;
   }
 
   &:disabled {
     cursor: not-allowed;
+  }
+
+  i {
+    @include typography.icon;
   }
 }
 
@@ -41,9 +43,14 @@ $-base-icon-font-size: 24px;
   @include rounded-full;
   @include colors.background-white-with-hover;
   justify-content: start;
+  height: 32px;
+
+  @include breakpoints.responsive(md) {
+    height: auto;
+  }
 
   i {
-    padding-right: 10px;
+    padding-right: 8px;
   }
 }
 
@@ -83,16 +90,16 @@ $-base-icon-font-size: 24px;
 
   @include breakpoints.responsive(md) {
     width: auto;
+    padding: 0;
   }
 
   .user-icon-wrapper {
     height: 100%;
-    width: 32px;
 
     .user-icon {
-      height: 100%;
-
       @include borders.rounded-full;
+      height: 100%;
+      aspect-ratio: 1;
     }
   }
 
@@ -148,7 +155,7 @@ $-base-icon-font-size: 24px;
   padding: 0;
 
   i {
-    font-size: calc($-base-icon-font-size * (64px / 48px));
+    @include typography.icon;
   }
 
   @include breakpoints.responsive(md) {

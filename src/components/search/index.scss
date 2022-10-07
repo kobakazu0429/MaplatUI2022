@@ -2,12 +2,14 @@
 @use "../../_borders.scss";
 @use "../../_elevations.scss";
 @use "../../_breakpoints.scss";
+@use "../../_typography.scss";
 
 input[type="search"].search-drawer-input {
   width: 100%;
 }
 
 i.search-drawer-input-icon {
+  @include typography.icon;
   border-right: 1px solid black;
 }
 

@@ -1,5 +1,6 @@
 @use "../../_colors.scss";
 @use "../../_breakpoints.scss";
+@use "../../_typography.scss";
 
 .login {
   @include colors.background-black;
@@ -22,11 +23,11 @@
     flex-shrink: 0;
 
     i {
+      @include typography.icon;
       width: 32px;
       height: 32px;
       margin-left: auto;
       margin-right: 0;
-      font-size: 32px;
     }
   }
 
