@@ -324,13 +324,16 @@ export const Examples: Story = () => {
           layerSwitcherContainerElement.classList.add(style["invisible"]);
           document
             .querySelector<HTMLDivElement>(".maplat")
-            ?.style.setProperty(
-              "--maplat-layout-bottom-right-padding-bottom",
-              `10px`
-            );
+            ?.style.setProperty("--maplat-layout-bottom-right-bottom", `10px`);
         },
         onClose: () => {
           layerSwitcherContainerElement.classList.remove(style["invisible"]);
+          document
+            .querySelector<HTMLDivElement>(".maplat")
+            ?.style.setProperty(
+              "--maplat-layout-bottom-right-bottom",
+              `${layerSwitcherContainerElement.clientHeight + 10}px`
+            );
         },
       });
 
@@ -340,10 +343,7 @@ export const Examples: Story = () => {
         layerSwitcherContainerElement.classList.add(style["invisible"]);
         document
           .querySelector<HTMLDivElement>(".maplat")
-          ?.style.setProperty(
-            "--maplat-layout-bottom-right-padding-bottom",
-            `10px`
-          );
+          ?.style.setProperty("--maplat-layout-bottom-right-bottom", `10px`);
       },
       onClose: () => {
         layerSwitcherContainerElement.classList.remove(style["invisible"]);
@@ -362,17 +362,6 @@ export const Examples: Story = () => {
     layerSwitcher(layerSwitcherContainerElement, (el) => {
       alert(el.dataset.layerId);
     });
-
-    // const v =
-    //   String(
-    //     (wrapper.querySelector(".offcanvas.offcanvas-bottom")?.clientHeight ??
-    //       0) + 10
-    //   ) + "px";
-    // console.log(v);
-
-    // document
-    //   .querySelector<HTMLDivElement>(".maplat")
-    //   ?.style.setProperty("--maplat-layout-bottom-right-padding-bottom", v);
   });
 
   return wrapper;

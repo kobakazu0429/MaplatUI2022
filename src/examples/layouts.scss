@@ -119,8 +119,11 @@ $-gap: 10px;
   @include right;
   grid-area: bottom-right;
   align-items: flex-end;
-  padding-bottom: var(--maplat-layout-bottom-right-padding-bottom, $-padding);
-  transition: padding 0.3s ease-in-out;
+  justify-content: flex-end;
+  position: absolute;
+  right: 0;
+  bottom: var(--maplat-layout-bottom-right-bottom, $-padding);
+  transition: bottom 0.3s;
   flex-direction: row-reverse;
 }
 

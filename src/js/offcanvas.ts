@@ -19,10 +19,7 @@ export const offcanvasRegister = (selector: string) => {
 
     document
       .querySelector<HTMLDivElement>(".maplat")
-      ?.style.setProperty(
-        "--maplat-layout-bottom-right-padding-bottom",
-        `${v + 10}px`
-      );
+      ?.style.setProperty("--maplat-layout-bottom-right-bottom", `${v + 10}px`);
   };
 
   const observer = new MutationObserver(f);
@@ -53,8 +50,5 @@ export const offcanvas = (selector: string) => {
 
   document
     .querySelector<HTMLDivElement>(".maplat")
-    ?.style.setProperty(
-      "--maplat-layout-bottom-right-padding-bottom",
-      `${v + 10}px`
-    );
+    ?.style.setProperty("--maplat-layout-bottom-right-bottom", `${v + 10}px`);
 };

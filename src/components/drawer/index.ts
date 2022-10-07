@@ -101,9 +101,10 @@ export const drawer = ({ drawerElement, onOpen, onClose }: DrawerOption) => {
       // from top to bottom
       currentYPosition = swipeYPositionToBottom(currentYPosition);
       currentDeltaY = Y_POSITION[currentYPosition];
+      close();
     }
 
-    drawerElement.style.transition = `transform 0.3s ease-in-out`;
+    drawerElement.style.transition = `transform 0.3s`;
     drawerElement.style.transform = `translate3d(0, ${currentDeltaY}px, 0)`;
     main.style.height = `calc(100% - ${
       currentDeltaY + bar.clientHeight + header.clientHeight
