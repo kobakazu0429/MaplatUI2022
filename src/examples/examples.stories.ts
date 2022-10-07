@@ -172,6 +172,19 @@ const LayerSwitcher = `
 </div>
 `;
 
+const Login = `
+  <div class="${style["login"]} ${style["invisible"]}">
+    <button class="${style["login-close"]} ${style["clear-white-button"]}">
+      <i class="${style["i-close-24"]}"></i>
+    </button>
+    <div class="${style["login-buttons"]}">
+      <button class="${style["login-button"]}"><i class="${style["i-login-twitter-24"]}"></i><span>Twitterでログイン</span></button>
+      <button class="${style["login-button"]}"><i class="${style["i-login-google-24"]}"></i><span>Googleでログイン</span></button>
+      <button class="${style["login-button"]}"><i class="${style["i-facebook-24"]}"></i><span>Facebookでログイン</span></button>
+    </div>
+  </div>
+`;
+
 const SEARCH_BUTTON_ID = "SEARCH_BUTTON_ID";
 const SearchButton = `<button class="${style["circle-button-md"]}" id="${SEARCH_BUTTON_ID}"><i class="${style["i-search-24"]}"></i></button>`;
 
@@ -199,6 +212,7 @@ const TopLeft = `
   </div>
 `;
 
+const SNS_LOGIN_BUTTON_ID = "sns-login-button-id";
 const TopRight = `
   <div class="${layouts["maplat-layout-top-right"]}">
     <div class="${layouts["maplat-layout-col-to-row"]}">
@@ -206,7 +220,7 @@ const TopRight = `
         <button class="${style["rounded-full-button-black"]}"><i class="${style["i-help-24"]}"></i><span>Maplatヘルプ</span></button>
       </div>
       <div class="${layouts["maplat-layout-row-right"]}">
-        <button class="${style["rounded-full-button-black"]}"><i class="${style["i-sns-login-24"]}"></i><span>SNSログイン</span></button>
+        <button class="${style["rounded-full-button-black"]}" id="${SNS_LOGIN_BUTTON_ID}"><i class="${style["i-sns-login-24"]}"></i><span>SNSログイン</span></button>
       </div>
       <div class="${layouts["maplat-layout-row-right"]}">
         <button class="${style["rounded-full-button-black"]}"><i class="${style["i-other-24"]}"></i><span>その他</span></button>
@@ -259,6 +273,7 @@ export const Examples: Story = () => {
   wrapper.innerHTML = `
     ${MapInfomation()}
     ${Search()}
+    ${Login}
     ${TopLeft}
     ${TopRight}
     ${BottomRight}
@@ -266,6 +281,22 @@ export const Examples: Story = () => {
     `;
 
   useScript(() => {
+    const toggle = (selector: string) => {
+      document.querySelector(selector)?.classList.toggle(style["invisible"]);
+    };
+
+    // Login
+    document
+      .getElementById(SNS_LOGIN_BUTTON_ID)
+      ?.addEventListener("click", () => {
+        toggle("." + style["login"]);
+      });
+    document
+      .querySelector(`.${style["login"]} .${style["login-close"]}`)
+      ?.addEventListener("click", () => {
+        toggle("." + style["login"]);
+      });
+
     const mapInfomationDrawerElement = document.getElementById(
       MAP_INFOMATION_DRAWER_ID
     );
