@@ -335,7 +335,11 @@ export const Examples: Story = () => {
             .querySelector<HTMLDivElement>(".maplat")
             ?.style.setProperty(
               "--maplat-layout-bottom-right-bottom",
-              `${layerSwitcherContainerElement.clientHeight + 10}px`
+              `${
+                (layerSwitcherContainerElement.querySelector(
+                  "." + style["offcanvas"]
+                )?.clientHeight ?? 0) + 10
+              }px`
             );
         },
       });
@@ -351,6 +355,17 @@ export const Examples: Story = () => {
       },
       onClose: () => {
         layerSwitcherContainerElement.classList.remove(style["invisible"]);
+
+        document
+          .querySelector<HTMLDivElement>(".maplat")
+          ?.style.setProperty(
+            "--maplat-layout-bottom-right-bottom",
+            `${
+              (layerSwitcherContainerElement.querySelector(
+                "." + style["offcanvas"]
+              )?.clientHeight ?? 0) + 10
+            }px`
+          );
       },
     });
     closeSearchDrawerFunc = closeSearchDrawer;
