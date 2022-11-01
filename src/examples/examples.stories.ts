@@ -318,29 +318,67 @@ export const Examples: Story = () => {
     ) {
       throw new Error("elements is not exist");
     }
+
+    const setMaplatLayoutBottomRightBottom = (value: number) => {
+      document
+        .querySelector<HTMLDivElement>(".maplat")
+        ?.style.setProperty(
+          "--maplat-layout-bottom-right-bottom",
+          `${value}px`
+        );
+    };
+
+    const setDefaultMaplatLayoutBottomRightBottom = () => {
+      setMaplatLayoutBottomRightBottom(10);
+    };
+
+    let cacheLayerSwitcherHeight = 0;
+
+    const setAboveLayerSwictherMaplatLayoutBottomRightBottom = () => {
+      const offcanvasElement = layerSwitcherContainerElement.querySelector(
+        "." + style["offcanvas"]
+      );
+      const layerSwitcherHeight =
+        offcanvasElement?.clientHeight ?? cacheLayerSwitcherHeight;
+
+      const isHidden = offcanvasElement?.classList.contains(
+        style["offcanvas-bottom-hidden"]
+      );
+
+      if (isHidden) {
+        const v = document
+          .querySelector<HTMLDivElement>(".maplat")
+          ?.style.getPropertyValue("--maplat-layer-switcher-tab-height");
+
+        setMaplatLayoutBottomRightBottom(parseInt(v ?? "0", 10) + 10);
+      } else {
+        setMaplatLayoutBottomRightBottom(layerSwitcherHeight + 10);
+      }
+    };
+
+    const showLayerSwitcherContainerElement = () => {
+      layerSwitcherContainerElement.classList.remove(style["invisible"]);
+    };
+    const hideLayerSwitcherContainerElement = () => {
+      const height = layerSwitcherContainerElement.querySelector(
+        "." + style["offcanvas"]
+      )?.clientHeight;
+      if (height) cacheLayerSwitcherHeight = height;
+      layerSwitcherContainerElement.classList.add(style["invisible"]);
+    };
+
     let closeSearchDrawerFunc: () => void | undefined;
     const { open: openMapInfomationDrawer, close: closeMapInfomationDrawer } =
       drawer({
         drawerElement: mapInfomationDrawerElement,
         onOpen: () => {
           closeSearchDrawerFunc?.();
-          layerSwitcherContainerElement.classList.add(style["invisible"]);
-          document
-            .querySelector<HTMLDivElement>(".maplat")
-            ?.style.setProperty("--maplat-layout-bottom-right-bottom", `10px`);
+          hideLayerSwitcherContainerElement();
+          setDefaultMaplatLayoutBottomRightBottom();
         },
         onClose: () => {
-          layerSwitcherContainerElement.classList.remove(style["invisible"]);
-          document
-            .querySelector<HTMLDivElement>(".maplat")
-            ?.style.setProperty(
-              "--maplat-layout-bottom-right-bottom",
-              `${
-                (layerSwitcherContainerElement.querySelector(
-                  "." + style["offcanvas"]
-                )?.clientHeight ?? 0) + 10
-              }px`
-            );
+          showLayerSwitcherContainerElement();
+          setAboveLayerSwictherMaplatLayoutBottomRightBottom();
         },
       });
 
@@ -348,24 +386,12 @@ export const Examples: Story = () => {
       drawerElement: searchDrawerElement,
       onOpen: () => {
         closeMapInfomationDrawer();
-        layerSwitcherContainerElement.classList.add(style["invisible"]);
-        document
-          .querySelector<HTMLDivElement>(".maplat")
-          ?.style.setProperty("--maplat-layout-bottom-right-bottom", `10px`);
+        hideLayerSwitcherContainerElement();
+        setDefaultMaplatLayoutBottomRightBottom();
       },
       onClose: () => {
-        layerSwitcherContainerElement.classList.remove(style["invisible"]);
-
-        document
-          .querySelector<HTMLDivElement>(".maplat")
-          ?.style.setProperty(
-            "--maplat-layout-bottom-right-bottom",
-            `${
-              (layerSwitcherContainerElement.querySelector(
-                "." + style["offcanvas"]
-              )?.clientHeight ?? 0) + 10
-            }px`
-          );
+        showLayerSwitcherContainerElement();
+        setAboveLayerSwictherMaplatLayoutBottomRightBottom();
       },
     });
     closeSearchDrawerFunc = closeSearchDrawer;
