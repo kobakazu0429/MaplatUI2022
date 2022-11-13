@@ -10,15 +10,22 @@ interface DrawerOption {
 
 type Position = "VIEWED" | "PEEKING" | "HIDE" | "FREE";
 type ExcludeFreePosition = Exclude<Position, "FREE">;
+const DEFAULT_PEEKIN_Y_POSITION = 275;
 const Y_POSITION: Record<Position, number> = {
   FREE: -1000,
   VIEWED: 0,
-  PEEKING: 275,
+  PEEKING: DEFAULT_PEEKIN_Y_POSITION,
   HIDE: 593,
 };
 
 let currentYPosition: Position = "PEEKING";
 let currentDeltaY: number = Y_POSITION[currentYPosition];
+
+const resetYPosition = (drawerElement: DrawerOption["drawerElement"]) => {
+  currentYPosition = "PEEKING";
+  currentDeltaY = DEFAULT_PEEKIN_Y_POSITION;
+  drawerElement.style.transform = `translate3d(0, ${currentDeltaY}px, 0)`;
+};
 
 const swipeYPositionToTop = (current: Position): ExcludeFreePosition => {
   return match<Position, ExcludeFreePosition>(current)
@@ -53,6 +60,7 @@ export const drawer = ({ drawerElement, onOpen, onClose }: DrawerOption) => {
   };
   const close = () => {
     drawerElement.classList.add(style["drawer-close"]);
+    resetYPosition(drawerElement);
     if (onClose) onClose();
   };
   close();
