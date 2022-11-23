@@ -22,7 +22,7 @@
   display: none !important;
 }
 
-.sm-only {
+.over-md {
   display: none !important;
 
   @include breakpoints.responsive(md) {

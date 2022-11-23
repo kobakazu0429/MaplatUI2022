@@ -19,13 +19,13 @@ export default {
 const MAP_INFOMATION_DRAWER_ID = "MAP_INFOMATION_DRAWER_ID";
 const MapInfomation = () => {
   const header = `
-    <div class="${drawerExampleStyle["drawer-example-title"]}">
+    <div class="${style["nav-title"]}">
       和州奈良之図 (1844年)
     </div>
-    <div class="${drawerExampleStyle["drawer-example-icons"]}">
-      <i class="${style["i-share-24"]}"></i>
-      <i class="${style["i-download-24"]}"></i>
-      <i class="${style["i-info-24"]}"></i>
+    <div class="${style["nav-icons"]}">
+      <button class="${style["clear-black-button"]}"><i class="${style["i-share-24"]}"></i></button>
+      <button class="${style["clear-black-button"]}"><i class="${style["i-download-24"]}"></i></button>
+      <button class="${style["clear-black-button"]}"><i class="${style["i-info-24"]}"></i></button>
     </div>
   `;
 
@@ -141,6 +141,9 @@ const LayerSwitcher = `
     <div class="${style["tab-panes"]}" id="footerSlideContent">
       <div class="${style["tab-pane"]}">
         <div class="${style["layer-switcher"]}">
+          <button class="${style["layer-switcher-prev-button"]}">
+            <i class="${style["i-slide-left-24"]}"></i>
+          </button>
           <div class="${style["swiper"]} ${style["layer-switcher-swiper"]}">
             <div class="${style["swiper-wrapper"]}">
               ${createSlide(1)}
@@ -158,12 +161,9 @@ const LayerSwitcher = `
               ${createSlide(13)}
             </div>
           </div>
-          <div class="${style["layer-switcher-prev-button"]}">
-            <i class="${style["i-slide-left-24"]}"></i>
-          </div>
-          <div class="${style["layer-switcher-next-button"]}">
+          <button class="${style["layer-switcher-next-button"]}">
             <i class="${style["i-slide-right-24"]}"></i>
-          </div>
+          </button>
         </div>
       </div>
       <div class="${style["tab-pane"]}">DEF</div>
@@ -172,19 +172,32 @@ const LayerSwitcher = `
 </div>
 `;
 
+const Login = `
+  <div class="${style["login"]} ${style["invisible"]}">
+    <button class="${style["login-close"]} ${style["clear-white-button"]}">
+      <i class="${style["i-close-24"]}"></i>
+    </button>
+    <div class="${style["login-buttons"]}">
+      <button class="${style["login-button"]}"><i class="${style["i-login-twitter-24"]}"></i><span>Twitterでログイン</span></button>
+      <button class="${style["login-button"]}"><i class="${style["i-login-google-24"]}"></i><span>Googleでログイン</span></button>
+      <button class="${style["login-button"]}"><i class="${style["i-facebook-24"]}"></i><span>Facebookでログイン</span></button>
+    </div>
+  </div>
+`;
+
 const SEARCH_BUTTON_ID = "SEARCH_BUTTON_ID";
 const SearchButton = `<button class="${style["circle-button-md"]}" id="${SEARCH_BUTTON_ID}"><i class="${style["i-search-24"]}"></i></button>`;
 
 const NAV_ID = "NAV_ID";
 const Nav = `
-  <button class="${style["nav"]}" id="${NAV_ID}">
-    <div class="${style["nav-title"]}">和州奈良之図 (1844年)</div>
+  <div class="${style["nav"]}" id="${NAV_ID}">
+    <button class="${style["nav-title"]}">和州奈良之図 (1844年)</button>
     <div class="${style["nav-icons"]}">
-      <i class="${style["i-share-24"]}"></i>
-      <i class="${style["i-download-24"]}"></i>
-      <i class="${style["i-info-24"]}"></i>
+      <button class="${style["clear-black-button"]}"><i class="${style["i-share-24"]}"></i></button>
+      <button class="${style["clear-black-button"]}"><i class="${style["i-download-24"]}"></i></button>
+      <button class="${style["clear-black-button"]}"><i class="${style["i-info-24"]}"></i></button>
     </div>
-  </button>
+  </div>
 `;
 
 const TopLeft = `
@@ -194,11 +207,12 @@ const TopLeft = `
       ${SearchButton}
     </div>
     <div class="${layouts["maplat-layout-row-left"]}">
-      <button class="${style["rounded-full-button"]} ${style["sm-only"]}"><i class="${style["i-share-24"]}"></i>地図を共有</button>
+      <button class="${style["rounded-full-button"]} ${style["over-md"]}"><i class="${style["i-share-24"]}"></i>地図を共有</button>
     </div>
   </div>
 `;
 
+const SNS_LOGIN_BUTTON_ID = "sns-login-button-id";
 const TopRight = `
   <div class="${layouts["maplat-layout-top-right"]}">
     <div class="${layouts["maplat-layout-col-to-row"]}">
@@ -206,7 +220,7 @@ const TopRight = `
         <button class="${style["rounded-full-button-black"]}"><i class="${style["i-help-24"]}"></i><span>Maplatヘルプ</span></button>
       </div>
       <div class="${layouts["maplat-layout-row-right"]}">
-        <button class="${style["rounded-full-button-black"]}"><i class="${style["i-sns-login-24"]}"></i><span>SNSログイン</span></button>
+        <button class="${style["rounded-full-button-black"]}" id="${SNS_LOGIN_BUTTON_ID}"><i class="${style["i-sns-login-24"]}"></i><span>SNSログイン</span></button>
       </div>
       <div class="${layouts["maplat-layout-row-right"]}">
         <button class="${style["rounded-full-button-black"]}"><i class="${style["i-other-24"]}"></i><span>その他</span></button>
@@ -219,20 +233,22 @@ const TopRight = `
 
 const BottomRight = `
   <div class="${layouts["maplat-layout-bottom-right"]}">
-    <div class="${layouts["maplat-layout-row-right"]}">
-      <button class="${style["square-button"]}"><i class="${style["i-pin-24"]}"></i></button>
-    </div>
-    <div class="${layouts["maplat-layout-row-right"]}">
-      <button class="${style["square-button"]}"><i class="${style["i-gps-on-24"]}"></i></button>
-    </div>
-    <div class="${layouts["maplat-layout-row-right"]}">
-      <div class="${style["square-button-group"]} ${style["visible-mouse-device-only"]}">
-        <button class="${style["square-button"]}">
-          <i class="${style["i-plus-24"]}"></i>
-        </button>
-        <button class="${style["square-button"]}">
-          <i class="${style["i-minus-24"]}"></i>
-        </button>
+    <div class="${layouts["maplat-layout-col"]}">
+      <div class="${layouts["maplat-layout-row-right"]}">
+        <button class="${style["square-button"]}"><i class="${style["i-pin-24"]}"></i></button>
+      </div>
+      <div class="${layouts["maplat-layout-row-right"]}">
+        <button class="${style["square-button"]}"><i class="${style["i-gps-on-24"]}"></i></button>
+      </div>
+      <div class="${layouts["maplat-layout-row-right"]} ${style["visible-mouse-device-only"]}">
+        <div class="${style["square-button-group"]}">
+          <button class="${style["square-button"]}">
+            <i class="${style["i-plus-24"]}"></i>
+          </button>
+          <button class="${style["square-button"]}">
+            <i class="${style["i-minus-24"]}"></i>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -259,13 +275,30 @@ export const Examples: Story = () => {
   wrapper.innerHTML = `
     ${MapInfomation()}
     ${Search()}
-    ${LayerSwitcher}
+    ${Login}
     ${TopLeft}
     ${TopRight}
     ${BottomRight}
+    ${LayerSwitcher}
     `;
 
   useScript(() => {
+    const toggle = (selector: string) => {
+      document.querySelector(selector)?.classList.toggle(style["invisible"]);
+    };
+
+    // Login
+    document
+      .getElementById(SNS_LOGIN_BUTTON_ID)
+      ?.addEventListener("click", () => {
+        toggle("." + style["login"]);
+      });
+    document
+      .querySelector(`.${style["login"]} .${style["login-close"]}`)
+      ?.addEventListener("click", () => {
+        toggle("." + style["login"]);
+      });
+
     const mapInfomationDrawerElement = document.getElementById(
       MAP_INFOMATION_DRAWER_ID
     );
@@ -286,42 +319,88 @@ export const Examples: Story = () => {
       throw new Error("elements is not exist");
     }
 
+    const setMaplatLayoutBottomRightBottom = (value: number) => {
+      document
+        .querySelector<HTMLDivElement>(".maplat")
+        ?.style.setProperty(
+          "--maplat-layout-bottom-right-bottom",
+          `${value}px`
+        );
+    };
+
+    const setDefaultMaplatLayoutBottomRightBottom = () => {
+      setMaplatLayoutBottomRightBottom(10);
+    };
+
+    let cacheLayerSwitcherHeight = 0;
+
+    const setAboveLayerSwictherMaplatLayoutBottomRightBottom = () => {
+      const offcanvasElement = layerSwitcherContainerElement.querySelector(
+        "." + style["offcanvas"]
+      );
+      const layerSwitcherHeight =
+        offcanvasElement?.clientHeight ?? cacheLayerSwitcherHeight;
+
+      const isHidden = offcanvasElement?.classList.contains(
+        style["offcanvas-bottom-hidden"]
+      );
+
+      if (isHidden) {
+        const v = document
+          .querySelector<HTMLDivElement>(".maplat")
+          ?.style.getPropertyValue("--maplat-layer-switcher-tab-height");
+
+        setMaplatLayoutBottomRightBottom(parseInt(v ?? "0", 10) + 10);
+      } else {
+        setMaplatLayoutBottomRightBottom(layerSwitcherHeight + 10);
+      }
+    };
+
+    const showLayerSwitcherContainerElement = () => {
+      layerSwitcherContainerElement.classList.remove(style["invisible"]);
+    };
+    const hideLayerSwitcherContainerElement = () => {
+      const height = layerSwitcherContainerElement.querySelector(
+        "." + style["offcanvas"]
+      )?.clientHeight;
+      if (height) cacheLayerSwitcherHeight = height;
+      layerSwitcherContainerElement.classList.add(style["invisible"]);
+    };
+
+    let closeSearchDrawerFunc: () => void | undefined;
     const { open: openMapInfomationDrawer, close: closeMapInfomationDrawer } =
       drawer({
         drawerElement: mapInfomationDrawerElement,
         onOpen: () => {
-          layerSwitcherContainerElement.classList.add(style["invisible"]);
-          document
-            .querySelector<HTMLDivElement>(".maplat")
-            ?.style.setProperty(
-              "--maplat-layout-bottom-right-padding-bottom",
-              `10px`
-            );
+          closeSearchDrawerFunc?.();
+          hideLayerSwitcherContainerElement();
+          setDefaultMaplatLayoutBottomRightBottom();
         },
         onClose: () => {
-          layerSwitcherContainerElement.classList.remove(style["invisible"]);
+          showLayerSwitcherContainerElement();
+          setAboveLayerSwictherMaplatLayoutBottomRightBottom();
         },
       });
 
     const { open: openSearchDrawer, close: closeSearchDrawer } = drawer({
       drawerElement: searchDrawerElement,
       onOpen: () => {
-        layerSwitcherContainerElement.classList.add(style["invisible"]);
-        document
-          .querySelector<HTMLDivElement>(".maplat")
-          ?.style.setProperty(
-            "--maplat-layout-bottom-right-padding-bottom",
-            `10px`
-          );
+        closeMapInfomationDrawer();
+        hideLayerSwitcherContainerElement();
+        setDefaultMaplatLayoutBottomRightBottom();
       },
       onClose: () => {
-        layerSwitcherContainerElement.classList.remove(style["invisible"]);
+        showLayerSwitcherContainerElement();
+        setAboveLayerSwictherMaplatLayoutBottomRightBottom();
       },
     });
+    closeSearchDrawerFunc = closeSearchDrawer;
 
-    document.getElementById(NAV_ID)?.addEventListener("click", () => {
-      openMapInfomationDrawer();
-    });
+    document
+      .querySelector(`#${NAV_ID} .${style["nav-title"]}`)
+      ?.addEventListener("click", () => {
+        openMapInfomationDrawer();
+      });
     document.getElementById(SEARCH_BUTTON_ID)?.addEventListener("click", () => {
       openSearchDrawer();
     });
@@ -329,17 +408,6 @@ export const Examples: Story = () => {
     layerSwitcher(layerSwitcherContainerElement, (el) => {
       alert(el.dataset.layerId);
     });
-
-    // const v =
-    //   String(
-    //     (wrapper.querySelector(".offcanvas.offcanvas-bottom")?.clientHeight ??
-    //       0) + 10
-    //   ) + "px";
-    // console.log(v);
-
-    // document
-    //   .querySelector<HTMLDivElement>(".maplat")
-    //   ?.style.setProperty("--maplat-layout-bottom-right-padding-bottom", v);
   });
 
   return wrapper;

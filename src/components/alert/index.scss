@@ -2,8 +2,9 @@
 @use "../../_colors.scss";
 @use "../../_elevations.scss";
 @use "../../_breakpoints.scss";
+@use "../../_typography.scss";
 
-$-padding: 30px;
+$-padding: 20px;
 
 .alert {
   @include colors.background-black-translucent;
@@ -18,12 +19,12 @@ $-padding: 30px;
   &-icon {
     @include borders.border;
     @include borders.border-right-only;
-    height: 100%;
-    font-size: 30px;
+    @include typography.attention-icon;
     padding-right: $-padding;
   }
 
   &-content {
+    @include typography.body1;
     padding-left: $-padding;
   }
 }

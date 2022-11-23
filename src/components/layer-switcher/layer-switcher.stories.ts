@@ -72,12 +72,12 @@ export const LayerSwitcher: Story = () => {
               ${createSlide(13)}
             </div>
           </div>
-          <div class="${style["layer-switcher-prev-button"]}">
+          <button class="${style["layer-switcher-prev-button"]}">
             <i class="${style["i-slide-left-24"]}"></i>
-          </div>
-          <div class="${style["layer-switcher-next-button"]}">
+          </button>
+          <button class="${style["layer-switcher-next-button"]}">
             <i class="${style["i-slide-right-24"]}"></i>
-          </div>
+          </button>
         </div>
       </div>
       <div class="${style["tab-pane"]}">DEF</div>

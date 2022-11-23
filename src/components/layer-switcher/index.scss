@@ -2,6 +2,7 @@
 @use "../../_colors.scss";
 @use "../../_elevations.scss";
 @use "../../_breakpoints.scss";
+@use "../../_typography.scss";
 
 $-padding: 12px;
 $-button-width: 40px;
@@ -25,7 +26,7 @@ $-button-width: 40px;
 .offcanvas {
   position: fixed;
   outline: 0;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s;
 }
 
 .offcanvas-bottom {
@@ -58,7 +59,7 @@ $-button-width: 40px;
         color: #FAFAFA;
         font-size: 22px;
         background: #333333;
-        height: 56px;
+        height: 48px;
         justify-content: center;
         align-items: center;
         padding: 0 54px;
@@ -82,6 +83,7 @@ $-button-width: 40px;
 
       @include colors.background-black;
       @include borders.rounded-md-top;
+      @include typography.body2;
       opacity: 0.64;
 
       padding: 18px 0;
@@ -190,6 +192,8 @@ $-filll-c: #C7C7C7;
   border: none;
   width: $-thumb-d;
   height: $-thumb-d;
+  background-color: transparent;
+  box-shadow: none;
   background-image: url("../../icons/slide-toggle-24.svg");
   background-repeat: no-repeat;
   cursor: pointer;
@@ -284,7 +288,7 @@ input[type="range"] {
     }
 
     i {
-      font-size: 40px;
+      @include typography.attention-icon;
     }
   }
 
@@ -311,14 +315,14 @@ input[type="range"] {
 
   &-img-wrapper {
     width: 100%;
-    height: 100%;
+    height: 87px;
     min-height: 0;
-    object-fit: cover;
 
     img {
       @include borders.rounded-md-bottom;
       width: 100%;
       height: 100%;
+      object-fit: cover;
     }
 
     &::after {
@@ -336,21 +340,21 @@ input[type="range"] {
 .layer-infomation {
   @include borders.rounded-md-top;
   @include colors.layer-infomation;
+  @include typography.body2;
 
-  min-width: 300px;
+  width: 210px;
   white-space: nowrap;
   display: flex;
   $-padding: 8px;
   padding: $-padding;
   column-gap: $-padding;
-  font-size: 14px;
 }
 
 .layer-name {
+  @include typography.body3;
   position: absolute;
   bottom: 8px;
   left: 12px;
   color: #FAFAFA;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 16%);
-  font-size: 14px;
 }

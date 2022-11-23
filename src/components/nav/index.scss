@@ -2,36 +2,48 @@
 @use "../../_borders.scss";
 @use "../../_elevations.scss";
 @use "../../_breakpoints.scss";
+@use "../../_typography.scss";
 
 .nav {
-  @include colors.background-white-with-hover;
+  @include colors.background-white;
   @include elevations.on-map-information;
+  @include typography.body1;
   width: 100vw;
   height: 64px;
-  padding: 25px 16px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
 
   @include breakpoints.responsive(md) {
     @include borders.rounded-md;
     width: 420px;
   }
+}
 
+.nav-title {
+  @include typography.heading4;
+  @include colors.background-white;
+}
+
+button.nav-title {
+  @include colors.background-white-with-hover;
+}
+
+.nav-icons {
+  margin-left: auto;
   display: flex;
-  align-items: center;
 
-  &-title {
-    font-size: 14px;
+  button {
+    width: 64px * 0.75;
+    height: 64px * 0.75;
+    margin: 0 4px;
   }
 
-  &-icons {
-    margin-left: auto;
-    display: flex;
+  i {
+    @include typography.icon;
+  }
 
-    i {
-      font-size: 20px;
-    }
-
-    i + i {
-      margin-left: 20px;
-    }
+  i + i {
+    margin-left: 20px;
   }
 }
