@@ -35,7 +35,8 @@ export const BeforeSearch: Story = (args) => {
   const div = Drawer({ header: header(args), main });
 
   useScript(() => {
-    drawer({ drawerElement: div });
+    const { open } = drawer({ drawerElement: div });
+    open();
   });
 
   return div;
@@ -77,7 +78,8 @@ export const SearchResult: Story<Args> = (args) => {
   const div = Drawer({ header: header(args), main });
 
   useScript(() => {
-    drawer({ drawerElement: div });
+    const { open } = drawer({ drawerElement: div });
+    open();
   });
 
   return div;
